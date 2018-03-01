@@ -2,7 +2,7 @@
 	<div class="backgrounds imagen1 vcenter" align="center">
 		<span class="white-text principal">Prueba de texto</span><br/>
 		<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
-		<button type="button" class="waves-effect waves-light btn-large">Prueba boton</button>
+		<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
 	</div>
 	<div class="backgrounds2 imagenblanco vcenter2">
 		<div class="row" align="center">
