@@ -101,7 +101,6 @@ nav {
   transform-style: none;
   outline: none; }
 
-/* When the input field gets focus, change its width to 100% */
 .search:hover {
   width: 200px !important; }
 
@@ -109,6 +108,18 @@ nav {
   color: black; }
 
 .modal .modal-footer {
+  margin: 500px;
   height: 70px; }
 
-/*# sourceMappingURL=index.css.map */
+.errorlogunlog{
+  border-bottom: 1px solid #F44336;
+  box-shadow: 0 1px 0 0 #F44336;
+}
+
+/*.modal-content {
+    padding: 10px;
+    padding-top: 25px;
+    width: 500px;
+}*/
+
+.modal { width: 75% !important ; max-height: 100% !important ; overflow-y: hidden !important ;}  /* increase the width, height and prevent vertical scroll! However, i don't recommend this, its better to turn on vertical scrolling. */

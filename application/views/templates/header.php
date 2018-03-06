@@ -40,8 +40,8 @@
 		</div>
 
 	  <!-- Modal Structure -->
-	  <div id="modal1" class="modal modal-fixed-footer modalcolors" style="width: 400px;">
-	    <div class="modal-content">
+	  <div id="modal1" class="modal modal-fixed-footer modalcolors" style="width: 500px;">
+	    <div class="modal-content" style="height: 100%">
 	      <div class="modal-header" style="text-align: center;">
 	      	<h4 class="center">Registro de usuario</h4>
 	      </div>
@@ -49,21 +49,31 @@
 	      <div class="row" style="text-align: center;">
 		    <form class="col s12" id="signform">
 		      <div class="row">
-		        <div class="input-field col s12" style="margin-top: 3rem;" id="usuario">
+		        <div class="input-field col s12" style="margin-top: 2rem;" id="usuario">
 		          <i class="material-icons prefix">account_circle</i>
-		          <input id="icon_prefixuser" type="text" name="signuser" class="validate invalid" style="border-bottom: 1px solid #F44336;box-shadow:0 1px 0 0 #F44336">
-		          <label for="icon_prefixuser" data-error="Nombre no válido" data-success="Correcto">Usuario</label>
+		          <input id="icon_prefixuser" type="text" name="signuser">
+		          <label for="icon_prefixuser">Nombre y apellidos</label>
 		        </div>
-		        <div class="input-field col s12" style="margin-top: 2rem;">
+		        <div class="input-field col s12" style="margin-top: 1rem;">
 		          <i class="material-icons prefix">lock_outline</i>
-		          <input id="icon_prefixpass" type="password" name="signpassword" class="validate">
-		          <label for="icon_prefixpass" data-error="Email no válido" data-success="Correcto">Contraseña</label>
+		          <input id="icon_prefixpass" type="text" name="signtlf">
+		          <label for="icon_prefixpass">Teléfono</label>
 		        </div>
-				<div class="input-field col s12" style="margin-top: 2rem;">
+		        <div class="input-field col s12" style="margin-top: 1rem;">
 					<i class="material-icons prefix">markunread</i>
-					<input id="email" type="email" name="signemail" class="validate">
-					<label for="email" data-error="Email no válido" data-success="Correcto">Email</label>
+					<input id="email" type="email" name="signemail">
+					<label for="email" >Email</label>
 				</div>
+		        <div class="input-field col s12" style="margin-top: 1rem;">
+		          <i class="material-icons prefix">lock_outline</i>
+		          <input id="icon_prefixpass" type="password" name="signpassword">
+		          <label for="icon_prefixpass">Contraseña</label>
+		        </div>
+		        <div class="input-field col s12" style="margin-top: 1rem;">
+		          <i class="material-icons prefix">lock_outline</i>
+		          <input id="icon_prefixpass" type="password" name="signpassword2">
+		          <label for="icon_prefixpass">Repetir contraseña</label>
+		        </div>
 		      </div>
 
 		    </form>
