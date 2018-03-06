@@ -1,119 +1,68 @@
-<header class="page-item">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand logo" href="#">Foods</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-	<nav>
-		<div class="nav-wrapper container">
-			<a href="<?= base_url()?>" class="brand-logo">Logo</a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			<ul class="left hide-on-med-and-down centrar">
-			    <li><a href="sass.html">Inicio</a></li>
-			    <li class="site-nav--has-submenu"><a href="#" class="site-nav__link dropdown-button" data-activates="features-dropdown" data-beloworigin="true" data-constrainwidth="false" data-hover="true">Categorias<i class="material-icons right">arrow_drop_down</i></a>
-		        	<ul id="features-dropdown" class="site-nav__submenu dropdown-content submenu">
-		                <li>
-		                  <a href="/pages/dark-theme" class="site-nav__link">Prueba 1</a>
-		                </li>
-		                <li>
-		                  <a href="/collections/dark-theme" class="site-nav__link">Prueba 2</a>
-		                </li>
-		                <li>
-		                  <a href="/collections/fillscreen-style" class="site-nav__link">Prueba 3</a>
-		                </li>
-		                <li>
-		                  <a href="/collections/horizontal" class="site-nav__link">Prueba 4</a>
-		                </li>
-		                <li>
-		                  <a href="/collections/all-products" class="site-nav__link">Prueba 5</a>
-		                </li>
-		                <li>
-		                  <a href="/pages/contact-us" class="site-nav__link">Prueba 6</a>
-		                </li>
-		        	</ul>
-				<li class="flor"><a href="collapsible.html">Contacto</a></li>
-		        </li>
-			</ul>
-			<ul class="right hide-on-med-and-down">
-			    <li class="flor"><input type="text" name="search" class="search"></li>
-			    <?php if(true):?>
-				   	<li class="flor"><a id="customer_login_link" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ingresar</a></li>
-					<li class="flor" ><a href="#modal1" id="customer_register_link" class="modal-trigger">Registrarte</a></li>
-				<?php endif;?>
-			</ul>
-		</div>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorias
+        	</a>
+          	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="dropdown-item" href="#">Action</a>
+	          <a class="dropdown-item" href="#">Another action</a>
+	          <a class="dropdown-item" href="#">Something else here</a>
+	        </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav m-r-0">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Ingresar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registrarse</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-	  <!-- Modal Structure -->
-	  <div id="modal1" class="modal modal-fixed-footer modalcolors" style="width: 500px;">
-	    <div class="modal-content" style="height: 100%">
-	      <div class="modal-header" style="text-align: center;">
-	      	<h4 class="center">Registro de usuario</h4>
-	      </div>
-	      
-	      <div class="row" style="text-align: center;">
-		    <form class="col s12" id="signform">
-		      <div class="row">
-		        <div class="input-field col s12" style="margin-top: 2rem;" id="usuario">
-		          <i class="material-icons prefix">account_circle</i>
-		          <input id="icon_prefixuser" type="text" name="signuser">
-		          <label for="icon_prefixuser">Nombre y apellidos</label>
-		        </div>
-		        <div class="input-field col s12" style="margin-top: 1rem;">
-		          <i class="material-icons prefix">lock_outline</i>
-		          <input id="icon_prefixpass" type="text" name="signtlf">
-		          <label for="icon_prefixpass">Teléfono</label>
-		        </div>
-		        <div class="input-field col s12" style="margin-top: 1rem;">
-					<i class="material-icons prefix">markunread</i>
-					<input id="email" type="email" name="signemail">
-					<label for="email" >Email</label>
-				</div>
-		        <div class="input-field col s12" style="margin-top: 1rem;">
-		          <i class="material-icons prefix">lock_outline</i>
-		          <input id="icon_prefixpass" type="password" name="signpassword">
-		          <label for="icon_prefixpass">Contraseña</label>
-		        </div>
-		        <div class="input-field col s12" style="margin-top: 1rem;">
-		          <i class="material-icons prefix">lock_outline</i>
-		          <input id="icon_prefixpass" type="password" name="signpassword2">
-		          <label for="icon_prefixpass">Repetir contraseña</label>
-		        </div>
-		      </div>
-
-		    </form>
-		  </div>
-
-	    </div>
-	    <div class="modal-footer" style="text-align: center;">
-			<button href="" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</button>
-	    	<button href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</button>
-	    </div>
-	  </div>
-
-	  <script type="text/javascript">
-	  	$(function(){
-	  		$("#signform").validate({
-				rules: {
-				    signuser: {
-				        required: true,
-				        minlength: 2
-				    }
-				},
-
-
-				messages: {
-		            signuser:{
-		                required: "Enter a username",
-		                minlength: "Enter at least 5 characters"
-		            }
-		        },
-		          
-		        errorElement : 'div',
-		        errorPlacement: function(error, element) {
-		          var placement = $("label").data('error');
-		          if (placement) {
-		            $(placement).append(error)
-		          } else {
-		            error.insertAfter(element);
-		          }
-		        }
-	  		});
-	  	});
-	  </script>
-</header>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>

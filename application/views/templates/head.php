@@ -10,15 +10,12 @@
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
-	<link type="text/css" rel="stylesheet" href="<?= base_url()?>assets/css/materialize.min.css"  media="screen,projection"/>
-	<script type="text/javascript" src="<?= base_url()?>assets/js/materialize.min.js"></script>
 
-	<!--<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bootstrap.min.css">
-	<script type="text/javascript" src="<?= base_url()?>assets/js/bootstrap.min.js"></script>-->
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bootstrap.min.css">
+	<script type="text/javascript" src="<?= base_url()?>assets/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/index.css">
-	<script type="text/javascript" src="<?= base_url()?>assets/js/comidas.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/foods.css">
+	<script type="text/javascript" src="<?= base_url()?>assets/js/foods.js"></script>
 
 </head>
 
