@@ -1,4 +1,4 @@
-<footer class="page-footer imagengris">
+<!--<footer class="page-footer imagengris">
   <div class="container center">
     <div class="row">
       <div class="col l8 offset-l2 s12">
@@ -31,4 +31,4 @@
   <div class="footer-copyright imagennregro">
     <div class="container center white-text">© Copyright prueba 2017</div>
   </div>
-</footer>
+</footer>-->

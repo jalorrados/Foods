@@ -1,4 +1,4 @@
-<div class="page-item">
+<!--<div class="page-item">
 	<div class="backgrounds imagen1 vcenter" align="center">
 		<span class="white-text principal">Prueba de texto</span><br/>
 		<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
@@ -55,3 +55,5 @@
 	    </div>
 	</div>
 </div>
+
+-->
