@@ -11,6 +11,10 @@ html {
     margin-left: 110px;
 }
 
+.navbar-toggler{
+
+}
+
 .logo2{
 	height: 50px;
     width: 100px;
@@ -21,4 +25,69 @@ html {
 	height: 100%;
 	width: 100%;
 	background-size: contain;
+}
+
+.imagen1{
+	background-image: url("../img/background1.svg");
+	height: 34.75rem;
+	width: 100%;
+	background-size: contain;
+}
+
+.imagen2{
+	background-image: url("../img/background2.jpg");
+	height: 50rem;
+	width: 100%;
+	background-size: contain;
+}
+
+.imagen2{
+	background-image: url("../img/background3.jpg");
+	height: 50rem;
+	width: 100%;
+  	padding: 15px;
+	background-size: contain;
+}
+
+.affix {
+  background-color: #343a40;
+  -webkit-transition:padding 0.8s ease-out;
+  -moz-transition:padding 0.8s ease-out;  
+  -o-transition:padding 0.8s ease-out;         
+  transition:padding 0.8s ease-out;
+}
+
+nav .navbar-nav .nav-link,
+nav .navbar-brand {
+  color: #000000; 
+  -webkit-transition:all 0.8s ease;
+  -moz-transition:all 0.8s ease; 
+  -o-transition:all 0.8s ease;         
+  transition:all 0.8s ease;  
+}
+
+@media (min-width:768px) {
+    .affix-top {
+      /* navbar style at top */
+      background-color:transparent;
+      border-color:transparent;
+      -webkit-transition:all 0.8s ease;
+      -moz-transition:all 0.8s ease; 
+      -o-transition:all 0.8s ease;         
+      transition:all 0.8s ease;  
+    }
+
+    nav .navbar-nav .nav-link,
+	nav .navbar-brand {
+      color: #FFFFFF;
+      -webkit-transition:all 0.8s ease;
+      -moz-transition:all 0.8s ease; 
+      -o-transition:all 0.8s ease;         
+      transition:all 0.8s ease;  
+	}
+}
+
+section {
+  height:calc(90% - 50px);
+  height: 90vh;
 }

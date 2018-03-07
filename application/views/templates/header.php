@@ -1,8 +1,11 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+<!--<nav id="nav" class="navbar navbar-toggleable-sm navbar-expand-lg fixed-top" data-spy="affix">-->
+<nav id="nav" class="navbar fixed-top navbar-toggleable-sm" data-spy="affix">
+  <div>
     <a class="navbar-brand" href="#"><img src="<?= base_url()?>/assets/img/logo.svg" class="logo2"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler float-right text-white" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+  </div>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">

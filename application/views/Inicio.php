@@ -1,3 +1,38 @@
+<section id="body">
+
+	<div class="imagen1">
+			<!--<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>-->
+	</div>
+
+	<div class="imagen2">
+			<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
+	</div>
+
+	<div class="imagen3">
+			<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
+	</div>
+
+	<div class="imagen2">
+			<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
+	</div>
+
+	<div class="image3">
+			<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
+	</div>
+
+</section>
+
+
 <!--<div class="page-item">
 	<div class="backgrounds imagen1 vcenter" align="center">
 		<span class="white-text principal">Prueba de texto</span><br/>
