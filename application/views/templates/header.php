@@ -1,5 +1,5 @@
-<!--<nav id="nav" class="navbar navbar-toggleable-sm navbar-expand-lg fixed-top" data-spy="affix">-->
-<nav id="nav" class="navbar fixed-top navbar-toggleable-sm" data-spy="affix">
+<nav id="nav" class="navbar navbar-toggleable-sm navbar-expand-lg fixed-top" data-spy="affix">
+<!--<nav id="nav" class="navbar fixed-top navbar-toggleable-sm" data-spy="affix">-->
   <div>
     <a class="navbar-brand" href="#"><img src="<?= base_url()?>/assets/img/logo.svg" class="logo2"></a>
     <button class="navbar-toggler float-right text-white" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">

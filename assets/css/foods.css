@@ -76,15 +76,6 @@ nav .navbar-brand {
       -o-transition:all 0.8s ease;         
       transition:all 0.8s ease;  
     }
-
-    nav .navbar-nav .nav-link,
-	nav .navbar-brand {
-      color: #FFFFFF;
-      -webkit-transition:all 0.8s ease;
-      -moz-transition:all 0.8s ease; 
-      -o-transition:all 0.8s ease;         
-      transition:all 0.8s ease;  
-	}
 }
 
 section {
