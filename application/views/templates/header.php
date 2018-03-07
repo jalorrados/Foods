@@ -53,7 +53,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form name="signform" action="<?= base_url() ?>inicio/signPost" method="post">
           <div class="form-group">
             <label for="signuser" class="col-form-label">Nombre y apellidos</label>
             <input type="text" class="form-control" id="signuser" name="signuser">
@@ -95,7 +95,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="text-lg-center">
+        <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
           <div class="form-group">
             <label for="signemail" class="col-form-label">Email</label>
             <input type="text" class="form-control" id="loginemail" name="loginemail">
@@ -107,7 +107,7 @@
         </form>
       </div>
       <div class="modal-footer align-content-center justify-content-center">
-        <button type="button" class="btn btn-success">Iniciar sesión</button>
+        <button type="button" class="btn btn-success" onclick="login()">Iniciar sesión</button>
       </div>
     </div>
   </div>
