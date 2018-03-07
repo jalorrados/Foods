@@ -1,15 +1,21 @@
 <div class="container" style="margin-top: 5rem;">
-	<div align="center">
+	<div align="center" style="margin-bottom: 5rem;">
 		<h1><u><strong>Perfil de Usuario</strong></u></h1>
 	</div>
 	<div class="row">
-		<div class="col-8">
+		<div class="col-5">
 			<h3>Datos Personales</h3>
-			<label><strong>Nombre y Apelldos:</strong> <span id="username">David</span></label><br>
-			<label><strong>Email:</strong> <span id="username">a@gmail.com</span></label><br>
-			<label><strong>Teléfono:</strong> <span id="username">915587521</span></label>
+			<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
+			<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
+				<div class="form-group">
+					<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" name="perfilNombre" id="perfilNombre" disabled></label><br>
+					<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefono" disabled></label><br>
+					<button type="button" class="btn btn-secondary" onclick="editarPerfil()" id="perfilEditar">Editar</button>
+					<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
+				</div>
+			</form>
 		</div>
-		<div class="col-4">
+		<div class="col-7">
 			<h3>Crear nueva receta</h3>
 			<form action="<?= base_url() ?>user/nuevaReceta" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 				<div class="form-group">
@@ -22,9 +28,9 @@
 	            	<textarea class="form-control" name="preparacionReceta" id="preparacionReceta" rows="3"></textarea>
 	         	</div>
 
-	         	 <div class="form-group">
-				    <label for="numReceta">Número de personas</label>
-				    <select class="form-control" id="numReceta">
+	         	<div class="form-group">
+				    <label for="numPersonas">Número de Personas</label>
+				    <select class="form-control" id="numPersonas">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
@@ -33,11 +39,37 @@
 					</select>
 				</div>
 
+	         	 <div class="form-group">
+				    <label for="numIngredientes">Número de Ingredientes</label>
+				    <select class="form-control" id="numIngredientes" onchange="numeroIngredientes()">
+						<option>---</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+					</select>
+				</div>
+
+				<div class="form-group" id="ingredientes"></div>
+
 	         	<div class="form-group">
 					<label for="imgReceta">Añadir una foto:</label>
 					<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp">
 					<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input.</small>
 				</div>
+
+				<button type="button" class="btn btn-primary" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
 			</form>
 		</div>
 	</div>
