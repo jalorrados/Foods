@@ -8,4 +8,8 @@ class Inicio extends CI_Controller {
 		enmarcar($this, 'inicio');
 		
 	}
+
+	public function loginPost(){
+		
+	}
 }
