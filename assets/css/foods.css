@@ -114,7 +114,11 @@ section {
   background-repeat: no-repeat;
   height: 100%;
   background-size: 100% 100%;
- /* background-attachment: fixed;*/
   overflow:auto;
   padding-right: 17px;
+
+}
+
+.backgroundPerfil::-webkit-scrollbar {
+  display: none;
 }
