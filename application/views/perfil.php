@@ -1,5 +1,5 @@
 <div class="backgroundPerfil">
-	<div class="container">
+	<div class="container" id="navscrollstart">
 		<div align="center" style="margin-top: 4.5rem; padding-top: 1rem; margin-bottom: 3rem;">
 			<h1><u><strong>Perfil de Usuario</strong></u></h1>
 		</div>
@@ -68,7 +68,7 @@
 						<label for="imgReceta">Añadir una foto:</label><br>
 						<img class="img-fluid rounded" id="previewImagen">
 						<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
-						<small id="fileHelp" class="form-text text-muted">Formatos válidos: jpg, jpeg y png.</small><br>
+						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.</strong></small><br>
 						<button type="button" class="btn btn-warning" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
 					</div>
 
