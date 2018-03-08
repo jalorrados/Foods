@@ -19,6 +19,9 @@
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/foods.css">
 
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/jquery.rateyo.css">
+	<script type="text/javascript" src="<?= base_url()?>assets/js/jquery.rateyo.js"></script>
+
 </head>
 
 <body>

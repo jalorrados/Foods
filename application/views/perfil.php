@@ -15,6 +15,9 @@
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
 					</div>
 				</form>
+				<br><br>
+				<label><strong>Valoración media:</strong></label>
+				<div id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
 			<div class="col-7">
 				<h3>Crear nueva receta</h3>
