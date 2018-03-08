@@ -66,7 +66,7 @@
 
 		         	<div class="form-group">
 						<label for="imgReceta">Añadir una foto:</label><br>
-						<img class="img-fluid rounded" id="previewImagen">
+						<img class="rounded" id="previewImagen">
 						<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
 						<small id="fileHelp" class="form-text text-muted">Formatos válidos: jpg, jpeg y png.</small><br>
 						<button type="button" class="btn btn-warning" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
