@@ -99,7 +99,12 @@ section {
   height: 90vh;
 }
 
-img#previewImagen{
+/*img#previewImagen{
   height: 25em;
   width: 37.5em;
+}*/
+
+.img-fluid{
+  max-height: 25em;
+  width: auto;
 }
