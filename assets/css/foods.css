@@ -99,12 +99,13 @@ section {
   height: 90vh;
 }
 
-/*img#previewImagen{
-  height: 25em;
-  width: 37.5em;
-}*/
-
 .img-fluid{
   max-height: 25em;
   width: auto;
+}
+
+.backgroundPerfil{
+  background-image: url("../img/b2.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
