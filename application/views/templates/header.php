@@ -1,6 +1,6 @@
 <nav id="nav" class="navbar navbar-toggleable navbar-expand-lg fixed-top" data-spy="affix">
   <div>
-    <a class="navbar-brand" href="#"><img src="<?= base_url()?>/assets/img/logo.svg" class="logo2"></a>
+    <a class="navbar-brand" href="<?= base_url() ?>"><img src="<?= base_url()?>/assets/img/logo.svg" class="logo2"></a>
     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon mt-2">☰</span>
     </button>
@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active text-center text-lg-left">
-          <a class="nav-link h6" href="">Inicio <span class="sr-only">(current)</span></a>
+          <a class="nav-link h6" href="<?= base_url() ?>">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown text-center text-lg-left">
         	<a class="nav-link dropdown-toggle h6" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +94,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
+        <form class="text-lg-center" name="loginform" action="<?= base_url() ?>perfil" method="post">
           <div class="form-group">
             <label for="signemail" class="col-form-label">Email</label>
             <input type="text" class="form-control" id="loginemail" name="loginemail">
