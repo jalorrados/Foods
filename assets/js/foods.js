@@ -52,6 +52,6 @@ function borrarPreview(){
 	var imginput = document.getElementById("imgReceta");
 	var boton = document.getElementById('eliminarPreview');
 	boton.disabled = true;
-	img.src="";
+	img.src=" ";
 	imginput.value = "";
 }
