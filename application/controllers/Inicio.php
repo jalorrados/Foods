@@ -10,6 +10,6 @@ class Inicio extends CI_Controller {
 	}
 
 	public function loginPost(){
-		
+		header('Location:'.base_url().'perfil');
 	}
 }
