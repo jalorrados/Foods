@@ -1,5 +1,10 @@
 html {
   size: 10px;
+  height: 100%;
+}
+
+body{
+  height: 100%;
 }
 
 .logo{
@@ -7,13 +12,13 @@ html {
 	margin-bottom: 1px;
 	padding-bottom: 9px;
 	height: 50px;
-    width: 250px;
-    margin-left: 110px;
+  width: 250px;
+  margin-left: 110px;
 }
 
 .logo2{
 	height: 50px;
-    width: 100px;
+  width: 100px;
 }
 
 .fondoform{
@@ -21,6 +26,13 @@ html {
 	height: 100%;
 	width: 100%;
 	background-size: contain;
+}
+
+.imagenblanco{
+  background-color: #FFFFFF;
+  height: 2rem;
+  width: 100%;
+  background-size: contain;
 }
 
 .imagen1{
@@ -37,45 +49,72 @@ html {
 	background-size: contain;
 }
 
-.imagen2{
+.imagen3{
 	background-image: url("../img/background3.jpg");
 	height: 50rem;
 	width: 100%;
-  	padding: 15px;
+  padding: 15px;
 	background-size: contain;
 }
 
 .affix {
   background-color: #343a40;
-  -webkit-transition:padding 0.8s ease-out;
-  -moz-transition:padding 0.8s ease-out;  
-  -o-transition:padding 0.8s ease-out;         
-  transition:padding 0.8s ease-out;
+  -webkit-transition:all 0.8s ease-out;
+  -moz-transition:all 0.8s ease-out;  
+  -o-transition:all 0.8s ease-out;         
+  transition:all 0.8s ease-out;
 }
 
-nav .navbar-nav .nav-link,
-nav .navbar-brand {
-  color: #000000; 
+.affix a {
+    color: #FFFFFF !important;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.affix span {
+    color: #FFFFFF !important;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.affix-top {
+  /* navbar style at top */
+  background-color:transparent;
+  border-color:transparent;
   -webkit-transition:all 0.8s ease;
   -moz-transition:all 0.8s ease; 
   -o-transition:all 0.8s ease;         
   transition:all 0.8s ease;  
 }
 
-@media (min-width:768px) {
-    .affix-top {
-      /* navbar style at top */
-      background-color:transparent;
-      border-color:transparent;
-      -webkit-transition:all 0.8s ease;
-      -moz-transition:all 0.8s ease; 
-      -o-transition:all 0.8s ease;         
-      transition:all 0.8s ease;  
-    }
+.affix-top a {
+    color: #000000; 
+}
+
+.affix-top span {
+    color: #000000; 
 }
 
 section {
   height:calc(90% - 50px);
   height: 90vh;
-  
+}
+
+.img-fluid{
+  max-height: 25em;
+  width: auto;
+}
+.backgroundPerfil{
+  margin-top: 4.5rem;
+  background-image: url("../img/b3.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: 100% 100%;
+  overflow:auto;
+  padding-right: 17px;
+
+}
+
+.backgroundPerfil::-webkit-scrollbar {
+  display: none;
 }
