@@ -107,5 +107,5 @@ section {
 .backgroundPerfil{
   background-image: url("../img/b2.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 }
