@@ -70,6 +70,12 @@ html {
     transition: all .5s ease-in-out;
 }
 
+.affix span {
+    color: #FFFFFF !important;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
 .affix-top {
   /* navbar style at top */
   background-color:transparent;
@@ -81,6 +87,10 @@ html {
 }
 
 .affix-top a {
+    color: #000000; 
+}
+
+.affix-top span {
     color: #000000; 
 }
 
