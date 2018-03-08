@@ -1,5 +1,5 @@
-<div class="backgroundPerfil">
-	<div class="container" id="navscrollstart">
+<div class="backgroundPerfil" id="navscrollstart"><!--id="navscrollstart"-->
+	<div class="container">
 		<div align="center" style="margin-top: 4.5rem; padding-top: 1rem; margin-bottom: 3rem;">
 			<h1><u><strong>Perfil de Usuario</strong></u></h1>
 		</div>

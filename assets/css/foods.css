@@ -108,11 +108,13 @@ section {
   max-height: 25em;
   width: auto;
 }
-
 .backgroundPerfil{
+  margin-top: 4.5rem;
   background-image: url("../img/b3.jpg");
   background-repeat: no-repeat;
   height: 100%;
   background-size: 100% 100%;
-  background-attachment: fixed;
+ /* background-attachment: fixed;*/
+  overflow:auto;
+  padding-right: 17px;
 }
