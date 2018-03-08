@@ -1,6 +1,6 @@
 <div class="backgroundPerfil">
-	<div class="container" id="navscrollstart" style="margin-top: 5rem;">
-		<div align="center" style="margin-bottom: 3rem;">
+	<div class="container">
+		<div align="center" style="margin-top: 4.5rem; padding-top: 1rem; margin-bottom: 3rem;">
 			<h1><u><strong>Perfil de Usuario</strong></u></h1>
 		</div>
 		<div class="row">
