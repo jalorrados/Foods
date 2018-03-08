@@ -38,3 +38,20 @@ function numeroIngredientes(){
 		}
 	}
 }
+
+function loadFile(event) {
+	var boton = document.getElementById('eliminarPreview');
+	boton.disabled = false;
+
+	var output = document.getElementById('previewImagen');
+	output.src = URL.createObjectURL(event.target.files[0]);
+};
+
+function borrarPreview(){
+	var img = document.getElementById("previewImagen");
+	var imginput = document.getElementById("imgReceta");
+	var boton = document.getElementById('eliminarPreview');
+	boton.disabled = true;
+	img.src="";
+	imginput.value = "";
+}

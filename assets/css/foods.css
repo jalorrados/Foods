@@ -7,8 +7,8 @@ html {
 	margin-bottom: 1px;
 	padding-bottom: 9px;
 	height: 50px;
-    width: 250px;
-    margin-left: 110px;
+  width: 250px;
+  margin-left: 110px;
 }
 
 .navbar-toggler{
@@ -17,7 +17,7 @@ html {
 
 .logo2{
 	height: 50px;
-    width: 100px;
+  width: 100px;
 }
 
 .fondoform{
@@ -48,7 +48,7 @@ html {
 	background-size: contain;
 }
 
-.imagen2{
+.imagen3{
 	background-image: url("../img/background3.jpg");
 	height: 50rem;
 	width: 100%;
@@ -97,4 +97,9 @@ html {
 section {
   height:calc(90% - 50px);
   height: 90vh;
+}
+
+img#previewImagen{
+  height: 25em
+  width: 37.5em;
 }
