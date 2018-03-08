@@ -1,6 +1,6 @@
 $('nav').affix({
     offset: {
-      top: $('#body').offset().top
+      top: $('#navscrollstart').offset().top
     }
 });
 

@@ -1,6 +1,12 @@
-<section id="body">
+<section>
 
-	<div class="imagen1">
+	<div class="imagenblanco">
+			<!--<span class="white-text principal">Prueba de texto</span><br/>
+			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
+			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>-->
+	</div>
+
+	<div class="imagen1" id="navscrollstart">
 			<!--<span class="white-text principal">Prueba de texto</span><br/>
 			<span class="white-text secundario">Prueba de texto 2</span><br/><br/>
 			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>-->

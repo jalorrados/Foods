@@ -2,28 +2,28 @@
 <!--<nav id="nav" class="navbar fixed-top navbar-toggleable-sm" data-spy="affix">-->
   <div>
     <a class="navbar-brand" href="#"><img src="<?= base_url()?>/assets/img/logo.svg" class="logo2"></a>
-    <button class="navbar-toggler float-right text-white" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        <li class="nav-item active text-sm-center text-lg-left">
+          <a class="nav-link h6" href="">Inicio <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown">
-        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown text-sm-center text-lg-left">
+        	<a class="nav-link dropdown-toggle h6" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categorias
         	</a>
-          	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          	<div class="dropdown-menu text-sm-center" aria-labelledby="navbarDropdownMenuLink">
 	          <a class="dropdown-item" href="#">Action</a>
 	          <a class="dropdown-item" href="#">Another action</a>
 	          <a class="dropdown-item" href="#">Something else here</a>
 	        </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+        <li class="nav-item text-sm-center text-lg-left">
+          <a class="nav-link h6" href="#">Contacto</a>
         </li>
       </ul>
       <form class="form-inline">
@@ -32,10 +32,10 @@
       </form>
       <ul class="navbar-nav m-r-0">
         <li class="nav-item">
-          <a class="nav-link" href="" data-toggle="modal" data-target="#login">Ingresar</a>
+          <a class="nav-link h6" href="" data-toggle="modal" data-target="#login">Ingresar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
+          <a class="nav-link h6" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
         </li>
       </ul>
     </div>
