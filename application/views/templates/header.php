@@ -94,7 +94,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="text-lg-center" name="loginform" action="<?= base_url() ?>perfil" method="post">
+        <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
           <div class="form-group">
             <label for="signemail" class="col-form-label">Email</label>
             <input type="text" class="form-control" id="loginemail" name="loginemail">
