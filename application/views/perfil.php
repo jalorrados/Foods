@@ -72,7 +72,7 @@
 						<button type="button" class="btn btn-warning" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
 					</div>
 
-					<button type="button" class="btn btn-primary" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
+					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
 				</form>
 			</div>
 		</div>
