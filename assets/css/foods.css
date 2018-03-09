@@ -122,3 +122,22 @@ section {
 .backgroundPerfil::-webkit-scrollbar {
   display: none;
 }
+
+.card{
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    display: inline-flex;
+    margin-bottom: 2rem;
+    margin-right: 0.7rem;
+}
