@@ -11,22 +11,15 @@
       <li class="nav-item active text-center text-lg-left">
         <a class="nav-link h6" href="<?= base_url() ?>">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown text-center text-lg-left">
-      	<a class="nav-link dropdown-toggle h6" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Categorias
-      	</a>
-        	<div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item text-center text-lg-left">
+        <a class="nav-link h6" href="<?= base_url() ?>categorias">Categorías</a>
       </li>
       <li class="nav-item text-center text-lg-left">
         <a class="nav-link h6" href="#">Contacto</a>
       </li>
     </ul>
-    <form class="form-inline text-center text-lg-left">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
+      <input class="form-control mr-sm-2 col-7" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="navbar-nav m-r-0 text-center text-lg-left">

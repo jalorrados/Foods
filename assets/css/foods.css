@@ -44,11 +44,12 @@ body{
 	height: 34.75rem;
 	width: 100%;
 	background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .imagen2{
-	background-image: url("../img/background2.jpg");
-	height: 50rem;
+	background-color: #FFFFFF;
+	height: 28rem;
 	width: 100%;
 	background-size: contain;
 }
@@ -112,6 +113,7 @@ section {
   margin-top: 4.5rem;
   background-image: url("../img/b3.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100%;
   background-size: 100% 100%;
   overflow:auto;
@@ -140,4 +142,105 @@ section {
     display: inline-flex;
     margin-bottom: 2rem;
     margin-right: 0.7rem;
+}
+
+.card-img-top{
+  display: flex;
+  height: 7rem;
+  width: 7rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.card-body{
+  margin-top: 3rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    .imagen1{
+      background-image: url("../img/background1.svg");
+      height: 25rem;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .imagen2{
+      background-color: #FFFFFF;
+      height: 30rem;
+      width: 100%;
+      background-size: contain;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .imagenblanco{
+      background-color: #FFFFFF;
+      height: 5rem;
+      width: 100%;
+      background-size: contain;
+    }
+
+    .imagen1{
+      background-image: url("../img/background1.svg");
+      height: 19rem;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .imagen2{
+      background-color: #FFFFFF;
+      height: 30rem;
+      width: 100%;
+      background-size: contain;
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    .imagenblanco{
+      background-color: #FFFFFF;
+      height: 4rem;
+      width: 100%;
+      background-size: contain;
+    }
+
+    .imagen1{
+      background-image: url("../img/background1.svg");
+      height: 12rem;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .imagen2{
+      background-color: #FFFFFF;
+      height: 80rem;
+      width: 100%;
+      background-size: contain;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .imagenblanco{
+      background-color: #FFFFFF;
+      height: 4rem;
+      width: 100%;
+      background-size: contain;
+    }
+
+    .imagen1{
+      background-image: url("../img/background1.svg");
+      height: 10rem;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .imagen2{
+      background-color: #FFFFFF;
+      height: 80rem;
+      width: 100%;
+      background-size: contain;
+    }
 }
