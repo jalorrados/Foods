@@ -32,7 +32,6 @@ body{
   background-color: #FFFFFF;
   height: 2rem;
   width: 100%;
-  background-size: contain;
 }
 
 .imagen1{
@@ -47,7 +46,6 @@ body{
 	background-color: #FFFFFF;
 	height: 28rem;
 	width: 100%;
-	background-size: contain;
 }
 
 .imagen3{
@@ -62,7 +60,17 @@ body{
   background-color: #FFFFFF;
   height: 20rem;
   width: 100%;
-  background-size: contain;
+}
+
+.fondogris{
+  background-color: #151515;
+  width: 100%;
+}
+
+.fondonegro{
+  background-color: #000000;
+  height: 4rem;
+  width: 100%;
 }
 
 .affix {
@@ -101,11 +109,6 @@ body{
 
 .affix-top span {
     color: #000000; 
-}
-
-section {
-  height:calc(90% - 50px);
-  height: 90vh;
 }
 
 .img-fluid{
@@ -172,7 +175,6 @@ section {
       background-color: #FFFFFF;
       height: 30rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen3{
@@ -187,7 +189,6 @@ section {
       background-color: #FFFFFF;
       height: 20rem;
       width: 100%;
-      background-size: contain;
     }
 }
 
@@ -196,7 +197,6 @@ section {
       background-color: #FFFFFF;
       height: 5rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen1{
@@ -211,7 +211,6 @@ section {
       background-color: #FFFFFF;
       height: 30rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen3{
@@ -226,7 +225,6 @@ section {
       background-color: #FFFFFF;
       height: 20rem;
       width: 100%;
-      background-size: contain;
     }
 }
 
@@ -235,7 +233,6 @@ section {
       background-color: #FFFFFF;
       height: 4rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen1{
@@ -250,7 +247,6 @@ section {
       background-color: #FFFFFF;
       height: 80rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen3{
@@ -265,7 +261,6 @@ section {
       background-color: #FFFFFF;
       height: 20rem;
       width: 100%;
-      background-size: contain;
     }
 }
 
@@ -274,7 +269,6 @@ section {
       background-color: #FFFFFF;
       height: 4rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen1{
@@ -289,7 +283,6 @@ section {
       background-color: #FFFFFF;
       height: 80rem;
       width: 100%;
-      background-size: contain;
     }
 
     .imagen3{
@@ -304,6 +297,5 @@ section {
       background-color: #FFFFFF;
       height: 20rem;
       width: 100%;
-      background-size: contain;
     }
 }
