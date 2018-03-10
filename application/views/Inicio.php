@@ -6,10 +6,10 @@
 			<button type="button" class="waves-effect waves-light btn-large">Prueba</button>-->
 	</div>
 
-	<div class="imagen1 text-center m-y-auto" id="navscrollstart">
-		<span class="h1">Prueba de texto</span><br/>
-		<span class="">Prueba de texto 2</span><br/><br/>
-		<button type="button" class="waves-effect waves-light btn-large">Prueba</button>
+	<div class="imagen1 btn-group-vertical" id="navscrollstart">
+		<span class="h1 mx-auto">Prueba de texto</span><br/>
+		<span class="h5 mx-auto text-white">Prueba de texto 2</span><br/><br/>
+		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>
 	
 	</div>
 
