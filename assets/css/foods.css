@@ -16,10 +16,6 @@ body{
   margin-left: 110px;
 }
 
-.navbar-toggler{
-
-}
-
 .logo2{
 	height: 50px;
   width: 100px;
@@ -144,7 +140,7 @@ section {
     margin-right: 0.7rem;
 }
 
-.card-img-top{
+.card-img-top2{
   display: flex;
   height: 7rem;
   width: 7rem;
@@ -152,7 +148,7 @@ section {
   justify-content: center;
 }
 
-.card-body{
+.card-body2{
   margin-top: 3rem;
 }
 

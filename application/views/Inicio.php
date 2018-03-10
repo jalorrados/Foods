@@ -15,22 +15,22 @@
 
 	<div class="imagen2 text-center row align-content-center justify-content-center ml-1 mt-0 mt-md-5">
 		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
-		  <div class="card-body">
+		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
+		  <div class="card-body2">
 		    <h5 class="card-title">Prueba de texto</h5>
 		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 		  </div>
 		</div>
 		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
-		  <div class="card-body">
+		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
+		  <div class="card-body2">
 		    <h5 class="card-title">Prueba de texto</h5>
 		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 		  </div>
 		</div>
 		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
-		  <div class="card-body">
+		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
+		  <div class="card-body2">
 		    <h5 class="card-title">Prueba de texto</h5>
 		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 		  </div>
