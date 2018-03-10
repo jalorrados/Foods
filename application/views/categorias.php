@@ -1,5 +1,5 @@
 <div class="container" style="margin-top: 7rem;" id="navscrollstart">
-	<div class="row mx-auto">
+	<div class="row mx-auto text-center">
 		<div class="col-12">
 			<div class="card" style="width: 18rem;">
 			  <img class="card-img-top" src="<?= base_url()?>/assets/img/alimentacion_infantil.jpg" alt="Card image cap"><!--Imagenes de 286x180-->
