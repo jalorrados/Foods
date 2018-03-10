@@ -4,8 +4,8 @@
 			<h1><u><strong>Perfil de Usuario</strong></u></h1>
 		</div>
 		<div class="row">
-			<div class="col-5">
-				<h3>Datos Personales</h3>
+			<div class="col-md-5 col-xs-12">
+				<h3 class="">Datos Personales</h3>
 				<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
 				<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
 					<div class="form-group">
@@ -15,8 +15,11 @@
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
 					</div>
 				</form>
+				<br><br>
+				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
+				<div class="mx-xs-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
-			<div class="col-7">
+			<div class="col-md-7 col-xs-12">
 				<h3>Crear nueva receta</h3>
 				<form action="<?= base_url() ?>user/nuevaReceta" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">

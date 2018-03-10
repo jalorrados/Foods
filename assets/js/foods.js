@@ -1,6 +1,6 @@
 $('nav').affix({
     offset: {
-      top: $('#navscrollstart').offset().top
+     	top: $('#navscrollstart').offset().top
     }
 });
 
@@ -32,7 +32,7 @@ function numeroIngredientes(){
 			divv.style.marginBottom="5px";
 			divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+numSeleccionado.value+'" name="ingrediente'+numSeleccionado.value+'">'+
 			'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+numSeleccionado.value+'" name="cantidad'+numSeleccionado.value+'">'+
-			'<select class="form-control" name="tipoingrediente"><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option></select>';
+			'<select class="form-control" name="tipoingrediente"><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
 			
 			divCantidad.appendChild(divv);
 		}
@@ -55,3 +55,24 @@ function borrarPreview(){
 	img.src=" ";
 	imginput.value = "";
 }
+
+
+//JQuery
+$(function () {
+ 
+ 	$("#rate").rateYo({
+		spacing   : "5px",
+    	readOnly: true,//solo lectura
+    	multiColor: {
+ 
+    		"startColor": "#FF0000", 
+    		"endColor"  : "#F5F209"  
+    	},
+
+    	/*onSet: function (rating) {
+ 			//$("#resultadoRating").text(rating);
+	    	alert("Rating is set to: " + rating);
+	    }*/
+	});
+
+});
