@@ -26,6 +26,6 @@
   </div>
   
   <div class="footer-copyright fondonegro btn-group-vertical">
-    <p class="mx-auto text-white">© Copyright prueba 2017</p>
+    <p class="mx-auto text-white">© Copyright Foods 2018</p>
   </div>
 </section>
