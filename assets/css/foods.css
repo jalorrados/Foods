@@ -28,6 +28,13 @@ body{
 	background-size: contain;
 }
 
+.fondocontacto{
+  background-image: url("../img/fondocontacto.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+}
+
 .imagenblanco{
   background-color: #FFFFFF;
   height: 2rem;

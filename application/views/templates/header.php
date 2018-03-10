@@ -16,7 +16,7 @@
           <a class="nav-link h6" href="<?= base_url() ?>categorias">Categorías</a>
         </li>
         <li class="nav-item text-center text-lg-left">
-          <a class="nav-link h6" href="#">Contacto</a>
+          <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
       </ul>
       <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
@@ -101,6 +101,29 @@
         </div>
         <div class="modal-footer align-content-center justify-content-center">
           <button type="button" class="btn btn-success" onclick="login()">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts modal -->
+
+  <div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content fondocontacto">
+        <div class="modal-header">
+          <img src="<?= base_url()?>/assets/img/logo.svg" class="logo">
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer align-content-center justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Cerrar</button>
         </div>
       </div>
     </div>
