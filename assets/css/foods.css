@@ -35,6 +35,11 @@ body{
   background-size: contain;
 }
 
+.fondocategoria{
+  background-image: url("../img/fondocategorias.jpg");
+  background-size: cover;
+}
+
 .imagenblanco{
   background-color: #FFFFFF;
   height: 2rem;
@@ -99,8 +104,8 @@ body{
 
 .affix-top {
   /* navbar style at top */
-  background-color:transparent;
-  border-color:transparent;
+  background-color:white;
+  border-color:white;
   -webkit-transition:all 0.8s ease;
   -moz-transition:all 0.8s ease; 
   -o-transition:all 0.8s ease;         

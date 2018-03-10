@@ -20,8 +20,8 @@
         </li>
       </ul>
       <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
-        <input class="form-control mr-sm-2 col-7" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto" type="submit">Search</button>
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">
