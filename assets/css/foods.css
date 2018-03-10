@@ -38,8 +38,7 @@ body{
 	background-image: url("../img/background1.svg");
 	height: 34.75rem;
 	width: 100%;
-	background-size: contain;
-  background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .imagen2{
@@ -49,7 +48,7 @@ body{
 
 .imagen3{
 	background-image: url("../img/background3.jpg");
-	height: 50rem;
+	height: 25rem;
 	width: 100%;
   padding: 15px;
 	background-size: cover;
@@ -162,90 +161,52 @@ body{
 
 @media only screen and (max-width: 1024px) {
     .imagen1{
-      background-image: url("../img/background1.svg");
       height: 25rem;
-      width: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
     }
 
     .imagen3{
-      background-image: url("../img/background3.jpg");
       height: 25rem;
-      width: 100%;
-      padding: 15px;
-      background-size: contain;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .imagenblanco{
-      background-color: #FFFFFF;
       height: 5rem;
-      width: 100%;
     }
 
     .imagen1{
-      background-image: url("../img/background1.svg");
       height: 19rem;
-      width: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
     }
 
     .imagen3{
-      background-image: url("../img/background3.jpg");
       height: 20rem;
-      width: 100%;
-      padding: 15px;
-      background-size: contain;
     }
 }
 
 @media only screen and (max-width: 414px) {
     .imagenblanco{
-      background-color: #FFFFFF;
       height: 4rem;
-      width: 100%;
     }
 
     .imagen1{
-      background-image: url("../img/background1.svg");
       height: 12rem;
-      width: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
     }
 
     .imagen3{
-      background-image: url("../img/background3.jpg");
       height: 12rem;
-      width: 100%;
-      padding: 15px;
-      background-size: contain;
     }
 }
 
 @media only screen and (max-width: 360px) {
     .imagenblanco{
-      background-color: #FFFFFF;
       height: 4rem;
-      width: 100%;
     }
 
     .imagen1{
-      background-image: url("../img/background1.svg");
       height: 15rem;
-      width: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
     }
 
     .imagen3{
-      background-image: url("../img/background3.jpg");
       height: 12rem;
-      width: 100%;
-      padding: 15px;
-      background-size: contain;
     }
 }

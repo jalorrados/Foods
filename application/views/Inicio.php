@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="imagen1 btn-group-vertical" id="navscrollstart">
-		<span class="mx-auto">Prueba de texto</span><br/>
+		<span class="mx-auto text-white">Prueba de texto</span><br/>
 		<span class="mx-auto text-white">Prueba de texto 2</span><br/><br/>
 		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>
 	</div>
