@@ -1,6 +1,7 @@
 <section class="body">
 
 	<div class="imagenblanco">
+		
 	</div>
 
 	<div class="imagen1 btn-group-vertical" id="navscrollstart">
