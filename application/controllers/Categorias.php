@@ -9,3 +9,4 @@ class Categorias extends CI_Controller {
 		
 	}
 }
+?>

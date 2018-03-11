@@ -13,3 +13,4 @@ class Inicio extends CI_Controller {
 		header('Location:'.base_url().'perfil');
 	}
 }
+?>

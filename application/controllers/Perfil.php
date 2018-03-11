@@ -9,3 +9,4 @@ class Perfil extends CI_Controller {
 		
 	}
 }
+?>
