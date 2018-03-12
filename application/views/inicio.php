@@ -1,4 +1,4 @@
-<section class="body">
+<section class="principal">
 
 	<div class="imagenblanco">
 		

@@ -125,7 +125,7 @@ body{
   width: auto;
 }
 .backgroundPerfil{
-  margin-top: 4.5rem;
+  margin-top: 3.6rem;
   background-image: url("../img/b3.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -134,10 +134,6 @@ body{
   overflow:auto;
   padding-right: 17px;
 
-}
-
-.backgroundPerfil::-webkit-scrollbar {
-  display: none;
 }
 
 .card{

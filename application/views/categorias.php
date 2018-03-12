@@ -1,4 +1,4 @@
-<section class="fondocategoria">
+<section class=" categorias fondocategoria">
 	<div class="container mt-5 pt-4" id="navscrollstart">
 		<div class="row mx-auto text-center">
 			<div class="col-12">

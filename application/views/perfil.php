@@ -1,10 +1,9 @@
-<div class="backgroundPerfil" id="navscrollstart"><!--id="navscrollstart"-->
-	<div class="container">
-		<div align="center" style="margin-top: 4.5rem; padding-top: 1rem; margin-bottom: 3rem;">
-			<h1><u><strong>Perfil de Usuario</strong></u></h1>
-		</div>
-		<div class="row">
-			<div class="col-md-5 col-xs-12">
+<section class="perfil">
+	<div class="backgroundPerfil" id="navscrollstart">
+		<!--<div align="center mb-3 " style="margin-top: 4.5rem; padding-top: 1rem;">-->
+			<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Perfil de Usuario</u></h1>
+		<div class="row"> 
+			<div class="col-12 col-md-3 mx-auto text-center">
 				<h3 class="">Datos Personales</h3>
 				<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
 				<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
@@ -17,10 +16,10 @@
 				</form>
 				<br><br>
 				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
-				<div class="mx-xs-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
+				<div class="mx-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
-			<div class="col-md-7 col-xs-12">
-				<h3>Crear nueva receta</h3>
+			<div class="col-12 col-md-4 mx-auto">
+				<h3 class="text-center">Crear nueva receta</h3>
 				<form action="<?= base_url() ?>user/nuevaReceta" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
 		            	<label for="nombreReceta" class="col-form-label">Nombre:</label>
@@ -78,6 +77,5 @@
 					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
 				</form>
 			</div>
-		</div>
 	</div>
-</div>
+</section>
