@@ -167,6 +167,30 @@ body{
   margin-top: 3rem;
 }
 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.botonfile{
+  height: 2.4rem;
+}
+
 @media only screen and (max-width: 1024px) {
     .imagen1{
       height: 25rem;

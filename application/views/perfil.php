@@ -18,9 +18,9 @@
 				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
 				<div class="mx-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
-			<div class="col-12 col-md-4 mx-auto">
+			<div class="col-12 col-md-4 mx-auto text-center">
 				<h3 class="text-center">Crear nueva receta</h3>
-				<form action="<?= base_url() ?>user/nuevaReceta" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+				<form action="<?= base_url() ?>user/nuevaReceta" class="ml-3" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
 		            	<label for="nombreReceta" class="col-form-label">Nombre:</label>
 		            	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta">
@@ -69,7 +69,17 @@
 		         	<div class="form-group">
 						<label for="imgReceta">Añadir una foto:</label><br>
 						<img class="img-fluid rounded" id="previewImagen">
-						<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
+						<div class="input-group">
+			                <label class="input-group-btn">
+			                    <span class="btn btn-primary">
+			                        Browse&hellip; <input type="file" style="display: none;" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
+
+			                    </span>
+			                </label>
+			                <input type="text" class="form-control botonfile" readonly>
+			            </div>
+
+			            <!--<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">-->
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.</strong></small><br>
 						<button type="button" class="btn btn-warning" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
 					</div>
