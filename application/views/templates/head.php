@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/tether.min.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bootstrap.min.css">
 	<script type="text/javascript" src="<?= base_url()?>assets/js/bootstrap.min.js"></script>

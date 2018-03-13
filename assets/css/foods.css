@@ -211,6 +211,10 @@ body{
   display: none;
 }
 
+.destacadas{
+  font-family: 'Lobster', cursive;
+}
+
 @media only screen and (max-width: 1024px) {
     .imagen1{
       height: 25rem;

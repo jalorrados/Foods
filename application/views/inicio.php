@@ -1,6 +1,7 @@
 <section class="principal">
 	
 	<div class="imagen1 btn-group-vertical mt-5" id="navscrollstart">
+		<p class="h2 text-white destacadas text-center mx-auto"><u>Recetas destacadas</u></p>
 		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
 		  	<ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -12,21 +13,18 @@
 			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/aperitivos_tapas.jpg" alt="First slide">
 			    	<div class="carousel-caption d-none d-md-block">
 					    <h5>Primera imagen</h5>
-					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
 					</div>
 			    </div>
 			    <div class="carousel-item">
 			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/arroces_pastas.jpg" alt="Second slide">
 			    	<div class="carousel-caption d-none d-md-block">
 					    <h5>Segunda imagen</h5>
-					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
 					</div>
 			    </div>
 			    <div class="carousel-item">
 			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/alimentacion_infantil.jpg" alt="Third slide">
 			    	<div class="carousel-caption d-none d-md-block">
 					    <h5>Tercera imagen</h5>
-					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
 					</div>
 		    	</div>
 		    </div>
