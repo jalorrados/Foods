@@ -47,14 +47,15 @@ body{
 }
 
 .imagen1{
-	background-image: url("../img/background1.svg");
+	/*background-image: url("../img/background1.svg");*/
 	height: 34.75rem;
 	width: 100%;
 	background-size: cover;
 }
 
 .imagen2{
-	background-color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
+  background-image: url("../img/b2.jpg");
 	width: 100%;
 }
 
@@ -192,6 +193,7 @@ body{
 }
 
 .carousel-item img{
+  margin-top: 20px;
   width: 1000px;
   max-width: 1000px;
   min-width: 1000px;
