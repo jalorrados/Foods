@@ -213,6 +213,11 @@ body{
     .imagen3{
       height: 20rem;
     }
+
+    .search{
+      width: 4rem;
+      padding-left: 6px;
+    }
 }
 
 @media only screen and (max-width: 414px) {

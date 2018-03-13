@@ -77,6 +77,7 @@ $(function () {
 
 });
 
+/*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
 $(function() {
 
   // We can attach the `fileselect` event to all file inputs on the page
