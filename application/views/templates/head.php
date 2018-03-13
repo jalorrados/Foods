@@ -22,6 +22,27 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/jquery.rateyo.css">
 	<script type="text/javascript" src="<?= base_url()?>assets/js/jquery.rateyo.js"></script>
 
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+		     $(window).scroll(function () {
+		            if ($(this).scrollTop() > 50) {
+		                $('#back-to-top').fadeIn();
+		            } else {
+		                $('#back-to-top').fadeOut();
+		            }
+		        });
+		        // scroll body to 0px on click
+		        $('#back-to-top').click(function () {
+		            $('body,html').animate({
+		                scrollTop: 0
+		            }, 800);
+		            return false;
+		        });
+
+		});
+	</script>
+
 </head>
 
 <body>
