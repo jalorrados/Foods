@@ -1,13 +1,51 @@
 <section class="principal">
 
-	<div class="imagenblanco">
+	<!---<div class="imagenblanco">
 		
-	</div>
+	</div>-->
 
 	<div class="imagen1 btn-group-vertical" id="navscrollstart">
-		<span class="mx-auto text-white">Prueba de texto</span><br/>
+		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
+		  	<ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		  	</ol>
+		  	<div class="carousel-inner">
+			    <div class="carousel-item active">
+			    	<img class="d-block w-100" src="<?= base_url() ?>assets/img/1080.jpg" alt="First slide">
+			    	<div class="carousel-caption d-none d-md-block">
+					    <h5>Primera imagen</h5>
+					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
+					</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<img class="d-block w-100" src="<?= base_url() ?>assets/img/agujero.jpg" alt="Second slide">
+			    	<div class="carousel-caption d-none d-md-block">
+					    <h5>Segunda imagen</h5>
+					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
+					</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<img class="d-block w-100" src="<?= base_url() ?>assets/img/1080.jpg" alt="Third slide">
+			    	<div class="carousel-caption d-none d-md-block">
+					    <h5>Tercera imagen</h5>
+					    <p>sdfsidgyfsuydfusydgfsdgyufsdgfyisdf</p>
+					</div>
+		    	</div>
+		    </div>
+	 	</div>
+	  	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+	  	</a>
+	  	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+	  	</a>
+		<!---<span class="mx-auto text-white">Prueba de texto</span><br/>
 		<span class="mx-auto text-white">Prueba de texto 2</span><br/><br/>
-		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>
+		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>-->
 	</div>
 
 	<div class="imagen2 text-center row align-content-center justify-content-center mx-auto mt-5">
