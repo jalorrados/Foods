@@ -3,7 +3,7 @@
 		<!--<div align="center mb-3 " style="margin-top: 4.5rem; padding-top: 1rem;">-->
 			<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Perfil de Usuario</u></h1>
 		<div class="row"> 
-			<div class="col-12 col-md-3 mx-auto text-center">
+			<div class="col-15 col-md-6 mx-auto text-center">
 				<h3 class="">Datos Personales</h3>
 				<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
 				<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
@@ -18,7 +18,7 @@
 				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
 				<div class="mx-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
-			<div class="col-12 col-md-4 mx-auto text-center">
+			<div class="col-12 col-md-5 mx-auto text-center">
 				<h3 class="text-center">Crear nueva receta</h3>
 				<form action="<?= base_url() ?>user/nuevaReceta" class="ml-3" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
@@ -72,7 +72,7 @@
 						<div class="input-group">
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">
-			                        Browse&hellip; <input type="file" style="display: none;" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
+			                        Buscar <input type="file" style="display: none;" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
 
 			                    </span>
 			                </label>
