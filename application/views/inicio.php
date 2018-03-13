@@ -1,10 +1,6 @@
 <section class="principal">
-
-	<!---<div class="imagenblanco">
-		
-	</div>-->
-
-	<div class="imagen1 btn-group-vertical" id="navscrollstart">
+	
+	<div class="imagen1 btn-group-vertical mt-5" id="navscrollstart">
 		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
 		  	<ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -34,33 +30,31 @@
 					</div>
 		    	</div>
 		    </div>
-	  </div>
-		<!---<span class="mx-auto text-white">Prueba de texto</span><br/>
-		<span class="mx-auto text-white">Prueba de texto 2</span><br/><br/>
-		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>-->
+		</div>
 	</div>
 
-	<div class="imagen2 text-center row align-content-center justify-content-center mx-auto mt-5">
-		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
-		  <div class="card-body2">
-		    <h5 class="card-title">Prueba de texto</h5>
-		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
-		  </div>
-		</div>
-		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
-		  <div class="card-body2">
-		    <h5 class="card-title">Prueba de texto</h5>
-		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
-		  </div>
-		</div>
-		<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
-		  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
-		  <div class="card-body2">
-		    <h5 class="card-title">Prueba de texto</h5>
-		    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
-		  </div>
+	<div class="text-center row align-content-center justify-content-center mx-auto pt-5">
+			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
+			  <div class="card-body2">
+			    <h5 class="card-title">Prueba de texto</h5>
+			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			  </div>
+			</div>
+			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
+			  <div class="card-body2">
+			    <h5 class="card-title">Prueba de texto</h5>
+			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			  </div>
+			</div>
+			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
+			  <div class="card-body2">
+			    <h5 class="card-title">Prueba de texto</h5>
+			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			  </div>
+			</div>
 		</div>
 	</div>
 
