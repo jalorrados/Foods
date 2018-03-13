@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ListaRecetas extends CI_Controller {
+class Listado extends CI_Controller {
 
 	public function index(){
 
-		enmarcar($this,"listaRecetas");
+		enmarcar($this,"listado");
 		
 	}
 }
