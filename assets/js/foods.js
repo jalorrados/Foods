@@ -8,6 +8,10 @@ function login(){
 	loginform.submit();
 }
 
+function enviarComentario(){
+	formComentario.submit();
+}
+
 function editarPerfil(){
 	document.getElementById("perfilNombre").disabled = false;
 	document.getElementById("perfilTelefono").disabled = false;
