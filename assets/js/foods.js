@@ -5,7 +5,69 @@ $('nav').affix({
 });
 
 function login(){
-	loginform.submit();
+	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_pass = /^\w{8,12}$/;
+
+	var email = document.getElementById("loginemail");
+	var pass = document.getElementById("loginpass");
+
+	if (exp_email.test(email.value)) {
+
+		if (exp_pass.test(pass.value)) {
+
+			pass.value = md5(pass.value);
+			loginform.submit();
+
+		}else{
+			//Mal contraseña
+		}
+
+	}else{
+		//MalEmail
+	}
+
+}
+
+function registrarse(){
+	var exp_signuser = "";//falta por implementar
+	var exp_telefono = /^([89]|[67])\d{8}$/;
+	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_pass = /^\w{8,12}$/;
+
+	var signuser = document.getElementById("signuser");
+	var telefono = document.getElementById("signtlf");
+	var email = document.getElementById("signemail");
+	var pass = document.getElementById("signpass");
+	var repetir_pass = document.getElementById("signpassrepeat");
+
+	if (true) {//exp_signuser.test(signuser.value)
+
+		if (exp_telefono.test(telefono.value)) {
+
+			if (exp_email.test(email.value)) {
+
+				if (exp_pass.test(pass.value) && ( md5(pass.value) == md5(repetir_pass.value))) {//metodo md5 es para encriptar
+
+					pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
+				
+					signform.submit();
+
+				}else{
+					//Mal contraseña
+				}
+
+			}else{
+				//Mal Email
+			}
+
+		}else{
+			//Mal Telefono
+		}
+
+	}else{
+		//Mal Nombre y contraseña
+	}
+
 }
 
 function enviarComentario(){
@@ -13,6 +75,7 @@ function enviarComentario(){
 }
 
 function editarPerfil(){
+	document.getElementById("perfilEditar").disabled = true;
 	document.getElementById("perfilNombre").disabled = false;
 	document.getElementById("perfilTelefono").disabled = false;
 	document.getElementById("perfilGuardar").disabled = false;
@@ -20,6 +83,7 @@ function editarPerfil(){
 }
 
 function editarGuardar(){
+	document.getElementById("perfilEditar").disabled = false;
 	document.getElementById("perfilNombre").disabled = true;
 	document.getElementById("perfilTelefono").disabled = true;
 	document.getElementById("perfilGuardar").disabled = true;

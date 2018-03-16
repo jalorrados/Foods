@@ -25,10 +25,18 @@
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">
-          <a class="nav-link h6" href="" data-toggle="modal" data-target="#login">Ingresar</a>
+          <?php if(empty($_SESSION)):?>
+            <a class="nav-link h6" href="" data-toggle="modal" data-target="#login">Ingresar</a>
+          <?php else:?>
+            <a class="nav-link h6" href="<?= base_url()?>perfil"><?=$usuario['apenom']?></a>
+          <?php endif; ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link h6" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
+           <?php if(empty($_SESSION)):?>
+            <a class="nav-link h6" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
+          <?php else:?>
+            <a class="nav-link h6" href="<?= base_url()?>inicio/logOut" >Cerrar sesión</a>
+          <?php endif; ?>
         </li>
       </ul>
     </div>
@@ -61,16 +69,16 @@
             </div>
             <div class="form-group">
               <label for="signpass" class="col-form-label">Contraseña</label>
-              <input type="text" class="form-control" id="signpass" name="signpass">
+              <input type="password" class="form-control" id="signpass" name="signpass">
             </div>
             <div class="form-group">
               <label for="signpassrepeat" class="col-form-label">Repetir contraseña</label>
-              <input type="text" class="form-control" id="signpassrepeat" name="signpassrepeat">
+              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat">
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success">Registrar</button>
+          <button type="button" class="btn btn-success" onclick="registrarse()">Registrar</button>
         </div>
       </div>
     </div>
@@ -90,12 +98,12 @@
         <div class="modal-body">
           <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
             <div class="form-group">
-              <label for="signemail" class="col-form-label">Email</label>
+              <label for="loginemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="loginemail" name="loginemail">
             </div>
             <div class="form-group">
-              <label for="signpass" class="col-form-label">Contraseña</label>
-              <input type="text" class="form-control" id="loginpass" name="loginpass">
+              <label for="loginpass" class="col-form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginpass" name="loginpass">
             </div>
           </form>
         </div>

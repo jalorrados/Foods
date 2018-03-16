@@ -22,9 +22,9 @@
 			            </div>
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.<br> Tamaño recomendado: 100x100.</strong></small><br>
 					
-						<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
-						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" name="perfilNombre" id="perfilNombre" disabled></label><br>
-						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefono" disabled></label><br>
+						<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail"><?= $usuario['email'] ?></span></label><br>
+						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" value="<?= $usuario['apenom'] ?>" name="perfilNombre" id="perfilNombre" disabled></label><br>
+						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefono" value="<?= $usuario['telefono'] ?>" disabled></label><br>
 						<button type="button" class="btn btn-secondary" onclick="editarPerfil()" id="perfilEditar">Editar</button>
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
 					</div>
