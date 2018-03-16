@@ -84,6 +84,17 @@ body{
   width: 100%;
 }
 
+.fondoReceta{
+  background-image: url("../img/a.png");
+  width: 100%;
+ background-size: cover;
+}
+
+.imgComentarios{
+  width: 75px;
+  height: 75px;
+}
+
 .affix {
   background-color: #343a40;
   -webkit-transition:all 0.8s ease-out;
