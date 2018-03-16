@@ -1,5 +1,5 @@
 <div class="fondoReceta">
-	<div class="container mt-5 pt-3 mb-3">
+	<div class="container mt-5 pt-3 mb-3" id="navscrollstart">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="<?= base_url() ?>categorias">Categorias</a></li>

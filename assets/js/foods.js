@@ -16,12 +16,14 @@ function editarPerfil(){
 	document.getElementById("perfilNombre").disabled = false;
 	document.getElementById("perfilTelefono").disabled = false;
 	document.getElementById("perfilGuardar").disabled = false;
+	document.getElementById("imgUser").disabled = false;
 }
 
 function editarGuardar(){
 	document.getElementById("perfilNombre").disabled = true;
 	document.getElementById("perfilTelefono").disabled = true;
 	document.getElementById("perfilGuardar").disabled = true;
+	document.getElementById("imgUser").disabled = true;
 }
 
 function numeroIngredientes(){
@@ -50,6 +52,12 @@ function loadFile(event) {
 	var output = document.getElementById('previewImagen');
 	output.src = URL.createObjectURL(event.target.files[0]);
 };
+
+function loadFileUser(event) {
+	var output = document.getElementById('previewImagenUser');
+	output.src = URL.createObjectURL(event.target.files[0]);
+};
+
 
 function borrarPreview(){
 	var img = document.getElementById("previewImagen");
