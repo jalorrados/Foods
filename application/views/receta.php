@@ -10,7 +10,7 @@
 		<div class="rounded pb-3 mb-3" style="border: 1px solid black; background-color: white;">
 			<div class="row">
 				<h3 class="text-center col-12"><u>Titulo de la receta</u></h3>
-				<img src="<?=base_url()?>assets/img/b2.jpg" class="mx-auto align-content-center justify-content-center rounded" style="width: 400px; height: 350px;">
+				<img src="<?=base_url()?>assets/img/b2.jpg" class="mx-auto align-content-center justify-content-center rounded imagenreceta">
 			</div>
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
