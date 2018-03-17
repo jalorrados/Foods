@@ -104,15 +104,15 @@ body{
 }
 
 .affix a {
-    color: #FFFFFF !important;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+  color: #FFFFFF !important;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .affix span {
-    color: #FFFFFF !important;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+  color: #FFFFFF !important;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .affix-top {
@@ -150,22 +150,22 @@ body{
 }
 
 .card{
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    display: inline-flex;
-    margin-bottom: 2rem;
-    margin-right: 0.7rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  display: inline-flex;
+  margin-bottom: 2rem;
+  margin-right: 0.7rem;
 }
 
 .card-img-top2{
@@ -185,19 +185,19 @@ body{
     overflow: hidden;
 }
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }
 
 .botonfile{
@@ -227,58 +227,80 @@ body{
 }
 
 @media only screen and (max-width: 1024px) {
-    .imagen1{
-      height: 25rem;
-    }
+  .imagen1{
+    height: 35rem;
+  }
 
-    .imagen3{
-      height: 25rem;
-    }
+  .imagen3{
+    height: 25rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .imagenblanco{
-      height: 5rem;
-    }
+  .imagenblanco{
+    height: 5rem;
+  }
 
-    .imagen1{
-      height: 19rem;
-    }
+  .imagen1{
+    height: 35em;
+  }
 
-    .imagen3{
-      height: 20rem;
-    }
+  .imagen3{
+    height: 20rem;
+  }
 
-    .search{
-      width: 4rem;
-      padding-left: 6px;
-    }
+  .search{
+    width: 4rem;
+    padding-left: 6px;
+  }
+
+  .carousel-item img{
+    min-width: 750px;
+    max-height: 450px;
+  }
 }
 
 @media only screen and (max-width: 414px) {
-    .imagenblanco{
-      height: 4rem;
-    }
+  .imagenblanco{
+    height: 4rem;
+  }
 
-    .imagen1{
-      height: 12rem;
-    }
+  .imagen1{
+    height: 23rem;
+  }
 
-    .imagen3{
-      height: 12rem;
-    }
+  .imagen3{
+    height: 12rem;
+  }
+
+  .carousel-item img{
+    min-width: 380px;
+    max-height: 250px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .carousel-item img{
+    min-width: 345px;
+    max-height: 225px;
+  }
 }
 
 @media only screen and (max-width: 360px) {
-    .imagenblanco{
-      height: 4rem;
-    }
+  .imagenblanco{
+    height: 4rem;
+  }
 
-    .imagen1{
-      height: 15rem;
-    }
+  .imagen1{
+    height: 20rem;
+  }
 
-    .imagen3{
-      height: 12rem;
-    }
+  .imagen3{
+    height: 12rem;
+  }
+
+  .carousel-item img{
+    min-width: 340px;
+    max-height: 250px;
+  }
 }

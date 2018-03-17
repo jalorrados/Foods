@@ -1,6 +1,6 @@
 <section class="principal">
 	
-	<div class="imagen1 btn-group-vertical mt-5" id="navscrollstart">
+	<div class="imagen1 btn-group-vertical mt-5 mx-auto" id="navscrollstart">
 		<p class="h2 text-white destacadas text-center mx-auto"><u>Recetas destacadas</u></p>
 		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
 		  	<ol class="carousel-indicators">
@@ -32,21 +32,21 @@
 	</div>
 
 	<div class="text-center row align-content-center justify-content-center mx-auto pt-5">
-			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
 			  <div class="card-body2">
 			    <h5 class="card-title">Prueba de texto</h5>
 			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 			  </div>
 			</div>
-			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
 			  <div class="card-body2">
 			    <h5 class="card-title">Prueba de texto</h5>
 			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 			  </div>
 			</div>
-			<div class="card col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
+			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
 			  <div class="card-body2">
 			    <h5 class="card-title">Prueba de texto</h5>
@@ -64,8 +64,7 @@
 
 	<div class="imagen4 text-center row align-content-center justify-content-center mx-auto my-5">
 	  <p class="h2 mx-auto col-12 ">Acerca de</p>
-	  <div class="col-12">
-	    <h5 class="card-title">Prueba de texto</h5>
+	  <div class="col-12 mt-3">
 	    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
 	  </div>
 	</div>
