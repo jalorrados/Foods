@@ -76,18 +76,37 @@ function enviarComentario(){
 
 function editarPerfil(){
 	document.getElementById("perfilEditar").disabled = true;
-	document.getElementById("perfilNombre").disabled = false;
-	document.getElementById("perfilTelefono").disabled = false;
+	document.getElementById("perfilNombreId").disabled = false;
+	document.getElementById("perfilTelefonoId").disabled = false;
 	document.getElementById("perfilGuardar").disabled = false;
 	document.getElementById("imgUser").disabled = false;
 }
 
 function editarGuardar(){
-	document.getElementById("perfilEditar").disabled = false;
-	document.getElementById("perfilNombre").disabled = true;
-	document.getElementById("perfilTelefono").disabled = true;
-	document.getElementById("perfilGuardar").disabled = true;
-	document.getElementById("imgUser").disabled = true;
+	var exp_signuser = "";//falta por implementar
+	var exp_telefono = /^([89]|[67])\d{8}$/;
+
+	var signuser = document.getElementById("perfilNombreId");
+	var telefono = document.getElementById("perfilTelefonoId");
+
+	if (true) {
+
+		if (exp_telefono.test(telefono.value)) {
+			editarPerfilForm.submit();
+			document.getElementById("perfilEditar").disabled = false;
+			document.getElementById("perfilNombreId").disabled = true;
+			document.getElementById("perfilTelefonoId").disabled = true;
+			document.getElementById("perfilGuardar").disabled = true;
+			document.getElementById("imgUser").disabled = true;
+		}else{
+			//Mal Telefono
+		}
+
+	}else{
+		//Mal user
+	}
+
+
 }
 
 function numeroIngredientes(){

@@ -6,15 +6,15 @@
 			<div class="col-15 col-md-6 mx-auto text-center">
 				<h3 class="">Datos Personales</h3>
 				
-				<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
+				<form action="<?=base_url()?>perfil/editarPerfil" name="editarPerfilForm" method="post" enctype="multipart/form-data">
 					<div class="form-group col-12 col-md-5 mx-auto text-center">
 						
 						<label for="imgUser">Foto de perfil:</label><br>
-						<img class="img-fluid rounded" id="previewImagenUser" style="width: 200px; height: 200px;" src="<?=base_url()?>assets/img/avatar.png"><!--Si no hay img en bbdd, poner esta por defecto-->
+						<img class="img-fluid rounded" id="previewImagenUser" style="width: 200px; height: 200px;" src="<?=base_url().$usuario['urlimagen'] ?>"><!--Si no hay img en bbdd, poner esta por defecto-->
 						<div class="input-group">
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">
-			                        Buscar <input type="file" style="display: none;" name="imgUser" id="imgUser" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFileUser(event)" disabled="">
+			                        Buscar <input type="file" style="display: none;" name="imgUser" id="imgUser" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFileUser(event)" disabled>
 
 			                    </span>
 			                </label>
@@ -23,8 +23,10 @@
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.<br> Tamaño recomendado: 100x100.</strong></small><br>
 					
 						<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail"><?= $usuario['email'] ?></span></label><br>
-						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" value="<?= $usuario['apenom'] ?>" name="perfilNombre" id="perfilNombre" disabled></label><br>
-						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefono" value="<?= $usuario['telefono'] ?>" disabled></label><br>
+
+						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" value="<?= $usuario['apenom'] ?>" name="perfilNombre" id="perfilNombreId" disabled></label><br>
+
+						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefonoId" value="<?= $usuario['telefono'] ?>" disabled></label><br>
 						<button type="button" class="btn btn-secondary" onclick="editarPerfil()" id="perfilEditar">Editar</button>
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
 					</div>

@@ -5,7 +5,16 @@ class Categorias extends CI_Controller {
 
 	public function index(){
 
-		enmarcar($this,"categorias");
+		session_start();//iniciar sesion
+		if (empty($_SESSION)) {//si esta vacia te lleva directamente a incio
+			enmarcar($this, 'categorias');
+
+		}else{//si no esta vacia te pasa los datos a las vistas
+			$datos['usuario']["apenom"] = $_SESSION["apenom"];
+			$datos['usuario']["telefono"] = $_SESSION["telefono"];
+			$datos['usuario']["email"] = $_SESSION["email"];
+			enmarcar($this, 'categorias',$datos);
+		}
 		
 	}
 }

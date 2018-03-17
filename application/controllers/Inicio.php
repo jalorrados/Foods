@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Inicio extends CI_Controller {
 
 	public function index(){
+		$dir = "./fotos";
+		if (!is_dir ($dir)) {//crea carpea para almacenar las fotos
+			mkdir($dir, 0777);
+		}
 		session_start();//iniciar sesion
 		if (empty($_SESSION)) {//si esta vacia te lleva directamente a incio
 			enmarcar($this, 'inicio');
@@ -27,6 +31,7 @@ class Inicio extends CI_Controller {
 			$_SESSION["apenom"]=$usuario["apenom"];
 			$_SESSION["email"]=$usuario["email"];
 			$_SESSION["telefono"]=$usuario["telefono"];
+			$_SESSION["urlimagen"]=$usuario["urlimagen"];
 			$_SESSION["rol"]="user";
 
 			header('Location:'.base_url().'perfil');
@@ -47,6 +52,7 @@ class Inicio extends CI_Controller {
 		$_SESSION["apenom"]=$user;
 		$_SESSION["email"]=$email;
 		$_SESSION["telefono"]=$telefono;
+		$_SESSION["urlimagen"]="assets/img/avatar.png";//cuando te registras sale la imagen por defecto
 		$_SESSION["rol"]="user";
 
 		header('Location:'.base_url().'perfil');
