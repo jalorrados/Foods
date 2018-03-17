@@ -1,12 +1,12 @@
 <div class="fondoReceta">
 	<div class="container mt-5 pt-3 mb-3" id="navscrollstart">
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="<?= base_url() ?>categorias">Categorias</a></li>
-			<li class="breadcrumb-item"><a href="#">Donde hayas pulsado</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Receta</li>
-		</ol>
-	</nav>
+		<div aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>categorias">Categorias</a></li>
+				<li class="breadcrumb-item"><a  class="text-black" href="#">Donde hayas pulsado</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Receta</li>
+			</ol>
+		</div>
 		<div class="rounded pb-3 mb-3" style="border: 1px solid black; background-color: white;">
 			<div class="row">
 				<h3 class="text-center col-12"><u>Titulo de la receta</u></h3>
@@ -38,7 +38,7 @@
 		<form name="formComentario" action="comentario/crearComentario" method="post" accept-charset="utf-8">
 			<input type="text" class="form-control mb-1" name="tituloComentario" placeholder="Escriba un título">
 			<textarea name="comentario" class="form-control mb-1" rows="3" placeholder="Escriba el comentario"></textarea>
-			<input type="button" value="Enviar" onclick="enviarComentario()">
+			<input type="button" class="btn btn-secondary" value="Enviar" onclick="enviarComentario()">
 		</form>
 		 <div class="row">
         <div class="col-12 mt-5 mb-3 my-3">
