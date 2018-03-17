@@ -223,7 +223,8 @@ body{
 }
 
 .destacadas{
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
+  font-family: 'Playfair Display', serif;
 }
 
 .breadcrumb{

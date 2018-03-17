@@ -1,7 +1,7 @@
 <section class="principal">
 	
 	<div class="imagen1 btn-group-vertical mt-5 mx-auto" id="navscrollstart">
-		<p class="h2 text-white destacadas text-center mx-auto"><u>Recetas destacadas</u></p>
+		<p class="h2 text-white destacadas text-center mx-auto font-weight-bold"><u>Recetas destacadas</u></p>
 		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
 		  	<ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
