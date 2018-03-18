@@ -26,7 +26,7 @@ class Inicio extends CI_Controller {
 		$this->load->model('inicio_model');//carga el modelo
 
 		$usuario = $this -> inicio_model -> getUser($_POST["loginemail"]);//obtiene el usuario del login
-		if ($usuario["pass"] == $_POST["loginpass"]) {//si la pass escrita coincide con la de la bbd te loguea y pone los datos a la sesion
+		if ($usuario["pass"] == $_POST["loginpass"]) {//si la pass escrita coincide con la de la bbdd te loguea y pone los datos a la sesion
 
 			$_SESSION["apenom"]=$usuario["apenom"];
 			$_SESSION["email"]=$usuario["email"];

@@ -18,18 +18,15 @@ class Inicio_model extends CI_Model {
 		}
 		R::close();
 
-		/*if (!is_dir ("../fotos/".$email)) {
-			mkdir("../fotos/".$email, 0777);
-		}*/
 	}
 
-	public function getUser($email) {//encontrar un usuario segun si email
+	public function getUser($email) {//encontrar un usuario segun su email
 
 		return R::findOne('usuario','email = ? ', [$email] );
 		
 	}
 
-	public function getAll() {//obtener totos los usuarios
+	public function getAll() {//obtener todos los usuarios
 
 		return R::findAll('usuario');
 		

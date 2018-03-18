@@ -10,7 +10,7 @@
 					<div class="form-group col-12 col-md-5 mx-auto text-center">
 						
 						<label for="imgUser">Foto de perfil:</label><br>
-						<img class="img-fluid rounded" id="previewImagenUser" style="width: 200px; height: 200px;" src="<?=base_url().$usuario['urlimagen'] ?>"><!--Si no hay img en bbdd, poner esta por defecto-->
+						<img class="img-fluid rounded" id="previewImagenUser" style="width: 200px; height: 200px;" src="<?=base_url().$usuario['urlimagen'] ?>">
 						<div class="input-group">
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">
