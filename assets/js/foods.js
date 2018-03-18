@@ -11,61 +11,103 @@ function login(){
 	var email = document.getElementById("loginemail");
 	var pass = document.getElementById("loginpass");
 
+	var errorEmail = document.getElementById("errorEmailLogin");
+	var errorPass = document.getElementById("errorPassLogin");
+
 	if (exp_email.test(email.value)) {
+			email.style.borderColor = "rgba(0,0,0,.15)";
+			errorEmail.style.visibility = "hidden";
 
 		if (exp_pass.test(pass.value)) {
+			pass.style.borderColor = "rgba(0,0,0,.15)";
+			errorPass.style.visibility = "hidden";
 
 			pass.value = md5(pass.value);
 			loginform.submit();
 
 		}else{
 			//Mal contraseña
+			pass.style.borderColor = "red";
+			errorPass.style.visibility = "visible";
 		}
 
 	}else{
 		//MalEmail
+		email.style.borderColor = "red";
+		errorEmail.style.visibility = "visible";
 	}
 
 }
 
 function registrarse(){
 	var exp_signuser = "";//falta por implementar
-	var exp_telefono = /^([89]|[67])\d{8}$/;
 	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_telefono = /^([89]|[67])\d{8}$/;
 	var exp_pass = /^\w{8,12}$/;
 
 	var signuser = document.getElementById("signuser");
-	var telefono = document.getElementById("signtlf");
 	var email = document.getElementById("signemail");
+	var telefono = document.getElementById("signtlf");
 	var pass = document.getElementById("signpass");
 	var repetir_pass = document.getElementById("signpassrepeat");
 
+	var errorUser = document.getElementById("errorUser");
+	var errorEmail = document.getElementById("errorEmail");
+	var errorTlf = document.getElementById("errorTlf");
+	var errorPass = document.getElementById("errorPass");
+	var errorRepPass = document.getElementById("errorRepPass");
+
 	if (true) {//exp_signuser.test(signuser.value)
+		signuser.style.borderColor = "rgba(0,0,0,.15)";
+		errorUser.style.visibility = "hidden";
 
-		if (exp_telefono.test(telefono.value)) {
+		if (exp_email.test(email.value)) {
+			email.style.borderColor = "rgba(0,0,0,.15)";
+			errorEmail.style.visibility = "hidden";
 
-			if (exp_email.test(email.value)) {
+			if (exp_telefono.test(telefono.value)) {
+				telefono.style.borderColor = "rgba(0,0,0,.15)";
+				errorTlf.style.visibility = "hidden";
 
-				if (exp_pass.test(pass.value) && ( md5(pass.value) == md5(repetir_pass.value))) {//metodo md5 es para encriptar
+				if (exp_pass.test(pass.value)) {//metodo md5 es para encriptar
+					pass.style.borderColor = "rgba(0,0,0,.15)";
+					errorPass.style.visibility = "hidden";
 
-					pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
+					if ((md5(pass.value) == md5(repetir_pass.value))) {
+						repetir_pass.style.borderColor = "rgba(0,0,0,.15)";
+						errorRepPass.style.visibility = "hidden";
+
+						pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
 				
-					signform.submit();
+						signform.submit();
+
+					}else{
+						repetir_pass.style.borderColor = "red";
+						errorRepPass.style.visibility = "visible";
+					}
 
 				}else{
 					//Mal contraseña
+					pass.style.borderColor = "red";
+					errorPass.style.visibility = "visible";
 				}
 
 			}else{
-				//Mal Email
+				//Mal Telefono
+				telefono.style.borderColor = "red";
+				errorTlf.style.visibility = "visible";
 			}
 
 		}else{
-			//Mal Telefono
+			//Mal Email
+			email.style.borderColor = "red";
+			errorEmail.style.visibility = "visible";
 		}
 
 	}else{
 		//Mal Nombre y contraseña
+		signuser.style.borderColor = "red";
+		errorUser.style.visibility = "visible";
 	}
 
 }
