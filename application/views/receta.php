@@ -3,7 +3,7 @@
 		<div aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>categorias">Categorias</a></li>
-				<li class="breadcrumb-item"><a  class="text-black" href="#">Donde hayas pulsado</a></li>
+				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>listado?categoria=<?= $usuario["categoriaurl"] ?>"><?= $usuario["categoria"] ?></a></li>
 				<li class="breadcrumb-item active" aria-current="page">Receta</li>
 			</ol>
 		</div>

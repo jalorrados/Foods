@@ -7,7 +7,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Alimentacion infantil</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="<?= base_url() ?>listado?genero=alimentacion_infantil" class="btn btn-primary">40 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Alimentacion%20infantil" class="btn btn-primary">40 Recetas</a>
 				  </div>
 				</div>
 
@@ -16,7 +16,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Aperitivos y tapas</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">980 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Aperitivos%20y%20tapas"  class="btn btn-primary">980 Recetas</a>
 				  </div>
 				</div>
 
@@ -25,7 +25,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Sopas y cremas</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">210 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Sopas%20y%20cremas"  class="btn btn-primary">210 Recetas</a>
 				  </div>
 				</div>
 
@@ -34,7 +34,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Arroces y pastas</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">29 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Arroces%20y%20pastas"  class="btn btn-primary">29 Recetas</a>
 				  </div>
 				</div>
 
@@ -43,7 +43,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Potajes y platos de cuchara</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">130 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Potajes%20y%20platos de cuchara"  class="btn btn-primary">130 Recetas</a>
 				  </div>
 				</div>
 
@@ -52,7 +52,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Verduras y hortalizas</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">68 Recetas</a>
+				    <a href="<?= base_url() ?>listado?categoria=Verduras%20y%20hortalizas"  class="btn btn-primary">68 Recetas</a>
 				  </div>
 				</div>
 

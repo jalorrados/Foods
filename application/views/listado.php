@@ -2,14 +2,14 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?= base_url() ?>categorias">Categorias</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Donde hayas pulsado</li>
+      <li class="breadcrumb-item active" aria-current="page"><?= $usuario["categoria"] ?></li>
     </ol>
   </nav>
     <div class="row">
         <div class="col-12 mt-5 mb-3 my-3">
             <div class="media">
               <div class="media-left">
-                <a href="<?= base_url() ?>receta?id=1&">
+                <a href="<?= base_url() ?>receta?categoria=<?= $usuario["categoria"] ?>">
                   <img class="media-object" src="<?= base_url() ?>assets/img/aperitivos_tapas.jpg">
                 </a>
               </div>
