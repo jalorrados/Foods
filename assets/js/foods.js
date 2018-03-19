@@ -40,7 +40,7 @@ function login(){
 }
 
 function registrarse(){
-	var exp_signuser = "";//falta por implementar
+	var exp_signuser = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,40}$/;
 	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 	var exp_telefono = /^([89]|[67])\d{8}$/;
 	var exp_pass = /^\w{8,12}$/;
@@ -57,7 +57,7 @@ function registrarse(){
 	var errorPass = document.getElementById("errorPass");
 	var errorRepPass = document.getElementById("errorRepPass");
 
-	if (true) {//exp_signuser.test(signuser.value)
+	if (exp_signuser.test(signuser.value)) {
 		signuser.style.borderColor = "rgba(0,0,0,.15)";
 		errorUser.style.visibility = "hidden";
 
@@ -125,15 +125,19 @@ function editarPerfil(){
 }
 
 function editarGuardar(){
-	var exp_signuser = "";//falta por implementar
+	var exp_signuser =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,40}$/;
 	var exp_telefono = /^([89]|[67])\d{8}$/;
 
 	var signuser = document.getElementById("perfilNombreId");
 	var telefono = document.getElementById("perfilTelefonoId");
 
-	if (true) {
+	if (exp_signuser.test(signuser.value)) {
+		signuser.style.borderColor = "rgba(0,0,0,.15)";
+		errorUser.style.visibility = "hidden";
 
 		if (exp_telefono.test(telefono.value)) {
+			telefono.style.borderColor = "rgba(0,0,0,.15)";
+			errorTlf.style.visibility = "hidden";
 			editarPerfilForm.submit();
 			document.getElementById("perfilEditar").disabled = false;
 			document.getElementById("perfilNombreId").disabled = true;
@@ -142,10 +146,14 @@ function editarGuardar(){
 			document.getElementById("imgUser").disabled = true;
 		}else{
 			//Mal Telefono
+			telefono.style.borderColor = "red";
+			errorTlf.style.visibility = "visible";
 		}
 
 	}else{
 		//Mal user
+		signuser.style.borderColor = "red";
+		errorUser.style.visibility = "visible";
 	}
 
 
