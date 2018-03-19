@@ -1,10 +1,14 @@
 <div class="container my-5" id="navscrollstart">
-  <nav aria-label="breadcrumb">
+  <!--<nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?= base_url() ?>categorias">Categorias</a></li>
       <li class="breadcrumb-item active" aria-current="page"><?= $usuario["categoria"] ?></li>
     </ol>
-  </nav>
+  </nav>-->
+  <div class="breadcrumb flat breadcrumbstyle">
+    <a href="<?= base_url() ?>categorias"> Categorias</a>
+    <a class="activebreadcrumb" href="#"><?= $usuario["categoria"] ?></a>
+  </div>
     <div class="row">
         <div class="col-12 mt-5 mb-3 my-3">
             <div class="media">

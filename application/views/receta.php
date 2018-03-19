@@ -1,12 +1,17 @@
 <div class="fondoReceta">
 	<div class="container mt-5 pt-3 mb-3" id="navscrollstart">
-		<div aria-label="breadcrumb">
+		<!--<div aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>categorias">Categorias</a></li>
 				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>listado?categoria=<?= $usuario["categoriaurl"] ?>"><?= $usuario["categoria"] ?></a></li>
 				<li class="breadcrumb-item active" aria-current="page">Receta</li>
 			</ol>
-		</div>
+		</div>-->
+		<div class="breadcrumb flat breadcrumbstyle">
+	  		<a href="<?= base_url() ?>categorias">Categorias</a>
+	    	<a  class="text-black" href="<?= base_url() ?>listado?categoria=<?= $usuario["categoriaurl"] ?>"><?= $usuario["categoria"] ?></a>
+	    	<a class="activebreadcrumb" href="#">Receta</a>
+	 	</div>
 		<div class="rounded pb-3 mb-3" style="border: 1px solid black; background-color: white;">
 			<div class="row">
 				<h3 class="text-center col-12"><u>Titulo de la receta</u></h3>
