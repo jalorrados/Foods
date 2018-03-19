@@ -6,6 +6,7 @@ class Comentario extends CI_Controller {
 	public function crearComentario(){
 
 		//Aqui van los comentarios
+		//Otro comentario mas
 	}
 }
 ?>
