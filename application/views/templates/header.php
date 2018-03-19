@@ -21,14 +21,22 @@
       </ul>
       <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
             <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto" type="submit">Search</button>
+            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="submit">Search</button>
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">
-          <a class="nav-link h6" href="" data-toggle="modal" data-target="#login">Ingresar</a>
+          <?php if(empty($_SESSION)):?>
+            <a class="nav-link h6" href="" data-toggle="modal" data-target="#login">Ingresar</a>
+          <?php else:?>
+            <a class="nav-link h6" href="<?= base_url()?>perfil"><?=$usuario['apenom']?></a>
+          <?php endif; ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link h6" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
+           <?php if(empty($_SESSION)):?>
+            <a class="nav-link h6" href="" data-toggle="modal" data-target="#signup">Registrarse</a>
+          <?php else:?>
+            <a class="nav-link h6" href="<?= base_url()?>inicio/logOut" >Cerrar sesión</a>
+          <?php endif; ?>
         </li>
       </ul>
     </div>
@@ -50,27 +58,32 @@
             <div class="form-group">
               <label for="signuser" class="col-form-label">Nombre y apellidos</label>
               <input type="text" class="form-control" id="signuser" name="signuser">
+              <small id="errorUser" style="visibility: hidden;" class="form-text text-danger">Nombre y apellidos incorrectos.</small>
             </div>
             <div class="form-group">
               <label for="signemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="signemail" name="signemail">
+              <small id="errorEmail" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
             </div>
             <div class="form-group">
               <label for="signtlf" class="col-form-label">Teléfono</label>
               <input type="text" class="form-control" id="signtlf" name="signtlf">
+              <small id="errorTlf" style="visibility: hidden;" class="form-text text-danger">Teléfono debe tener 9 digitos y empezar por 6,7,8 o 9.</small>
             </div>
             <div class="form-group">
               <label for="signpass" class="col-form-label">Contraseña</label>
-              <input type="text" class="form-control" id="signpass" name="signpass">
+              <input type="password" class="form-control" id="signpass" name="signpass">
+              <small id="errorPass" style="visibility: hidden;" class="form-text text-danger">Contraseña debe tener entre 8 y 12 carácteres.</small>
             </div>
             <div class="form-group">
               <label for="signpassrepeat" class="col-form-label">Repetir contraseña</label>
-              <input type="text" class="form-control" id="signpassrepeat" name="signpassrepeat">
+              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat">
+              <small id="errorRepPass" style="visibility: hidden;" class="form-text text-danger">Las contraseñas no coinciden.</small>
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success">Registrar</button>
+          <button type="button" class="btn btn-success" onclick="registrarse()">Registrar</button>
         </div>
       </div>
     </div>
@@ -90,12 +103,14 @@
         <div class="modal-body">
           <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
             <div class="form-group">
-              <label for="signemail" class="col-form-label">Email</label>
+              <label for="loginemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="loginemail" name="loginemail">
+               <small id="errorEmailLogin" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
             </div>
             <div class="form-group">
-              <label for="signpass" class="col-form-label">Contraseña</label>
-              <input type="text" class="form-control" id="loginpass" name="loginpass">
+              <label for="loginpass" class="col-form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginpass" name="loginpass">
+              <small id="errorPassLogin" style="visibility: hidden;" class="form-text text-danger">Contraseña debe tener entre 8 y 12 carácteres.</small>
             </div>
           </form>
         </div>

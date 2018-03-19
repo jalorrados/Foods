@@ -1,4 +1,4 @@
-<section class="fondocategoria">
+<section class=" categorias fondocategoria">
 	<div class="container mt-5 pt-4" id="navscrollstart">
 		<div class="row mx-auto text-center">
 			<div class="col-12">
@@ -7,7 +7,7 @@
 				  <div class="card-body" style="padding: 1.25rem;">
 				    <h5 class="card-title">Alimentacion infantil</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				    <a href="#" class="btn btn-primary">40 Recetas</a>
+				    <a href="<?= base_url() ?>listado?genero=alimentacion_infantil" class="btn btn-primary">40 Recetas</a>
 				  </div>
 				</div>
 

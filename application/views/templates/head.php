@@ -12,7 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/tether.min.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bootstrap.min.css">
 	<script type="text/javascript" src="<?= base_url()?>assets/js/bootstrap.min.js"></script>
@@ -20,7 +21,30 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/foods.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/jquery.rateyo.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bubbles.css">
 	<script type="text/javascript" src="<?= base_url()?>assets/js/jquery.rateyo.js"></script>
+	<script type="text/javascript" src="<?= base_url()?>assets/js/md5.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+		     $(window).scroll(function () {
+		            if ($(this).scrollTop() > 50) {
+		                $('#back-to-top').fadeIn();
+		            } else {
+		                $('#back-to-top').fadeOut();
+		            }
+		        });
+		        // scroll body to 0px on click
+		        $('#back-to-top').click(function () {
+		            $('body,html').animate({
+		                scrollTop: 0
+		            }, 800);
+		            return false;
+		        });
+
+		});
+	</script>
 
 </head>
 

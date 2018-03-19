@@ -47,15 +47,17 @@ body{
 }
 
 .imagen1{
-	background-image: url("../img/background1.svg");
+  background-image: url("../img/b2.jpg");
 	height: 34.75rem;
 	width: 100%;
 	background-size: cover;
 }
 
 .imagen2{
-	background-color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
+  background-image: url("../img/b2.jpg");
 	width: 100%;
+  background-size: cover;
 }
 
 .imagen3{
@@ -82,6 +84,17 @@ body{
   width: 100%;
 }
 
+.fondoReceta{
+  background-image: url("../img/a.png");
+  width: 100%;
+ background-size: cover;
+}
+
+.imgComentarios{
+  width: 75px;
+  height: 75px;
+}
+
 .affix {
   background-color: #343a40;
   -webkit-transition:all 0.8s ease-out;
@@ -91,15 +104,15 @@ body{
 }
 
 .affix a {
-    color: #FFFFFF !important;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+  color: #FFFFFF !important;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .affix span {
-    color: #FFFFFF !important;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+  color: #FFFFFF !important;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .affix-top {
@@ -120,12 +133,12 @@ body{
     color: #000000; 
 }
 
-.img-fluid{
+/*.img-fluid{
   max-height: 25em;
   width: auto;
-}
+}*/
 .backgroundPerfil{
-  margin-top: 4.5rem;
+  margin-top: 3.6rem;
   background-image: url("../img/b3.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -136,27 +149,23 @@ body{
 
 }
 
-.backgroundPerfil::-webkit-scrollbar {
-  display: none;
-}
-
 .card{
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    display: inline-flex;
-    margin-bottom: 2rem;
-    margin-right: 0.7rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  display: inline-flex;
+  margin-bottom: 2rem;
+  margin-right: 0.7rem;
 }
 
 .card-img-top2{
@@ -171,54 +180,156 @@ body{
   margin-top: 3rem;
 }
 
-@media only screen and (max-width: 1024px) {
-    .imagen1{
-      height: 25rem;
-    }
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
 
-    .imagen3{
-      height: 25rem;
-    }
+.botonfile{
+  height: 2.4rem;
+}
+
+.carousel-item img{
+  margin-top: 20px;
+  width: 1000px;
+  min-width: 1000px;
+  height: 100%;
+  max-height: 450px;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.destacadas{
+  /*font-family: 'Lobster', cursive;*/
+  font-family: 'Playfair Display', serif;
+}
+
+.breadcrumb{
+  background-color: transparent;
+}
+
+.imagenreceta{
+  width: 400px;
+  height: 350px;
+}
+
+/*.text-black{
+  color: #000000;
+}*/
+
+@media only screen and (max-width: 1024px) {
+  .imagen1{
+    height: 35rem;
+  }
+
+  .imagen3{
+    height: 25rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .imagenblanco{
-      height: 5rem;
-    }
+  .imagenblanco{
+    height: 5rem;
+  }
 
-    .imagen1{
-      height: 19rem;
-    }
+  .imagen1{
+    height: 35em;
+  }
 
-    .imagen3{
-      height: 20rem;
-    }
+  .imagen3{
+    height: 20rem;
+  }
+
+  .search{
+    width: 4rem;
+    padding-left: 6px;
+  }
+
+  .carousel-item img{
+    min-width: 750px;
+    max-height: 450px;
+  }
 }
 
 @media only screen and (max-width: 414px) {
-    .imagenblanco{
-      height: 4rem;
-    }
+  .imagenblanco{
+    height: 4rem;
+  }
 
-    .imagen1{
-      height: 12rem;
-    }
+  .imagen1{
+    height: 23rem;
+  }
 
-    .imagen3{
-      height: 12rem;
-    }
+  .imagen3{
+    height: 12rem;
+  }
+
+  .carousel-item img{
+    min-width: 380px;
+    max-height: 250px;
+  }
+
+  .imagenreceta{
+    width: 350px;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .carousel-item img{
+    min-width: 345px;
+    max-height: 225px;
+  }
+
+  .imagenreceta{
+    width: 300px;
+    height: 250px;
+  }
 }
 
 @media only screen and (max-width: 360px) {
-    .imagenblanco{
-      height: 4rem;
-    }
+  .imagenblanco{
+    height: 4rem;
+  }
 
-    .imagen1{
-      height: 15rem;
-    }
+  .imagen1{
+    height: 20rem;
+  }
 
-    .imagen3{
-      height: 12rem;
-    }
+  .imagen3{
+    height: 12rem;
+  }
+
+  .carousel-item img{
+    min-width: 340px;
+    max-height: 250px;
+  }
+
+  .imagenreceta{
+    width: 300px;
+    height: 250px;
+  }
 }

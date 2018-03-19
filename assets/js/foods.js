@@ -5,19 +5,150 @@ $('nav').affix({
 });
 
 function login(){
-	loginform.submit();
+	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_pass = /^\w{8,12}$/;
+
+	var email = document.getElementById("loginemail");
+	var pass = document.getElementById("loginpass");
+
+	var errorEmail = document.getElementById("errorEmailLogin");
+	var errorPass = document.getElementById("errorPassLogin");
+
+	if (exp_email.test(email.value)) {
+			email.style.borderColor = "rgba(0,0,0,.15)";
+			errorEmail.style.visibility = "hidden";
+
+		if (exp_pass.test(pass.value)) {
+			pass.style.borderColor = "rgba(0,0,0,.15)";
+			errorPass.style.visibility = "hidden";
+
+			pass.value = md5(pass.value);
+			loginform.submit();
+
+		}else{
+			//Mal contraseña
+			pass.style.borderColor = "red";
+			errorPass.style.visibility = "visible";
+		}
+
+	}else{
+		//MalEmail
+		email.style.borderColor = "red";
+		errorEmail.style.visibility = "visible";
+	}
+
+}
+
+function registrarse(){
+	var exp_signuser = "";//falta por implementar
+	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_telefono = /^([89]|[67])\d{8}$/;
+	var exp_pass = /^\w{8,12}$/;
+
+	var signuser = document.getElementById("signuser");
+	var email = document.getElementById("signemail");
+	var telefono = document.getElementById("signtlf");
+	var pass = document.getElementById("signpass");
+	var repetir_pass = document.getElementById("signpassrepeat");
+
+	var errorUser = document.getElementById("errorUser");
+	var errorEmail = document.getElementById("errorEmail");
+	var errorTlf = document.getElementById("errorTlf");
+	var errorPass = document.getElementById("errorPass");
+	var errorRepPass = document.getElementById("errorRepPass");
+
+	if (true) {//exp_signuser.test(signuser.value)
+		signuser.style.borderColor = "rgba(0,0,0,.15)";
+		errorUser.style.visibility = "hidden";
+
+		if (exp_email.test(email.value)) {
+			email.style.borderColor = "rgba(0,0,0,.15)";
+			errorEmail.style.visibility = "hidden";
+
+			if (exp_telefono.test(telefono.value)) {
+				telefono.style.borderColor = "rgba(0,0,0,.15)";
+				errorTlf.style.visibility = "hidden";
+
+				if (exp_pass.test(pass.value)) {//metodo md5 es para encriptar
+					pass.style.borderColor = "rgba(0,0,0,.15)";
+					errorPass.style.visibility = "hidden";
+
+					if ((md5(pass.value) == md5(repetir_pass.value))) {
+						repetir_pass.style.borderColor = "rgba(0,0,0,.15)";
+						errorRepPass.style.visibility = "hidden";
+
+						pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
+				
+						signform.submit();
+
+					}else{
+						repetir_pass.style.borderColor = "red";
+						errorRepPass.style.visibility = "visible";
+					}
+
+				}else{
+					//Mal contraseña
+					pass.style.borderColor = "red";
+					errorPass.style.visibility = "visible";
+				}
+
+			}else{
+				//Mal Telefono
+				telefono.style.borderColor = "red";
+				errorTlf.style.visibility = "visible";
+			}
+
+		}else{
+			//Mal Email
+			email.style.borderColor = "red";
+			errorEmail.style.visibility = "visible";
+		}
+
+	}else{
+		//Mal Nombre y contraseña
+		signuser.style.borderColor = "red";
+		errorUser.style.visibility = "visible";
+	}
+
+}
+
+function enviarComentario(){
+	formComentario.submit();
 }
 
 function editarPerfil(){
-	document.getElementById("perfilNombre").disabled = false;
-	document.getElementById("perfilTelefono").disabled = false;
+	document.getElementById("perfilEditar").disabled = true;
+	document.getElementById("perfilNombreId").disabled = false;
+	document.getElementById("perfilTelefonoId").disabled = false;
 	document.getElementById("perfilGuardar").disabled = false;
+	document.getElementById("imgUser").disabled = false;
 }
 
 function editarGuardar(){
-	document.getElementById("perfilNombre").disabled = true;
-	document.getElementById("perfilTelefono").disabled = true;
-	document.getElementById("perfilGuardar").disabled = true;
+	var exp_signuser = "";//falta por implementar
+	var exp_telefono = /^([89]|[67])\d{8}$/;
+
+	var signuser = document.getElementById("perfilNombreId");
+	var telefono = document.getElementById("perfilTelefonoId");
+
+	if (true) {
+
+		if (exp_telefono.test(telefono.value)) {
+			editarPerfilForm.submit();
+			document.getElementById("perfilEditar").disabled = false;
+			document.getElementById("perfilNombreId").disabled = true;
+			document.getElementById("perfilTelefonoId").disabled = true;
+			document.getElementById("perfilGuardar").disabled = true;
+			document.getElementById("imgUser").disabled = true;
+		}else{
+			//Mal Telefono
+		}
+
+	}else{
+		//Mal user
+	}
+
+
 }
 
 function numeroIngredientes(){
@@ -47,6 +178,12 @@ function loadFile(event) {
 	output.src = URL.createObjectURL(event.target.files[0]);
 };
 
+function loadFileUser(event) {
+	var output = document.getElementById('previewImagenUser');
+	output.src = URL.createObjectURL(event.target.files[0]);
+};
+
+
 function borrarPreview(){
 	var img = document.getElementById("previewImagen");
 	var imginput = document.getElementById("imgReceta");
@@ -75,4 +212,33 @@ $(function () {
 	    }*/
 	});
 
+});
+
+/*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
+$(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
 });

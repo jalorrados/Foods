@@ -1,27 +1,43 @@
-<div class="backgroundPerfil" id="navscrollstart"><!--id="navscrollstart"-->
-	<div class="container">
-		<div align="center" style="margin-top: 4.5rem; padding-top: 1rem; margin-bottom: 3rem;">
-			<h1><u><strong>Perfil de Usuario</strong></u></h1>
-		</div>
-		<div class="row">
-			<div class="col-md-5 col-xs-12">
+<section class="perfil">
+	<div class="backgroundPerfil" id="navscrollstart">
+		<!--<div align="center mb-3 " style="margin-top: 4.5rem; padding-top: 1rem;">-->
+			<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Perfil de Usuario</u></h1>
+		<div class="row"> 
+			<div class="col-15 col-md-6 mx-auto text-center">
 				<h3 class="">Datos Personales</h3>
-				<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail">a@gmail.com</span></label><br>
-				<form action="<?= base_url() ?>user/editarPerfil" method="post" accept-charset="utf-8">
-					<div class="form-group">
-						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" name="perfilNombre" id="perfilNombre" disabled></label><br>
-						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefono" disabled></label><br>
+				
+				<form action="<?=base_url()?>perfil/editarPerfil" name="editarPerfilForm" method="post" enctype="multipart/form-data">
+					<div class="form-group col-12 col-md-5 mx-auto text-center">
+						
+						<label for="imgUser">Foto de perfil:</label><br>
+						<img class="img-fluid rounded" id="previewImagenUser" style="width: 200px; height: 200px;" src="<?=base_url().$usuario['urlimagen'] ?>">
+						<div class="input-group">
+			                <label class="input-group-btn">
+			                    <span class="btn btn-primary">
+			                        Buscar <input type="file" style="display: none;" name="imgUser" id="imgUser" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFileUser(event)" disabled>
+
+			                    </span>
+			                </label>
+			                <input type="text" class="form-control botonfile" readonly>
+			            </div>
+						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.<br> Tamaño recomendado: 100x100.</strong></small><br>
+					
+						<label><strong>Email:</strong> <span id="perfilEmail" name="perfilEmail"><?= $usuario['email'] ?></span></label><br>
+
+						<label><strong>Nombre y Apellidos:</strong><input type="text" class="form-control" value="<?= $usuario['apenom'] ?>" name="perfilNombre" id="perfilNombreId" disabled></label><br>
+
+						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefonoId" value="<?= $usuario['telefono'] ?>" disabled></label><br>
 						<button type="button" class="btn btn-secondary" onclick="editarPerfil()" id="perfilEditar">Editar</button>
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
 					</div>
 				</form>
 				<br><br>
 				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
-				<div class="mx-xs-auto" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
+				<div class="mx-auto mb-5 pb-5" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
 			</div>
-			<div class="col-md-7 col-xs-12">
-				<h3>Crear nueva receta</h3>
-				<form action="<?= base_url() ?>user/nuevaReceta" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+			<div class="col-12 col-md-5 mx-auto text-center">
+				<h3 class="text-center">Crear nueva receta</h3>
+				<form action="<?= base_url() ?>user/nuevaReceta" class="ml-3" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
 		            	<label for="nombreReceta" class="col-form-label">Nombre:</label>
 		            	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta">
@@ -70,14 +86,38 @@
 		         	<div class="form-group">
 						<label for="imgReceta">Añadir una foto:</label><br>
 						<img class="img-fluid rounded" id="previewImagen">
-						<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
+						<div class="input-group">
+			                <label class="input-group-btn">
+			                    <span class="btn btn-primary">
+			                        Buscar <input type="file" style="display: none;" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">
+
+			                    </span>
+			                </label>
+			                <input type="text" class="form-control botonfile" readonly>
+			            </div>
+
+			            <!--<input type="file" class="form-control-file" name="imgReceta" id="imgReceta" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFile(event)">-->
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.</strong></small><br>
-						<button type="button" class="btn btn-warning" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
+						<button type="button" class="btn btn-warning mb-3" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
 					</div>
 
+					<div class="form-group">
+						<label class="form-label"><strong>Dificultad:</strong></label>
+						<div class="btn-group" data-toggle="buttons">
+						  <label class="btn btn-success active">
+						    <input type="radio" name="dificultad" value="facil" autocomplete="off" checked> Fácil
+						  </label>
+						  <label class="btn btn-warning">
+						    <input type="radio" name="dificultad" value="medio" autocomplete="off"> Medio
+						  </label>
+						  <label class="btn btn-danger">
+						    <input type="radio" name="dificultad" value="dificil" autocomplete="off"> Difícil
+						  </label>
+						</div>
+					</div>
+					<br>
 					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
 				</form>
 			</div>
-		</div>
 	</div>
-</div>
+</section>
