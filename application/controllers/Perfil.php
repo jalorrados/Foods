@@ -15,6 +15,7 @@ class Perfil extends CI_Controller {
 		$datos['usuario']["telefono"] = $_SESSION["telefono"];
 		$datos['usuario']["email"] = $_SESSION["email"];
 		$datos['usuario']["urlimagen"] = $_SESSION["urlimagen"];
+		$datos['usuario']["rol"] = $_SESSION["rol"];
 		
 		enmarcar($this,"perfil",$datos);
 		

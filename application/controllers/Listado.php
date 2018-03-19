@@ -17,6 +17,7 @@ class Listado extends CI_Controller {
 			$datos['usuario']["apenom"] = $_SESSION["apenom"];
 			$datos['usuario']["telefono"] = $_SESSION["telefono"];
 			$datos['usuario']["email"] = $_SESSION["email"];
+			$datos['usuario']["rol"] = $_SESSION["rol"];
 
 
 			enmarcar($this, 'listado',$datos);

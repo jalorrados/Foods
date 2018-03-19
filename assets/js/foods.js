@@ -77,40 +77,82 @@ function registrarse(){
 						repetir_pass.style.borderColor = "rgba(0,0,0,.15)";
 						errorRepPass.style.visibility = "hidden";
 
-						pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
-				
-						signform.submit();
+						var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
+
+						xml.open('GET', 'http://localhost/Foods/inicio/signPostComprobar?comprobarEmail='+email.value, true);
+						xml.send();
+
+						xml.onreadystatechange = function() {
+							if (xml.readyState==4 && xml.status==200) {
+
+								var respuesta = (xml.responseText).replace("\n","");
+								respuesta = respuesta.replace("\r","");
+
+								if (respuesta=="si") {//compruebo el resultado del ajax
+									email.style.borderColor = "red";
+									errorEmail.style.visibility = "visible";
+									email.focus();
+								}else{
+									pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
+						
+									signform.submit();
+								}
+								
+							}
+						}
 
 					}else{
 						repetir_pass.style.borderColor = "red";
 						errorRepPass.style.visibility = "visible";
+						repetir_pass.focus();
 					}
 
 				}else{
 					//Mal contraseña
 					pass.style.borderColor = "red";
 					errorPass.style.visibility = "visible";
+					pass.focus();
 				}
 
 			}else{
 				//Mal Telefono
 				telefono.style.borderColor = "red";
 				errorTlf.style.visibility = "visible";
+				telefono.focus();
 			}
 
 		}else{
 			//Mal Email
 			email.style.borderColor = "red";
 			errorEmail.style.visibility = "visible";
+			email.focus();
 		}
 
 	}else{
 		//Mal Nombre y contraseña
 		signuser.style.borderColor = "red";
 		errorUser.style.visibility = "visible";
+		signuser.focus();
 	}
 
 }
+
+/*function comprobarEmailRepetido(email) {
+	var xml = new XMLHttpRequest();
+	console.log("aqui si");
+
+	xml.open('GET', 'http://localhost/Foods/inicio/signPostComprobar?comprobarEmail='+email, true);
+	//xml.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	xml.setRequestHeader("Content-type","text/plain")
+	xml.send();
+
+	xml.onreadystatechange = function() {
+		if (xml.readyState==4 && xml.status==200) {
+			console.log("aqui no")
+			return xml.responseText;
+		}
+	}
+}*/
 
 function enviarComentario(){
 	formComentario.submit();

@@ -63,7 +63,7 @@
             <div class="form-group">
               <label for="signemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="signemail" name="signemail">
-              <small id="errorEmail" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
+              <small id="errorEmail" style="visibility: hidden;" class="form-text text-danger">Email incorrecto o ya existe.</small>
             </div>
             <div class="form-group">
               <label for="signtlf" class="col-form-label">Teléfono</label>
