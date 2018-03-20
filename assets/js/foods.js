@@ -13,17 +13,44 @@ function login(){
 
 	var errorEmail = document.getElementById("errorEmailLogin");
 	var errorPass = document.getElementById("errorPassLogin");
+	var errorLogin = document.getElementById("errorLogin");
 
 	if (exp_email.test(email.value)) {
 			email.style.borderColor = "rgba(0,0,0,.15)";
 			errorEmail.style.visibility = "hidden";
+			errorLogin.style.visibility = "hidden";
 
 		if (exp_pass.test(pass.value)) {
 			pass.style.borderColor = "rgba(0,0,0,.15)";
 			errorPass.style.visibility = "hidden";
+			errorLogin.style.visibility = "hidden";
 
-			pass.value = md5(pass.value);
-			loginform.submit();
+			var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
+
+			var getUrl = window.location;
+			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+
+			xml.open('GET', baseUrl+'/inicio/loginPostComprobar?comprobarEmailLogin='+email.value+'&comprobarPassLogin='+md5(pass.value), true);
+			xml.send();
+
+			xml.onreadystatechange = function() {
+				if (xml.readyState==4 && xml.status==200) {
+
+					var respuesta = (xml.responseText).replace("\n","");
+					respuesta = respuesta.replace("\r","");
+
+					if (respuesta=="no") {//compruebo el resultado del ajax
+						email.style.borderColor = "red";
+						pass.style.borderColor = "red";
+						errorLogin.style.visibility = "visible";
+						email.focus();
+					}else{
+						pass.value = md5(pass.value);
+						loginform.submit();
+					}
+					
+				}
+			}
 
 		}else{
 			//Mal contraseña
@@ -79,7 +106,10 @@ function registrarse(){
 
 						var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
 
-						xml.open('GET', 'http://localhost/Foods/inicio/signPostComprobar?comprobarEmail='+email.value, true);
+						var getUrl = window.location;
+						var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+
+						xml.open('GET', baseUrl+'/inicio/signPostComprobar?comprobarEmail='+email.value, true);
 						xml.send();
 
 						xml.onreadystatechange = function() {

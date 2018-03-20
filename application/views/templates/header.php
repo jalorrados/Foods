@@ -102,10 +102,11 @@
         </div>
         <div class="modal-body">
           <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
+            <small id="errorLogin" style="visibility: hidden;" class="form-text text-danger">Email o contraseña incorrectos.</small>
             <div class="form-group">
               <label for="loginemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="loginemail" name="loginemail">
-               <small id="errorEmailLogin" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
+              <small id="errorEmailLogin" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
             </div>
             <div class="form-group">
               <label for="loginpass" class="col-form-label">Contraseña</label>

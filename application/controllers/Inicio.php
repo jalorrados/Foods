@@ -22,6 +22,29 @@ class Inicio extends CI_Controller {
 		
 	}
 
+	public function loginPostComprobar(){//recibe la peticion ajax para comprobar si existe el usuario o no
+		$valido = 'no';
+
+		$this->load->model('inicio_model');//carga el modelo
+		$email = $_GET["comprobarEmailLogin"];
+		$pass = $_GET["comprobarPassLogin"];
+
+		$usuario = $this -> inicio_model -> getUser($email);//obtengo el usuario para coger su rol
+
+		if (isset($usuario["email"]) && ($usuario["email"]!=null) && ($usuario["email"]==$email)) {//que exista el email
+			if ($usuario["pass"] == $pass) {//que coincidan las contraseñas
+				$valido = 'si';
+			}else{
+				$valido = 'no';
+			}
+		}else{
+			$valido = 'no';
+		}
+
+		echo $valido;
+
+	}
+
 	public function loginPost(){
 		session_start();
 		$this->load->model('inicio_model');//carga el modelo
@@ -47,7 +70,7 @@ class Inicio extends CI_Controller {
 
 		$usuario = $this -> inicio_model -> getUser($email);//obtengo el usuario para coger su rol
 
-		if (isset($usuario["email"]) && ($usuario["email"]!=null) && ($usuario["email"]==$email)) {
+		if (isset($usuario["email"]) && ($usuario["email"]!=null) && ($usuario["email"]==$email)) {//que exista el email
 			$existe = 'si';
 		}else{
 			$existe = 'no';
