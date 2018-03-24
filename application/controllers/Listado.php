@@ -7,6 +7,36 @@ class Listado extends CI_Controller {
 		//falta pasarle el nombre de la categoria(recibida por get) en la que he pulsado y los datos de las recetas
 		if (isset($_GET["categoria"])) {
 				$datos['usuario']["categoria"] = $_GET["categoria"];
+				$categoriabbdd = "";
+
+				switch ($_GET["categoria"]) {//comprobar todas las recetas y asignarle la url correspondiente
+					case 'Alimentacion infantil':
+						$categoriabbdd = "infantil";
+						break;
+
+					case 'Aperitivos y tapas':
+						$categoriabbdd = "tapas";
+						break;
+
+					case 'Sopas y cremas':
+						$categoriabbdd = "sopas";
+						break;
+
+					case 'Arroces y pastas':
+						$categoriabbdd = "pastas";
+						break;
+
+					case 'Potajes y platos de cuchara':
+						$categoriabbdd = "potajes";
+						break;
+
+					case 'Verduras y hortalizas':
+						$categoriabbdd = "verduras";
+						break;
+			}
+				$this->load->model('listado_model');
+				$listado = $this-> listado_model->getListado($categoriabbdd);
+				$datos['usuario']["listado"] = $listado;
 		}
 
 		session_start();//iniciar sesion

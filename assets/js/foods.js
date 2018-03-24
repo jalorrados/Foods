@@ -167,22 +167,6 @@ function registrarse(){
 
 }
 
-/*function comprobarEmailRepetido(email) {
-	var xml = new XMLHttpRequest();
-	console.log("aqui si");
-
-	xml.open('GET', 'http://localhost/Foods/inicio/signPostComprobar?comprobarEmail='+email, true);
-	//xml.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	xml.setRequestHeader("Content-type","text/plain")
-	xml.send();
-
-	xml.onreadystatechange = function() {
-		if (xml.readyState==4 && xml.status==200) {
-			console.log("aqui no")
-			return xml.responseText;
-		}
-	}
-}*/
 
 function enviarComentario(){
 	formComentario.submit();
