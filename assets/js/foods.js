@@ -236,15 +236,30 @@ function numeroIngredientes(){
 
 function loadFile(rutaimagen) {
 
+	/*Cambia la imagen*/
 	var boton = document.getElementById('eliminarPreview');
 	boton.disabled = false;
 
 	var output = document.getElementById('previewImagen');
 	output.src = rutaimagen;
 	/*output.src = URL.createObjectURL(event.target.files[0]);*/
+	$(function() {
 
+	  /*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
+	    var input = $("#imgReceta"),
+	        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+	    	input.trigger('fileselect', [numFiles, label]);
 
+	    var input = $("#inputimgReceta").parents('.input-group').find(':text'),
+	    	log = numFiles > 1 ? numFiles + ' files selected' : label;
 
+	    if( input.length ) {
+	    	input.val(log);
+	    } else {
+	    	if( log ) alert(log);
+	    }
+	});
 };
 
 $("#imgReceta").checkImageSize({
@@ -282,7 +297,7 @@ function crearReceta(){
 	var npersonas = document.getElementById("numPersonas");
 	var ningredientes = document.getElementById("numIngredientes");
 	var ingredientes = document.getElementById("ingredientes");
-	var imagen = document.getElementById("previewImagen");
+	var imagen = document.getElementById("inputimgReceta");
 	var categoria = document.getElementById("categoriaReceta");
 
 	if (exp_nombre.test(nombre.value)) {
@@ -306,7 +321,7 @@ function crearReceta(){
 								alert("Debes seleccionar una categoría");
 							}*/
 
-							alert(imagen.src);
+							alert(imagen.value);
 
 						}else{
 
@@ -346,7 +361,7 @@ function comprobarningredientes(ingredientes){
 
 	for (var i = 0; i < ingredientes.childNodes.length; i++) {
 
-		if (ingredientes.childNodes[i].childNodes[0].value == "") {
+		if (ingredientes.childNodes[i].childNodes[0].value == "" || !isWordR(ingredientes.childNodes[i].childNodes[0].value)) {
 			q = false;
 		}
 
@@ -386,18 +401,24 @@ $(function () {
 });
 
 /*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
-$(function() {
+/*$(function() {
 
   // We can attach the `fileselect` event to all file inputs on the page
   $(document).on('change', ':file', function() {
     var input = $(this),
         numFiles = input.get(0).files ? input.get(0).files.length : 1,
         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    if (false) {
+        setTimeout("", 1000);
+        alert(imgcheck);
+    //if (imgcheck == true) {
+//
+  //  }else{
+    //	input.trigger('fileselect', [numFiles, label]);
+    //}
 
-    }else{
     	input.trigger('fileselect', [numFiles, label]);
-    }
+
+    	imgcheck = false;
   });
 
   // We can watch for our custom `fileselect` event like this
@@ -417,4 +438,4 @@ $(function() {
 	});
   });
   
-});
+});*/

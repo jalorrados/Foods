@@ -43,6 +43,7 @@
 		                    validImage = false;
 		                    if (opts.showError) {
 		                    	alert('Por favor seleccione una imagen de al menos ' + minWidth + 'px de ancho y ' + minHeight + 'px de alto!');
+		                    	borrarPreview();
 		                    }
 		                }
 
@@ -50,6 +51,7 @@
 		                    validImage = false;
 		                    if (opts.showError) {
 		                    	alert('Por favor seleccione una imagen de máximo ' + maxWidth + 'px de ancho y ' + maxHeight + 'px de alto!');
+		                    	borrarPreview();
 		                    }
 		                }
 
