@@ -156,3 +156,11 @@ function peticionAjaxXML(metodo, idcontenido, buscar, reemplazar, etiqueta, posi
 		}
 	}
 }
+
+function obtenerwidthimagen(imagen){
+	setTimeout(function(){alert(imagen.width);}, 1000);
+}
+
+function obtenerheigthimagen(imagen){
+	setTimeout(function(){alert(imagen.height);}, 1000);
+}

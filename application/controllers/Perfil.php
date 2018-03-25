@@ -53,5 +53,9 @@ class Perfil extends CI_Controller {
 
 		header('Location:'.base_url().'perfil');//vuelve a cargar el perfil
 	}
+
+	public function crearReceta(){
+
+	}
 }
 ?>

@@ -225,8 +225,8 @@ function numeroIngredientes(){
 			var divv = document.createElement("div");
 			divv.setAttribute("class","form-inline");
 			divv.style.marginBottom="5px";
-			divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+numSeleccionado.value+'" name="ingrediente'+numSeleccionado.value+'">'+
-			'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+numSeleccionado.value+'" name="cantidad'+numSeleccionado.value+'">'+
+			divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+i+'" name="ingrediente'+i+'">'+
+			'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+i+'" name="cantidad'+i+'">'+
 			'<select class="form-control" name="tipoingrediente"><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
 			
 			divCantidad.appendChild(divv);
@@ -234,13 +234,25 @@ function numeroIngredientes(){
 	}
 }
 
-function loadFile(event) {
+function loadFile(rutaimagen) {
+
 	var boton = document.getElementById('eliminarPreview');
 	boton.disabled = false;
 
 	var output = document.getElementById('previewImagen');
-	output.src = URL.createObjectURL(event.target.files[0]);
+	output.src = rutaimagen;
+	/*output.src = URL.createObjectURL(event.target.files[0]);*/
+
+
+
 };
+
+$("#imgReceta").checkImageSize({
+  minHeight: 300,
+  maxHeight: 800,
+  showError: true,
+  ignoreError: false
+});
 
 function loadFileUser(event) {
 	var output = document.getElementById('previewImagenUser');
@@ -250,12 +262,107 @@ function loadFileUser(event) {
 
 function borrarPreview(){
 	var img = document.getElementById("previewImagen");
-	var imginput = document.getElementById("imgReceta");
+	var inputfile = document.getElementById("imgReceta");
+	var imginput = document.getElementById("inputimgReceta");
 	var boton = document.getElementById('eliminarPreview');
 	boton.disabled = true;
 	img.src=" ";
-	imginput.value = "";
+	inputfile.value = "";
+	inputimgReceta.value = "";
 }
+
+
+function crearReceta(){
+
+	var exp_nombre =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{2,40}$/;
+	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{10,}$/;
+
+	var nombre = document.getElementById("nombreReceta");
+	var preparacion = document.getElementById("preparacionReceta");
+	var npersonas = document.getElementById("numPersonas");
+	var ningredientes = document.getElementById("numIngredientes");
+	var ingredientes = document.getElementById("ingredientes");
+	var imagen = document.getElementById("previewImagen");
+	var categoria = document.getElementById("categoriaReceta");
+
+	if (exp_nombre.test(nombre.value)) {
+
+		if (exp_preparacion.test(preparacion.value)) {
+
+			if (npersonas.value != "---") {
+
+				if (ningredientes.value != "---") {
+
+					if (comprobarningredientes(ingredientes)) {
+
+						if (categoria.value != "---") {
+
+							/*if (imagen.src) {
+
+								alert("Receta creada");
+
+							}else{
+
+								alert("Debes seleccionar una categoría");
+							}*/
+
+							alert(imagen.src);
+
+						}else{
+
+							alert("Debes seleccionar una categoría");
+						}
+
+					}else{
+
+						alert("Debes rellenar todos los campos de ingredientes con datos correctos");
+					}
+
+				}else{
+
+					alert("Debe seleccionar el número de ingredientes");
+				}
+
+			}else{
+
+				alert("Debe seleccionar el número de personas");
+			}
+
+		}else{
+
+			alert("La preparación debe contener al menos 10 caracteres min.");
+		}
+
+	}else{
+
+		alert("El nombre debe estar comprendido entre 2 y 40 caracteres");
+	}
+	
+}
+
+function comprobarningredientes(ingredientes){
+
+	var q = true;
+
+	for (var i = 0; i < ingredientes.childNodes.length; i++) {
+
+		if (ingredientes.childNodes[i].childNodes[0].value == "") {
+			q = false;
+		}
+
+		if (ingredientes.childNodes[i].childNodes[1].value == "" || parseFloat(ingredientes.childNodes[i].childNodes[1].value) <= 0) {
+			q = false;
+		}
+
+		if (ingredientes.childNodes[i].childNodes[2].value == "Unidades") {
+			q = false;
+		}
+
+	}
+
+	return q;
+}
+
 
 
 //JQuery
@@ -286,23 +393,28 @@ $(function() {
     var input = $(this),
         numFiles = input.get(0).files ? input.get(0).files.length : 1,
         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.trigger('fileselect', [numFiles, label]);
+    if (false) {
+
+    }else{
+    	input.trigger('fileselect', [numFiles, label]);
+    }
   });
 
   // We can watch for our custom `fileselect` event like this
   $(document).ready( function() {
-      $(':file').on('fileselect', function(event, numFiles, label) {
 
-          var input = $(this).parents('.input-group').find(':text'),
-              log = numFiles > 1 ? numFiles + ' files selected' : label;
+	$(':file').on('fileselect', function(event, numFiles, label) {
 
-          if( input.length ) {
-              input.val(log);
-          } else {
-              if( log ) alert(log);
-          }
+	    var input = $(this).parents('.input-group').find(':text'),
+	    	log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-      });
+	    if( input.length ) {
+	    	input.val(log);
+	    } else {
+	    	if( log ) alert(log);
+	    }
+
+	});
   });
   
 });
