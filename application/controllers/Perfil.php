@@ -30,7 +30,7 @@ class Perfil extends CI_Controller {
 		/****Cogemos la imgen y la copiamos a la carpeta correspondiente****/
 		$nombre = $_FILES['imgUser']['name'];
 		$carpeta = "./fotos/".$_SESSION["email"];
-		copy ( $_FILES['imgUser']['tmp_name'], $carpeta."/".$nombre );
+		copy ( $_FILES['imgUser']['tmp_name'], $carpeta."/perfil.".pathinfo($nombre, PATHINFO_EXTENSION));
 
 		$usuario = $this-> perfil_model->getUser($_SESSION["email"]);
 
@@ -38,15 +38,15 @@ class Perfil extends CI_Controller {
 		if ($nombre==null) {
 			$urlimagen = $usuario->urlimagen;
 		}else{
-			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombre;
+			$urlimagen = "fotos/".$_SESSION["email"]."/perfil.".pathinfo($nombre, PATHINFO_EXTENSION);
 		}
 		
 		$_SESSION["urlimagen"]=$urlimagen;//ponemos la url en la sesion
 
 		
-		$idUsuario = $this -> perfil_model -> getIdByEmail($_POST["perfilEmail"]);//obtiene el id del usuario
+		$idUsuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);//obtiene el id del usuario
 
-		$this -> perfil_model -> updateUser(1,$apenom,$telefono,$urlimagen);//se modifica los datos del usuario
+		$this -> perfil_model -> updateUser($idUsuario,$apenom,$telefono,$urlimagen);//se modifica los datos del usuario
 
 		$_SESSION["apenom"]=$apenom;
 		$_SESSION["telefono"]=$telefono;
@@ -55,7 +55,32 @@ class Perfil extends CI_Controller {
 	}
 
 	public function crearReceta(){
+		$this->load->model('perfil_model');//carga el modelo
+		session_start();//inicia sesion y le vuelvo a asignar los nuevos valores a session
+		$nombrereceta = $_POST["nombreReceta"];
+		$preparacion = $_POST["preparacionReceta"];
+		$npersonas = $_POST["numPersonas"];
+		$ningrediente = $_POST["numIngredientes"];
+		$genero = $_POST["categoriaReceta"];
+		$dificultad = $_POST["dificultad"];
 
+		/****Cogemos la imgen y la copiamos a la carpeta correspondiente****/
+		$nombreimagen = $_FILES['imgReceta']['name'];
+		$carpeta = "./fotos/".$_SESSION["email"];
+		copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
+
+		//cogemos la url de la imagen para meterla en la bbdd
+		if ($nombreimagen==null) {
+			$urlimagen = base_url()."assets/img/noimage.png";
+		}else{
+			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
+		}
+		
+		$idUsuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);//obtiene el id del usuario
+
+		$this -> perfil_model -> updateUser($idUsuario,$nombrereceta,$preparacion,$npersonas,$ningrediente,$genero,$dificultad,$urlimagen);//crea la receta
+
+		header('Location:'.base_url().'perfil');//vuelve a cargar la vista perfil
 	}
 }
 ?>

@@ -96,7 +96,7 @@
 					<div class="form-group" id="ingredientes"></div>
 
 		         	<div class="form-group">
-						<label for="imgReceta">Añadir una foto:</label><br>
+						<label>Añadir una foto:</label><br>
 						<img class="img-fluid rounded" id="previewImagen">
 						<div class="input-group">
 			                <label class="input-group-btn">

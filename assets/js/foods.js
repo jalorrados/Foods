@@ -297,7 +297,7 @@ function crearReceta(){
 	var npersonas = document.getElementById("numPersonas");
 	var ningredientes = document.getElementById("numIngredientes");
 	var ingredientes = document.getElementById("ingredientes");
-	var imagen = document.getElementById("inputimgReceta");
+	var imagen = document.getElementById("imgReceta");
 	var categoria = document.getElementById("categoriaReceta");
 
 	if (exp_nombre.test(nombre.value)) {
@@ -312,16 +312,11 @@ function crearReceta(){
 
 						if (categoria.value != "---") {
 
-							/*if (imagen.src) {
+							crearRecetaForm.submit();
 
-								alert("Receta creada");
+							//alert(obtenervalorradiobutton("dificultad"));
 
-							}else{
-
-								alert("Debes seleccionar una categoría");
-							}*/
-
-							alert(imagen.value);
+							/*alert(imagen.value);*/
 
 						}else{
 
@@ -377,8 +372,6 @@ function comprobarningredientes(ingredientes){
 
 	return q;
 }
-
-
 
 //JQuery
 $(function () {

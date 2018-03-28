@@ -157,12 +157,25 @@ function peticionAjaxXML(metodo, idcontenido, buscar, reemplazar, etiqueta, posi
 	}
 }
 
-
-
 function obtenerwidthimagen(imagen){
 	setTimeout(function(){alert(imagen.width);}, 1000);
 }
 
 function obtenerheigthimagen(imagen){
 	setTimeout(function(){alert(imagen.height);}, 1000);
+}
+
+function obtenervalorradiobutton(name){
+
+	var radio = document.getElementsByName(name);
+	var resultado;
+
+	for (var i = 0; i < radio.length; i++) {
+
+		if (radio[i].checked) {
+			resultado = radio[i].value;
+		}
+	}
+
+	return resultado;
 }
