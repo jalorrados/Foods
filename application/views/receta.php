@@ -24,13 +24,15 @@
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
 			<ul class="list-group mx-3">
-				<li class="list-group-item">Ingrediente 1</li>
-				<li class="list-group-item">Ingrediente 2</li>
+				<?php for($i = 0; $i <count($usuario["nombreIngredientes"]); $i++):?>
+					<li class="list-group-item"><?=$usuario["datosIngredientes"][$i]->cantidad." ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
+				<?php endfor; ?>
+				<!--<li class="list-group-item">Ingrediente 2</li>
 				<li class="list-group-item">Ingrediente 3</li>
 				<li class="list-group-item">Ingrediente 4</li>
 				<li class="list-group-item">Ingrediente 5</li>
 				<li class="list-group-item">Ingrediente 6</li>
-				<li class="list-group-item">Ingrediente 7</li>
+				<li class="list-group-item">Ingrediente 7</li>-->
 			</ul>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Preparación</div>

@@ -39,7 +39,21 @@ class Receta extends CI_Controller {
 			$id=$_GET["idReceta"];
 			$this->load->model('receta_model');
 			$receta = $this-> receta_model->getRecetaById($id);
+			$ingredientes = $this-> receta_model->getIngredientes($id);
+			$especificacionIngrediente = $this-> receta_model->getEspecificacionIngrediente();
+			$nombreIngredientes =[];
+			foreach ($ingredientes as $ing) {
+				foreach ($especificacionIngrediente as $esping) {
+					if ($esping->id == $ing->especificacioningrediente_id) {
+						array_push($nombreIngredientes,$esping);
+					}
+				}
+			}
+			
+
 			$datos['usuario']["receta"] = $receta;
+			$datos['usuario']["datosIngredientes"] = $ingredientes;
+			$datos['usuario']["nombreIngredientes"] = $nombreIngredientes;
 			
 		}
 
