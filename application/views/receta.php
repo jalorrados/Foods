@@ -14,8 +14,12 @@
 	 	</div>
 		<div class="rounded pb-3 mb-3" style="border: 1px solid black; background-color: white;">
 			<div class="row">
-				<h3 class="text-center col-12"><u>Titulo de la receta</u></h3>
-				<img src="<?=base_url()?>assets/img/b2.jpg" class="mx-auto align-content-center justify-content-center rounded imagenreceta">
+				<h3 class="text-center col-12"><u><?= $usuario["receta"]->nombre ?></u></h3>
+				<?php if($usuario["receta"]->urlimagen == "assets/img/noimage.jpg"):?>
+                   <img src="<?=base_url().$usuario["receta"]->urlimagen?>assets/img/b2.jpg" class="mx-auto align-content-center justify-content-center rounded imagenreceta">
+                <?php else:?>
+                  <img src="<?=$usuario["receta"]->urlimagen?>" class="mx-auto align-content-center justify-content-center rounded imagenreceta">
+                <?php endif; ?>
 			</div>
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
@@ -31,12 +35,7 @@
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Preparación</div>
 
-			<p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p class="mx-3"><?= $usuario["receta"]->preparacion ?></p>
 			<div class="mx-auto col-12" id="rate2"></div>
 		</div>
 		<h3>Añade un comentario</h3>

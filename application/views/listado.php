@@ -15,11 +15,15 @@
         <div class="col-12 mt-5 mb-3 my-3">
             <div class="media">
               <div class="media-left">
-                <img class="media-object" src="<?= base_url() ?>assets/img/aperitivos_tapas.jpg">
+                <?php if($receta->urlimagen == "assets/img/noimage.jpg"):?>
+                   <img class="media-object" src="<?= base_url() . $receta->urlimagen ?>">
+                <?php else:?>
+                   <img class="media-object img-fluid rounded imgListado" src="<?= $receta->urlimagen ?>">
+                <?php endif; ?>
               </div>
               <div class="media-body ml-3">
                 <h4 class="media-heading"><?= $receta->nombre ?></h4>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                <?=$receta->preparacion?>
               </div>
             </div>
         </div>

@@ -95,6 +95,11 @@ body{
   height: 75px;
 }
 
+.imgListado{
+  width: 358px;
+  height: 250px;
+}
+
 #previewImagen{
   background-image: url("../img/noimagen.jpg");
   height: 300px;

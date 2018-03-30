@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Receta extends CI_Controller {
 
 	public function index(){
-		//*******Lo Que Falta*****/
-		//coge el id de la receta pulsada y le pasa los datos a la vista
-		//coger de la bbdd el nombre de la categoria de la que procede y pasarselo
-		//***********************/
 		if (isset($_GET["categoria"])) {
 			$datos['usuario']["categoria"] = $_GET["categoria"];
 
@@ -36,6 +32,15 @@ class Receta extends CI_Controller {
 					$datos['usuario']["categoriaurl"] = "Verduras%20y%20hortalizas";
 					break;
 			}
+
+		}
+
+		if (isset($_GET["idReceta"])) {
+			$id=$_GET["idReceta"];
+			$this->load->model('receta_model');
+			$receta = $this-> receta_model->getRecetaById($id);
+			$datos['usuario']["receta"] = $receta;
+			
 		}
 
 		session_start();//iniciar sesion

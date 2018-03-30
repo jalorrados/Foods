@@ -73,7 +73,7 @@ class Perfil extends CI_Controller {
 
 		//cogemos la url de la imagen para meterla en la bbdd
 		if ($nombreimagen==null) {
-			$urlimagen = "assets/img/noimage.png";
+			$urlimagen = "assets/img/noimagen.jpg";
 		}else{
 			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
 			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
