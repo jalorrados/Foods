@@ -314,9 +314,12 @@ function imgUserDefault(){
 	var img = document.getElementById("previewImagenUser");
 	var inputfile = document.getElementById("imgUser");
 	var imginput = document.getElementById("inputimgUser");
-	img.src=" ";
 	inputfile.value = "";
 	inputimgReceta.value = "";
+
+	$.ajax({url: "perfil/peticionAjaximagen", success: function(result){
+		img.src= result;
+    }});
 }
 
 

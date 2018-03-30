@@ -91,5 +91,10 @@ class Perfil extends CI_Controller {
 
 		header('Location:'.base_url().'perfil');//vuelve a cargar la vista perfil
 	}
+
+	public function peticionAjaximagen(){
+		session_start();
+		echo base_url() . $_SESSION["urlimagen"];
+	}
 }
 ?>
