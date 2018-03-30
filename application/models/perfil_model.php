@@ -28,19 +28,28 @@ class Perfil_model extends CI_Model {
 		R::close();
 	}
 
-	public function createRecipe($idUsuario,$nombrereceta,$preparacion,$npersonas,$ningredientes,$genero,$dificultad,$urlimagen){
+	public function createRecipe($idUsuario,$nombrereceta,$preparacion,$npersonas,$nombreingrediente,$cantidad,$unidades,$categoria,$dificultad,$urlimagen){
 
 		$usuario = R::load('usuario', $idUsuario);
 		$receta = R::dispense ('receta');
-		$receta = R::dispense ('ingrediente');
-		$receta = R::dispense ('especificacioningrediente');
 		$receta -> nombre = $nombrereceta;
 		$receta -> preparacion = $preparacion;
 		$receta -> numpersonas = $npersonas;
-		$receta -> genero = $genero;
+		$receta -> categoria = $categoria;
 		$receta -> dificultad = $dificultad;
 		$receta -> urlimagen = $urlimagen;
-		R::store($receta);
+		$receta -> usuario = $usuario;
+
+		for ($i=0; $i < count($nombreingrediente); $i++) {
+			$especificacioningrediente = R::dispense ('especificacioningrediente');
+			$ingrediente = R::dispense ('ingrediente');
+			$especificacioningrediente -> nombre = $nombreingrediente[$i];
+			$ingrediente -> cantidad = $cantidad[$i];
+			$ingrediente -> unidades = $unidades[$i];
+			$ingrediente -> receta = $receta;
+			$ingrediente -> especificacioningrediente = $especificacioningrediente;
+			R::store($ingrediente);
+		}
 		
 		R::close();
 		

@@ -46,12 +46,12 @@
 				<form action="<?= base_url() ?>perfil/crearReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
 		            	<label for="nombreReceta" class="col-form-label">Nombre:</label>
-		            	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta" value="hsdfkshdfksdf">
+		            	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta">
 		         	</div>
 
 		         	<div class="form-group">
 		            	<label for="preparacionReceta" class="col-form-label">Preparación:</label>
-		            	<textarea class="form-control" name="preparacionReceta" id="preparacionReceta" rows="3" >uasduygdffkasdhkasdugysetfusdfjhgdjasgdhajsdghgghjhuykhgfgghfasddfdgffdgasdfsadf</textarea>
+		            	<textarea class="form-control" name="preparacionReceta" id="preparacionReceta" rows="3" ></textarea>
 		         	</div>
 
 		         	<div class="form-group">
