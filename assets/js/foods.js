@@ -315,7 +315,7 @@ function imgUserDefault(){
 	var inputfile = document.getElementById("imgUser");
 	var imginput = document.getElementById("inputimgUser");
 	inputfile.value = "";
-	inputimgReceta.value = "";
+	imginput.value = "";
 
 	$.ajax({url: "perfil/peticionAjaximagen", success: function(result){
 		img.src= result;
