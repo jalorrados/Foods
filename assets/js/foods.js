@@ -227,7 +227,7 @@ function numeroIngredientes(){
 			divv.style.marginBottom="5px";
 			divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+i+'" name="ingrediente'+i+'">'+
 			'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+i+'" name="cantidad'+i+'">'+
-			'<select class="form-control" id="unidad'+i+'" name="unidad'+i+'"><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
+			'<select class="form-control" id="unidad'+i+'" name="unidad'+i+'"><option>---</option><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
 			
 			divCantidad.appendChild(divv);
 		}
@@ -397,7 +397,7 @@ function comprobarningredientes(ingredientes){
 			q = false;
 		}
 
-		if (ingredientes.childNodes[i].childNodes[2].value == "Unidades") {
+		if (ingredientes.childNodes[i].childNodes[2].value == "---") {
 			q = false;
 		}
 
