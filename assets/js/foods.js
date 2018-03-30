@@ -249,7 +249,6 @@ function loadFile(rutaimagen) {
 	    var input = $("#imgReceta"),
 	        numFiles = input.get(0).files ? input.get(0).files.length : 1,
 	        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-	    	input.trigger('fileselect', [numFiles, label]);
 
 	    var input = $("#inputimgReceta").parents('.input-group').find(':text'),
 	    	log = numFiles > 1 ? numFiles + ' files selected' : label;
@@ -269,11 +268,36 @@ $("#imgReceta").checkImageSize({
   ignoreError: false
 });
 
-function loadFileUser(event) {
+function loadFileUser(rutaimagen) {
+
+	/*Cambia la imagen*/
 	var output = document.getElementById('previewImagenUser');
-	output.src = URL.createObjectURL(event.target.files[0]);
+	output.src = rutaimagen;
+
+	$(function() {
+
+	  /*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
+	    var input = $("#imgUser"),
+	        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+
+	    var input = $("#inputimgUser").parents('.input-group').find(':text'),
+	    	log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+	    if( input.length ) {
+	    	input.val(log);
+	    } else {
+	    	if( log ) alert(log);
+	    }
+	});
 };
 
+$("#imgUser").checkUserImageSize({
+  minHeight: 300,
+  maxHeight: 800,
+  showError: true,
+  ignoreError: false
+});
 
 function borrarPreview(){
 	var img = document.getElementById("previewImagen");
@@ -281,6 +305,15 @@ function borrarPreview(){
 	var imginput = document.getElementById("inputimgReceta");
 	var boton = document.getElementById('eliminarPreview');
 	boton.disabled = true;
+	img.src=" ";
+	inputfile.value = "";
+	inputimgReceta.value = "";
+}
+
+function imgUserDefault(){
+	var img = document.getElementById("previewImagenUser");
+	var inputfile = document.getElementById("imgUser");
+	var imginput = document.getElementById("inputimgUser");
 	img.src=" ";
 	inputfile.value = "";
 	inputimgReceta.value = "";
@@ -392,43 +425,3 @@ $(function () {
 	});
 
 });
-
-/*Obtiene el nombre del archivo del input type file y lo añade al input type text*/
-/*$(function() {
-
-  // We can attach the `fileselect` event to all file inputs on the page
-  $(document).on('change', ':file', function() {
-    var input = $(this),
-        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        setTimeout("", 1000);
-        alert(imgcheck);
-    //if (imgcheck == true) {
-//
-  //  }else{
-    //	input.trigger('fileselect', [numFiles, label]);
-    //}
-
-    	input.trigger('fileselect', [numFiles, label]);
-
-    	imgcheck = false;
-  });
-
-  // We can watch for our custom `fileselect` event like this
-  $(document).ready( function() {
-
-	$(':file').on('fileselect', function(event, numFiles, label) {
-
-	    var input = $(this).parents('.input-group').find(':text'),
-	    	log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-	    if( input.length ) {
-	    	input.val(log);
-	    } else {
-	    	if( log ) alert(log);
-	    }
-
-	});
-  });
-  
-});*/

@@ -17,11 +17,11 @@
 						<div class="input-group mt-2">
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">
-			                        Buscar <input type="file" style="display: none;" name="imgUser" id="imgUser" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" onchange="loadFileUser(event)" disabled>
+			                        Buscar <input type="file" style="display: none;" name="imgUser" id="imgUser" aria-describedby="fileHelp" accept=".jpg, .jpeg, .png" disabled>
 
 			                    </span>
 			                </label>
-			                <input type="text" class="form-control botonfile" readonly>
+			                <input type="text" class="form-control botonfile" id="inputimgUser" readonly>
 			            </div>
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.<br> Tamaño recomendado: 100x100.</strong></small><br>
 					
