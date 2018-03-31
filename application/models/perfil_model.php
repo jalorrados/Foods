@@ -55,7 +55,7 @@ class Perfil_model extends CI_Model {
 		
 	}
 
-	public function getRecipe($nombre) {//encontrar un usuario segun si email
+	/*public function getRecipe($nombre) {//encontrar un usuario segun si email
 
 		return R::findOne('usuario','nombre = ? ', [$nombre] );
 		
@@ -66,7 +66,7 @@ class Perfil_model extends CI_Model {
 		$user = R::findOne('usuario','nombre = ? ', [$email] );
 		return $user["id"];
 		
-	}
+	}*/
 
 	public function getAll() {//obtener totos los usuarios
 

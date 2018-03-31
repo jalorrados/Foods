@@ -15,8 +15,8 @@
         <div class="col-12 mt-5 mb-3 my-3">
             <div class="media">
               <div class="media-left">
-                <?php if($receta->urlimagen == "assets/img/noimage.jpg"):?>
-                   <img class="media-object" src="<?= base_url() . $receta->urlimagen ?>">
+                <?php if($receta->urlimagen == "assets/img/noimagen.jpg"):?>
+                   <img class="media-object img-fluid rounded imgListado" src="<?= base_url() . $receta->urlimagen ?>">
                 <?php else:?>
                    <img class="media-object img-fluid rounded imgListado" src="<?= $receta->urlimagen ?>">
                 <?php endif; ?>

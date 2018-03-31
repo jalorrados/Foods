@@ -350,10 +350,6 @@ function crearReceta(){
 
 							crearRecetaForm.submit();
 
-							//alert(obtenervalorradiobutton("dificultad"));
-
-							/*alert(imagen.value);*/
-
 						}else{
 
 							alert("Debes seleccionar una categoría");
