@@ -95,6 +95,19 @@ body{
   height: 75px;
 }
 
+.imgListado{
+  width: 358px;
+  height: 250px;
+}
+
+#previewImagen{
+  background-image: url("../img/noimagen.jpg");
+  height: 300px;
+  width: 603px;
+  background-size: 100%;
+  background-position: center;
+}
+
 .affix {
   background-color: #343a40;
   -webkit-transition:all 0.8s ease-out;
@@ -236,9 +249,18 @@ body{
   height: 350px;
 }
 
-/*.text-black{
+.text-black{
   color: #000000;
-}*/
+}
+
+.nosub{
+  text-decoration: none;
+}
+
+.nosub:hover{
+  color: #000000;
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 1024px) {
   .imagen1{

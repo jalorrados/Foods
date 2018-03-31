@@ -20,8 +20,8 @@
         </li>
       </ul>
       <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
-            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="submit">Search</button>
+            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="submit">Buscar</button>
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">
@@ -63,7 +63,7 @@
             <div class="form-group">
               <label for="signemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="signemail" name="signemail">
-              <small id="errorEmail" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
+              <small id="errorEmail" style="visibility: hidden;" class="form-text text-danger">Email incorrecto o ya existe.</small>
             </div>
             <div class="form-group">
               <label for="signtlf" class="col-form-label">Teléfono</label>
@@ -102,10 +102,11 @@
         </div>
         <div class="modal-body">
           <form class="text-lg-center" name="loginform" action="<?= base_url() ?>inicio/loginPost" method="post">
+            <small id="errorLogin" style="visibility: hidden;" class="form-text text-danger">Email o contraseña incorrectos.</small>
             <div class="form-group">
               <label for="loginemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="loginemail" name="loginemail">
-               <small id="errorEmailLogin" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
+              <small id="errorEmailLogin" style="visibility: hidden;" class="form-text text-danger">Email incorrecto.</small>
             </div>
             <div class="form-group">
               <label for="loginpass" class="col-form-label">Contraseña</label>

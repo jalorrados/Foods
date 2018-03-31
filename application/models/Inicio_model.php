@@ -11,11 +11,10 @@ class Inicio_model extends CI_Model {
 			$usuario -> telefono = $telefono;
 			$usuario -> pass = $pass;
 			$usuario -> urlimagen ="assets/img/avatar.png";//cuando te registras sale la imagen por defecto
+			$usuario -> rol ="user";//rol por defecto
 			R::store($usuario);
 		}
-		else {
-			throw new Exception("email duplicada");
-		}
+		
 		R::close();
 
 	}

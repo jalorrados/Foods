@@ -24,6 +24,12 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/bubbles.css">
 	<script type="text/javascript" src="<?= base_url()?>assets/js/jquery.rateyo.js"></script>
 	<script type="text/javascript" src="<?= base_url()?>assets/js/md5.js"></script>
+	<script type="text/javascript" src="<?= base_url()?>assets/js/checkImageSize.js"></script>
+	<script type="text/javascript" src="<?= base_url()?>assets/js/Librerias.js"></script>
+
+
+	
+	<link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/breadcrumb.css">
 
 	<script type="text/javascript">
 
