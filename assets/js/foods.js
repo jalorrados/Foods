@@ -326,7 +326,7 @@ function imgUserDefault(){
 function crearReceta(){
 
 	var exp_nombre =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{2,40}$/;
-	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{10,}$/;
+	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
 
 	var nombre = document.getElementById("nombreReceta");
 	var preparacion = document.getElementById("preparacionReceta");
