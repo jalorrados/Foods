@@ -9,11 +9,19 @@
     <a href="<?= base_url() ?>categorias"> Categorias</a>
     <a class="activebreadcrumb" href="#"><?= $usuario["categoria"] ?></a>
   </div>
-  <div class="row">
+  <form class="form-inline">
+    <label class="mr-2 ml-3" for="ordenListado">Ordenar:</label>
+    <select class="custom-select" id="ordenListado">
+      <option value="nuevo" selected>Más recientes primero</option>
+      <option value="viejo">Más antiguos primero</option>
+      <option value="letra">Alfabeticamente</option>
+    </select>
+  </form>
+  <div class="row" id="container">
       <?php foreach($usuario["listado"] as $receta): ?>
       <a href="<?= base_url() ?>receta?categoria=<?= $usuario["categoria"] ?>&idReceta=<?= $receta->id ?>" class="text-black nosub">
         <div class="col-12 mt-5 mb-3 my-3">
-            <div class="media">
+            <div class="media" id="<?= $receta->id ?>">
               <div class="media-left">
                 <?php if($receta->urlimagen == "assets/img/noimagen.jpg"):?>
                    <img class="media-object img-fluid rounded imgListado" src="<?= base_url() . $receta->urlimagen ?>">
@@ -27,8 +35,9 @@
               </div>
             </div>
         </div>
+        <hr width="100%" color="black"/>
       </a>
-      <hr width="100%" color="black"/>
+      
       <?php endforeach; ?>
   </div>
 </div>

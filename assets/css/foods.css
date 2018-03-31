@@ -255,6 +255,7 @@ body{
 
 .nosub{
   text-decoration: none;
+  width: 100%;
 }
 
 .nosub:hover{

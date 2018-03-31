@@ -405,6 +405,33 @@ function comprobarningredientes(ingredientes){
 	return q;
 }
 
+
+$(function() {
+	var as = $("a.nosub");
+ 
+ 	$("#ordenListado").on("change",function(){
+ 		if ($("#ordenListado").val()=="nuevo") {
+			var masnuevo = as.sort(function (b, c) {
+       			return $(b).find("div.media").attr('id') > $(c).find("div.media").attr('id');
+    		});
+    		$("div#container").html(masnuevo);
+
+		}else if($("#ordenListado").val()=="viejo") {
+			var masviejo = as.sort(function (b, c) {
+       			return $(b).find("div.media").attr('id') < $(c).find("div.media").attr('id');
+    		});
+    		$("div#container").html(masviejo);
+
+		}else{
+			var letras = as.sort(function (b, c) {
+       			return $(b).find("h4.media-heading").text() > $(c).find("h4.media-heading").text();
+    		});
+    		$("div#container").html(letras);
+		}
+ 	});
+
+});
+
 //JQuery
 $(function () {
  
