@@ -19,9 +19,9 @@
           <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
       </ul>
-      <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
-            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="submit">Buscar</button>
+      <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0" name="buscarForm" method="post" action="<?= base_url() ?>inicio/buscar">
+            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search" name="buscar" id="buscar">
+            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="button" onclick="buscarListado()">Buscar</button>
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">

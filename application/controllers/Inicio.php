@@ -109,5 +109,25 @@ class Inicio extends CI_Controller {
 		header('Location:'.base_url().'inicio');
 	}
 
+	public function buscar(){
+		if (isset($_POST["buscar"])) {
+			session_start();
+			if (isset($_SESSION)) {
+				$datos['usuario']["apenom"] = $_SESSION["apenom"];
+				$datos['usuario']["telefono"] = $_SESSION["telefono"];
+				$datos['usuario']["email"] = $_SESSION["email"];
+				$datos['usuario']["rol"] = $_SESSION["rol"];
+			}
+			$this->load->model('inicio_model');
+
+			$busqueda = $_POST["buscar"];
+			$listadoBuscar=$this -> inicio_model -> getBuscarNombre($busqueda);
+			//$listadoBuscarPreparacion=$this -> inicio_model -> getBuscarPreparacion($busqueda);
+			
+			$datos['usuario']["listadoBuscar"] = $listadoBuscar;
+			enmarcar($this, 'listadoBuscar',$datos);
+		}
+	}
+
 }
 ?>

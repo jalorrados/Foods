@@ -356,3 +356,7 @@ body{
     height: 250px;
   }
 }
+
+.hideme{
+    opacity:0;
+}

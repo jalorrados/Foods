@@ -30,5 +30,13 @@ class Inicio_model extends CI_Model {
 		return R::findAll('usuario');
 		
 	}
+
+	public function getBuscarNombre($palabra){
+		return R::find("receta","nombre LIKE ?",["%".$palabra."%"]);
+	}
+
+	/*public function getBuscarPreparacion($palabra){
+		return R::find("receta","preparacion LIKE ?",["%".$palabra."%"]);
+	}*/
 }
 ?>
