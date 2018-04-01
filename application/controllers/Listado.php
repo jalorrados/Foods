@@ -35,8 +35,41 @@ class Listado extends CI_Controller {
 						break;
 			}
 				$this->load->model('listado_model');
-				$listado = $this-> listado_model->getListado($categoriabbdd);
+				if (empty($_GET["limite"])) {
+					$listado = $this-> listado_model->getListadoLimit($categoriabbdd,0);
+					$numRecetas = $this-> listado_model->getNumberRecipes($categoriabbdd);
+					
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						echo "cero";
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						echo "No cero";
+					}
+					
+				}else{
+					$listado = $this-> listado_model->getListadoLimit($categoriabbdd,$_GET["limite"]);
+					$numRecetas = $this-> listado_model->getNumberRecipes($categoriabbdd,$_GET["limite"]);
+					
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						
+					}
+					
+				}
+				//$listado = $this-> listado_model->getListado($categoriabbdd);
 				$datos['usuario']["listado"] = $listado;
+
+				if (isset($_GET["activo"])) {
+					$datos['usuario']["paginacionactive"] = $_GET["activo"];
+				}else{
+					$datos['usuario']["paginacionactive"] =1;
+				}
 		}
 
 		session_start();//iniciar sesion
