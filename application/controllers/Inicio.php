@@ -112,12 +112,16 @@ class Inicio extends CI_Controller {
 	public function buscar(){
 		if (isset($_POST["buscar"])) {
 			session_start();
+			$datos['usuario']["palabraBuscada"] = $_POST["buscar"];
+				$busqueda = $_POST["buscar"];
 			if (isset($_SESSION) && $_SESSION!=null && $_SESSION!="") {
 
 				$datos['usuario']["apenom"] = $_SESSION["apenom"];
 				$datos['usuario']["telefono"] = $_SESSION["telefono"];
 				$datos['usuario']["email"] = $_SESSION["email"];
 				$datos['usuario']["rol"] = $_SESSION["rol"];
+
+
 			}else{
 				session_unset();
 				session_destroy();
@@ -125,10 +129,101 @@ class Inicio extends CI_Controller {
 			
 			$this->load->model('inicio_model');
 
-			$busqueda = $_POST["buscar"];
-			$listadoBuscar=$this -> inicio_model -> getBuscarNombre($busqueda);
-			//$listadoBuscarPreparacion=$this -> inicio_model -> getBuscarPreparacion($busqueda);
+
+			if (empty($_GET["limite"])) {
+					$listadoBuscar = $this-> inicio_model->getBuscarNombre($busqueda,0);
+					$numRecetas = $this-> inicio_model->getNumberRecipes($busqueda);
+					echo $busqueda;
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						
+					}
+					
+				}else{
+					$listadoBuscar = $this-> inicio_model->getBuscarNombre($busqueda,$_GET["limite"]);
+					$numRecetas = $this-> inicio_model->getNumberRecipes($busqueda);
+					echo $busqueda;
+					
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						
+					}
+					
+				}
+				if (isset($_GET["activo"])) {
+					$datos['usuario']["paginacionactive"] = $_GET["activo"];
+				}else{
+					$datos['usuario']["paginacionactive"] =1;
+				}
+
+
+			$datos['usuario']["listadoBuscar"] = $listadoBuscar;
+			enmarcar($this, 'listadoBuscar',$datos);
+		}else{
+			session_start();
+			if (isset($_SESSION) && $_SESSION!=null && $_SESSION!="") {
+
+				$datos['usuario']["apenom"] = $_SESSION["apenom"];
+				$datos['usuario']["telefono"] = $_SESSION["telefono"];
+				$datos['usuario']["email"] = $_SESSION["email"];
+				$datos['usuario']["rol"] = $_SESSION["rol"];
+
+
+			}else{
+				session_unset();
+				session_destroy();
+			}
 			
+			if (isset($_GET["palabraBuscada"])) {
+				$busqueda =$_GET["palabraBuscada"];
+				$datos['usuario']["palabraBuscada"] = $_GET["palabraBuscada"];
+			}
+			$this->load->model('inicio_model');
+
+
+			if (empty($_GET["limite"])) {
+					$listadoBuscar = $this-> inicio_model->getBuscarNombre($busqueda,0);
+					$numRecetas = $this-> inicio_model->getNumberRecipes($busqueda);
+					echo $busqueda;
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						
+					}
+					
+				}else{
+					$listadoBuscar = $this-> inicio_model->getBuscarNombre($busqueda,$_GET["limite"]);
+					$numRecetas = $this-> inicio_model->getNumberRecipes($busqueda);
+					echo $busqueda;
+					
+					if ($numRecetas%5 == 0) {
+						$datos['usuario']["paginas"] = $numRecetas/5;
+						
+						
+					}else{
+						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
+						
+					}
+					
+				}
+				if (isset($_GET["activo"])) {
+					$datos['usuario']["paginacionactive"] = $_GET["activo"];
+				}else{
+					$datos['usuario']["paginacionactive"] =1;
+				}
+
+
 			$datos['usuario']["listadoBuscar"] = $listadoBuscar;
 			enmarcar($this, 'listadoBuscar',$datos);
 		}

@@ -31,8 +31,21 @@ class Inicio_model extends CI_Model {
 		
 	}
 
-	public function getBuscarNombre($palabra){
+	/*public function getBuscarNombre($palabra){
 		return R::find("receta","nombre LIKE ?",["%".$palabra."%"]);
+	}*/
+
+	public function getBuscarNombre($palabra,$limite){//obtener todas las recetas segun la categoria y un limite
+
+		return R::getAll( "SELECT id,nombre,preparacion,categoria,urlimagen FROM receta WHERE nombre LIKE :nom LIMIT :lim ,5",  array(':nom'=>'%'.$palabra.'%' ,':lim'=>(int)$limite));
+
+	}
+
+	public function getNumberRecipes($palabra){//obtener numero de recetas segun la categoria
+
+		 return R::count("receta","nombre LIKE ?",["%".$palabra."%"]);
+		
+
 	}
 
 	/*public function getBuscarPreparacion($palabra){

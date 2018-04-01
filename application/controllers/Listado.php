@@ -41,11 +41,11 @@ class Listado extends CI_Controller {
 					
 					if ($numRecetas%5 == 0) {
 						$datos['usuario']["paginas"] = $numRecetas/5;
-						echo "cero";
+						
 						
 					}else{
 						$datos['usuario']["paginas"] = ($numRecetas/5)+1;
-						echo "No cero";
+						
 					}
 					
 				}else{
