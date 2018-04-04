@@ -21,24 +21,40 @@
                   <img src="<?=$usuario["receta"]->urlimagen?>" class="mx-auto align-content-center justify-content-center rounded imagenreceta">
                 <?php endif; ?>
 			</div>
+
+			<div class="form-group col-12 col-md-5 mx-auto mt-2 text-center">
+				<label ><strong>Dificultad:</strong></label>
+				<div class="btn-group" data-toggle="buttons">
+				<?php if($usuario["receta"]->dificultad == "facil"):?>
+				  <label class="btn btn-success active">
+				    <input type="radio"  value="facil" autocomplete="off" checked> Fácil
+				  </label>
+				<?php elseif($usuario["receta"]->dificultad == "medio"):?>
+				  <label class="btn btn-warning active">
+				    <input type="radio"  value="medio" autocomplete="off" checked> Medio
+				  </label>
+				<?php else:?>
+				  <label class="btn btn-danger active">
+				    <input type="radio"  value="dificil" autocomplete="off" checked> Difícil
+				  </label>
+				<?php endif; ?>
+				</div>
+			</div>
+
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
 			<ul class="list-group mx-3">
 				<?php for($i = 0; $i <count($usuario["nombreIngredientes"]); $i++):?>
 					<li class="list-group-item"><?=$usuario["datosIngredientes"][$i]->cantidad." ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
 				<?php endfor; ?>
-				<!--<li class="list-group-item">Ingrediente 2</li>
-				<li class="list-group-item">Ingrediente 3</li>
-				<li class="list-group-item">Ingrediente 4</li>
-				<li class="list-group-item">Ingrediente 5</li>
-				<li class="list-group-item">Ingrediente 6</li>
-				<li class="list-group-item">Ingrediente 7</li>-->
 			</ul>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Preparación</div>
 
 			<p class="mx-3"><?= $usuario["receta"]->preparacion ?></p>
+
 			<div class="mx-auto col-12" id="rate2"></div>
+			<!--<div class="mx-auto col-12" id="rate2"></div>-->
 		</div>
 		<h3>Añade un comentario</h3>
 		<form name="formComentario" action="comentario/crearComentario" method="post" accept-charset="utf-8">
