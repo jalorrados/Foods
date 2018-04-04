@@ -5,19 +5,25 @@ class Perfil extends CI_Controller {
 
 	public function index(){
 		session_start();//inicia sesion y pasa los datos a la vista de perfil
-		$dir = './fotos/'.$_SESSION["email"];
+		if (isset($_SESSION) && $_SESSION!=null && $_SESSION!="") {
+			$dir = './fotos/'.$_SESSION["email"];
 
-		if (!is_dir ($dir)) {//creo una carpeta identificativa nombrandola como el email
-			mkdir($dir, 0777);
+			if (!is_dir ($dir)) {//creo una carpeta identificativa nombrandola como el email
+				mkdir($dir, 0777);
+			}
+
+			$datos['usuario']["apenom"] = $_SESSION["apenom"];
+			$datos['usuario']["telefono"] = $_SESSION["telefono"];
+			$datos['usuario']["email"] = $_SESSION["email"];
+			$datos['usuario']["urlimagen"] = $_SESSION["urlimagen"];
+			$datos['usuario']["rol"] = $_SESSION["rol"];
+			
+			enmarcar($this,"perfil",$datos);
+
+		}else{
+			header('Location:'.base_url().'inicio');
 		}
-
-		$datos['usuario']["apenom"] = $_SESSION["apenom"];
-		$datos['usuario']["telefono"] = $_SESSION["telefono"];
-		$datos['usuario']["email"] = $_SESSION["email"];
-		$datos['usuario']["urlimagen"] = $_SESSION["urlimagen"];
-		$datos['usuario']["rol"] = $_SESSION["rol"];
 		
-		enmarcar($this,"perfil",$datos);
 		
 	}
 

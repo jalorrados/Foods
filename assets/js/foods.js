@@ -407,9 +407,9 @@ function comprobarningredientes(ingredientes){
 
 function buscarListado(){
 	var buscarinput = document.getElementById("buscar");
-	var exp_buscar = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,15}$/;
+	//var exp_buscar = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,15}$/;
 
-	if (buscarinput.value!="" && buscarinput.value!=null && buscarinput.value!=" " && exp_buscar.test(buscarinput.value)) {
+	if (buscarinput.value!="" && buscarinput.value!=null && buscarinput.value!=" ") {
 		buscarForm.submit();
 	}
 }
@@ -421,13 +421,13 @@ $(function() {
  	$("#ordenListado").on("change",function(){
  		if ($("#ordenListado").val()=="nuevo") {
 			var masnuevo = as.sort(function (b, c) {
-       			return $(b).find("div.media").attr('id') > $(c).find("div.media").attr('id');
+       			return $(b).find("div.media").attr('id') < $(c).find("div.media").attr('id');
     		});
     		$("div#container").html(masnuevo);
 
 		}else if($("#ordenListado").val()=="viejo") {
 			var masviejo = as.sort(function (b, c) {
-       			return $(b).find("div.media").attr('id') < $(c).find("div.media").attr('id');
+       			return $(b).find("div.media").attr('id') > $(c).find("div.media").attr('id');
     		});
     		$("div#container").html(masviejo);
 
