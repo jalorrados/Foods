@@ -169,7 +169,31 @@ function registrarse(){
 
 
 function enviarComentario(){
-	formComentario.submit();
+	var exp_titulo =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,20}$/;
+	var exp_comentario = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ.;.]{3,40}$/;
+	var titutlo =document.getElementById("IdTituloComentario");
+	var comentario = document.getElementById("IdDescripcionComentario");
+
+	if (exp_titulo.test(titutlo.value)) {
+		titutlo.style.borderColor = "rgba(0,0,0,.15)";
+		errorTitulo.style.visibility = "hidden";
+
+		if (exp_comentario.test(comentario.value)) {
+			comentario.style.borderColor = "rgba(0,0,0,.15)";
+			errorComentario.style.visibility = "hidden";
+			formComentario.submit();
+
+		}else{
+			//Mal Telefono
+			comentario.style.borderColor = "red";
+			errorComentario.style.visibility = "visible";
+		}
+
+	}else{
+		//Mal user
+		titutlo.style.borderColor = "red";
+		errorTitulo.style.visibility = "visible";
+	}
 }
 
 function editarPerfil(){
