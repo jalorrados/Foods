@@ -34,17 +34,30 @@ class Receta_model extends CI_Model {
 	}
 
 	public function createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario){
+		$titulonulo=R::getCell( 'SELECT titulo FROM valoracion where receta_id = ? and usuario_id = ?', [(int)$id_receta,(int)$id_usuario] );
+		
+		if ($titulonulo != "no") {
+			$receta = R::load("receta",$id_receta);
+			$usuario = R::load("usuario",$id_usuario);
+			$valoracion = R::dispense("valoracion");
 
-		$receta = R::load("receta",$id_receta);
-		$usuario = R::load("usuario",$id_usuario);
-		$valoracion = R::dispense("valoracion");
+			$valoracion->titulo =$tituloComentario;
+			$valoracion->descripcion =$descripcionComentario;
+			$valoracion->puntuacion =null;
+			$valoracion->usuario=$usuario;
 
-		$valoracion->titulo =$tituloComentario;
-		$valoracion->descripcion =$descripcionComentario;
-		$valoracion->usuario=$usuario;
+			$receta->xownValoracionList[]=$valoracion;
+			R::store($receta);
 
-		$receta->xownValoracionList[]=$valoracion;
-		R::store($receta);
+		}else{
+			$id=R::getCell( 'SELECT id FROM valoracion where receta_id = ? and usuario_id = ?', [(int)$id_receta,(int)$id_usuario] );
+
+			$valoracion = R::load("valoracion",$id);
+			$valoracion->titulo =$tituloComentario;
+			$valoracion->descripcion =$descripcionComentario;
+
+			R::store($valoracion);
+		}
 
 	}
 
@@ -67,6 +80,47 @@ class Receta_model extends CI_Model {
 		 return R::count('valoracion','receta_id = ? ', [(int)$id_receta] );
 		
 
+	}
+
+	public function setStars($id_usuario,$id_receta,$puntos){
+		$id=R::getCell( 'SELECT id FROM valoracion where receta_id = ? and usuario_id = ?', [(int)$id_receta,(int)$id_usuario] );
+
+		if ($id !=null) {
+			$valoracion = R::load("valoracion",$id);
+			$valoracion->puntuacion = $puntos;
+
+
+			R::store($valoracion);
+		}else{
+			$receta = R::load("receta",$id_receta);
+			$usuario = R::load("usuario",$id_usuario);
+			$valoracion = R::dispense("valoracion");
+
+			$valoracion->titulo ="no";
+			$valoracion->descripcion ="no";
+			$valoracion->puntuacion =$puntos;
+			$valoracion->usuario=$usuario;
+
+			$receta->xownValoracionList[]=$valoracion;
+			R::store($receta);
+		}
+		
+
+	}
+
+	public function getMediaPuntuacion($id_receta){
+		$allPuntuaciones = R::getCol( "SELECT puntuacion FROM valoracion WHERE receta_id= :id ",  array(':id'=>(int)$id_receta));
+		$total = 0;
+
+		foreach ($allPuntuaciones as $stars) {
+			$total+=$stars;
+		}
+
+		if (count($allPuntuaciones)==0) {
+			return 0;
+		}else{
+			return $total/count($allPuntuaciones);
+		}
 	}
 
 }
