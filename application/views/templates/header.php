@@ -77,13 +77,13 @@
             </div>
             <div class="form-group">
               <label for="signpassrepeat" class="col-form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat">
+              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat" onkeypress="signEnter(event)">
               <small id="errorRepPass" style="visibility: hidden;" class="form-text text-danger">Las contraseñas no coinciden.</small>
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success" onclick="registrarse()">Registrar</button>
+          <button type="button" id="botonsign" class="btn btn-success" onclick="registrarse()">Registrar</button>
         </div>
       </div>
     </div>
@@ -110,13 +110,13 @@
             </div>
             <div class="form-group">
               <label for="loginpass" class="col-form-label">Contraseña</label>
-              <input type="password" class="form-control" id="loginpass" name="loginpass">
+              <input type="password" class="form-control" id="loginpass" name="loginpass" onkeypress="loginEnter(event)">
               <small id="errorPassLogin" style="visibility: hidden;" class="form-text text-danger">Contraseña debe tener entre 8 y 12 carácteres.</small>
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success" onclick="login()">Iniciar sesión</button>
+          <button type="button" id="botonlogin" class="btn btn-success" onclick="login()">Iniciar sesión</button>
         </div>
       </div>
     </div>

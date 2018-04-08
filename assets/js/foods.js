@@ -66,6 +66,20 @@ function login(){
 
 }
 
+function loginEnter(e){
+	if (e.keyCode == 13) {
+       document.getElementById("botonlogin").click();
+    }
+}
+
+function signEnter(e){
+	if (e.keyCode == 13) {
+       document.getElementById("botonsign").click();
+    }
+}
+
+
+
 function registrarse(){
 	var exp_signuser = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,40}$/;
 	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
