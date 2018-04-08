@@ -134,6 +134,15 @@ $(function () {
                 success:  function (response) {
                        // $("#resultado").html(response);
                       // console.log(response);
+                     
+                    $.toast({
+					    heading: 'Tu puntuación: '+rating+" estrellas.",
+					    text: 'Gracias por puntuar esta receta.',
+					    icon: 'success',
+					    position: 'top-center',
+					    stack: false,
+					    showHideTransition: 'slide'
+					})
                 },
                 error: function (response) {
                 	//$(this).attr("data-rateyo-num-stars",'"'+rating+'"');
