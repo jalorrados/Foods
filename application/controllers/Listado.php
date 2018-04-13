@@ -33,7 +33,7 @@ class Listado extends CI_Controller {
 					case 'Verduras y hortalizas':
 						$categoriabbdd = "verduras";
 						break;
-			}
+				}
 				$this->load->model('listado_model');
 				if (empty($_GET["limite"])) {
 					$listado = $this-> listado_model->getListadoLimit($categoriabbdd,0);

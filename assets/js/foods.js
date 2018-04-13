@@ -183,8 +183,8 @@ function registrarse(){
 
 
 function enviarComentario(){
-	var exp_titulo =/^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ]{3,20}$/;
-	var exp_comentario = /^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ.;.]{3,40}$/;
+	var exp_titulo =/^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ.]{3,20}$/;
+	var exp_comentario = /^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ.;.]{3,150}$/;
 	var titulo =document.getElementById("IdTituloComentario");
 	var comentario = document.getElementById("IdDescripcionComentario");
 

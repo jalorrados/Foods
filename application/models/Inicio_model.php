@@ -48,6 +48,35 @@ class Inicio_model extends CI_Model {
 
 	}
 
+	public function getRecetaIdTops(){//Coge las medias de las puntuaciones de TODAS las recetas
+		$datos = [];
+		foreach (R::getCol( "SELECT id FROM receta") as $id) {
+	
+			$allPuntuaciones = R::getCol( "SELECT puntuacion FROM valoracion WHERE receta_id=".$id);
+			$total = 0;
+
+			foreach ($allPuntuaciones as $stars) {
+				$total+=$stars;
+			}
+
+			if (count($allPuntuaciones)!=0) {
+				$datos[$id]=$total/count($allPuntuaciones);
+			}
+		}
+
+		arsort($datos);//Ordena las recetas de mayor puntuacion a menor
+		return array_slice($datos, 0, 3,true);//Coge las 3 primeras recetas con mas puntos
+	}
+
+	public function getImagenesRecetasById($id){
+		return R::getCol( "SELECT urlimagen FROM receta WHERE id= :id",  array(':id'=>(int)$id));
+	}
+
+	public function getTitulosRecetasById($id){
+		return R::getAll( "SELECT nombre,categoria FROM receta WHERE id= :id",  array(':id'=>(int)$id));
+
+	}
+
 	/*public function getBuscarPreparacion($palabra){
 		return R::find("receta","preparacion LIKE ?",["%".$palabra."%"]);
 	}*/
