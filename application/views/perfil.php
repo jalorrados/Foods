@@ -32,6 +32,7 @@
 						<label><strong>Teléfono:</strong><input type="text" class="form-control" name="perfilTelefono" id="perfilTelefonoId" value="<?= $usuario['telefono'] ?>" disabled></label><br>
 						<button type="button" class="btn btn-secondary" onclick="editarPerfil()" id="perfilEditar">Editar</button>
 						<button type="button" class="btn btn-primary" id="perfilGuardar" onclick="editarGuardar()" disabled>Guardar Cambios</button>
+						<a href="<?= base_url() ?>perfil/verRecetasUsuario"><button type="button" class="btn btn-primary mt-5" id="verRecetas">Ver todas tus recetas</button></a>
 					</div>
 				</form>
 				<br><br>
