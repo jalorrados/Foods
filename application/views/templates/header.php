@@ -19,9 +19,9 @@
           <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
       </ul>
-      <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0">
-            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="submit">Buscar</button>
+      <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0" name="buscarForm" method="post" action="<?= base_url() ?>inicio/buscar">
+            <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search" name="buscar" id="buscar">
+            <button class="btn btn-outline-info my-2 my-sm-0 mr-auto search text-center" type="button" onclick="buscarListado()">Buscar</button>
       </form>
       <ul class="navbar-nav m-r-0 text-center text-lg-left">
         <li class="nav-item">
@@ -77,13 +77,13 @@
             </div>
             <div class="form-group">
               <label for="signpassrepeat" class="col-form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat">
+              <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat" onkeypress="signEnter(event)">
               <small id="errorRepPass" style="visibility: hidden;" class="form-text text-danger">Las contraseñas no coinciden.</small>
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success" onclick="registrarse()">Registrar</button>
+          <button type="button" id="botonsign" class="btn btn-success" onclick="registrarse()">Registrar</button>
         </div>
       </div>
     </div>
@@ -110,13 +110,13 @@
             </div>
             <div class="form-group">
               <label for="loginpass" class="col-form-label">Contraseña</label>
-              <input type="password" class="form-control" id="loginpass" name="loginpass">
+              <input type="password" class="form-control" id="loginpass" name="loginpass" onkeypress="loginEnter(event)">
               <small id="errorPassLogin" style="visibility: hidden;" class="form-text text-danger">Contraseña debe tener entre 8 y 12 carácteres.</small>
             </div>
           </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-success" onclick="login()">Iniciar sesión</button>
+          <button type="button" id="botonlogin" class="btn btn-success" onclick="login()">Iniciar sesión</button>
         </div>
       </div>
     </div>

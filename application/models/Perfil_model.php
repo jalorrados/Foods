@@ -68,10 +68,16 @@ class Perfil_model extends CI_Model {
 		
 	}*/
 
-	public function getAll() {//obtener totos los usuarios
+	public function getAll() {//obtener todos los usuarios
 
 		return R::findAll('usuario');
 		
+	}
+	
+	public function getRecetasUsuario($usuario){//obtener todas las recetas de un usuario
+	
+		return R::findAll('receta','usuario_id = ? ', [$usuario] );
+
 	}
 }
 ?>

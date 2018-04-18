@@ -28,7 +28,7 @@ function login(){
 			var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
 
 			var getUrl = window.location;
-			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript//en server externo poner 0
 
 			xml.open('GET', baseUrl+'/inicio/loginPostComprobar?comprobarEmailLogin='+email.value+'&comprobarPassLogin='+md5(pass.value), true);
 			xml.send();
@@ -65,6 +65,20 @@ function login(){
 	}
 
 }
+
+function loginEnter(e){
+	if (e.keyCode == 13) {
+       document.getElementById("botonlogin").click();
+    }
+}
+
+function signEnter(e){
+	if (e.keyCode == 13) {
+       document.getElementById("botonsign").click();
+    }
+}
+
+
 
 function registrarse(){
 	var exp_signuser = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,40}$/;
@@ -169,7 +183,31 @@ function registrarse(){
 
 
 function enviarComentario(){
-	formComentario.submit();
+	var exp_titulo =/^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ.]{3,20}$/;
+	var exp_comentario = /^[a-zA-Z0-9 áéíóúÁÉÍÓÚÑñçÇ.;.]{3,150}$/;
+	var titulo =document.getElementById("IdTituloComentario");
+	var comentario = document.getElementById("IdDescripcionComentario");
+
+	if (exp_titulo.test(titulo.value) && titulo.value != "" && titulo.value != " ") {
+		titulo.style.borderColor = "rgba(0,0,0,.15)";
+		errorTitulo.style.visibility = "hidden";
+
+		if (exp_comentario.test(comentario.value) && comentario.value != "" && comentario.value != " ") {
+			comentario.style.borderColor = "rgba(0,0,0,.15)";
+			errorComentario.style.visibility = "hidden";
+			formComentario.submit();
+
+		}else{
+			
+			comentario.style.borderColor = "red";
+			errorComentario.style.visibility = "visible";
+		}
+
+	}else{
+		
+		titulo.style.borderColor = "red";
+		errorTitulo.style.visibility = "visible";
+	}
 }
 
 function editarPerfil(){
@@ -404,6 +442,42 @@ function comprobarningredientes(ingredientes){
 
 	return q;
 }
+
+function buscarListado(){
+	var buscarinput = document.getElementById("buscar");
+	//var exp_buscar = /^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{3,15}$/;
+
+	if (buscarinput.value!="" && buscarinput.value!=null && buscarinput.value!=" ") {
+		buscarForm.submit();
+	}
+}
+
+
+$(function() {
+	var as = $("a.nosub");
+ 
+ 	$("#ordenListado").on("change",function(){
+ 		if ($("#ordenListado").val()=="nuevo") {
+			var masnuevo = as.sort(function (b, c) {
+       			return $(b).find("div.media").attr('id') < $(c).find("div.media").attr('id');
+    		});
+    		$("div#container").html(masnuevo);
+
+		}else if($("#ordenListado").val()=="viejo") {
+			var masviejo = as.sort(function (b, c) {
+       			return $(b).find("div.media").attr('id') > $(c).find("div.media").attr('id');
+    		});
+    		$("div#container").html(masviejo);
+
+		}else{
+			var letras = as.sort(function (b, c) {
+       			return $(b).find("h4.media-heading").text() > $(c).find("h4.media-heading").text();
+    		});
+    		$("div#container").html(letras);
+		}
+ 	});
+
+});
 
 //JQuery
 $(function () {

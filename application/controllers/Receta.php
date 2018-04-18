@@ -5,31 +5,43 @@ class Receta extends CI_Controller {
 
 	public function index(){
 		if (isset($_GET["categoria"])) {
-			$datos['usuario']["categoria"] = $_GET["categoria"];
+			//$datos['usuario']["categoria"] = $_GET["categoria"];
 
 			switch ($_GET["categoria"]) {//comprobar todas las recetas y asignarle la url correspondiente
 				case 'Alimentacion infantil':
+				case 'infantil':
 					$datos['usuario']["categoriaurl"] = "Alimentacion%20infantil";
+					$datos['usuario']["categoria"] ='Alimentacion infantil';
 					break;
 
 				case 'Aperitivos y tapas':
+				case 'tapas':
 					$datos['usuario']["categoriaurl"] = "Aperitivos%20y%20tapas";
+					$datos['usuario']["categoria"] ='Aperitivos y tapas';
 					break;
 
 				case 'Sopas y cremas':
+				case 'sopas':
 					$datos['usuario']["categoriaurl"] = "Sopas%20y%20cremas";
+					$datos['usuario']["categoria"] ='Sopas y cremas';
 					break;
 
 				case 'Arroces y pastas':
+				case 'pastas':
 					$datos['usuario']["categoriaurl"] = "Arroces%20y%20pastas";
+					$datos['usuario']["categoria"] ='Arroces y pastas';
 					break;
 
 				case 'Potajes y platos de cuchara':
+				case 'potajes':
 					$datos['usuario']["categoriaurl"] = "Potajes%20y%20platos de cuchara";
+					$datos['usuario']["categoria"] ='Potajes y platos de cuchara';
 					break;
 
 				case 'Verduras y hortalizas':
+				case 'verduras':
 					$datos['usuario']["categoriaurl"] = "Verduras%20y%20hortalizas";
+					$datos['usuario']["categoria"] ='Verduras y hortalizas';
 					break;
 			}
 
@@ -37,6 +49,7 @@ class Receta extends CI_Controller {
 
 		if (isset($_GET["idReceta"])) {
 			$id=$_GET["idReceta"];
+			$datos['usuario']['idrecetaactual'] = $id;
 			$this->load->model('receta_model');
 			$receta = $this-> receta_model->getRecetaById($id);
 			$ingredientes = $this-> receta_model->getIngredientes($id);
@@ -50,10 +63,24 @@ class Receta extends CI_Controller {
 				}
 			}
 			
-
+			$valoraciones = $this-> receta_model->getValoraciones($id);
+			$allUsuarios = $this-> receta_model->getAllUser();
+			$usuarios =[];
+			foreach ($valoraciones as $valoracion) {
+				foreach ($allUsuarios as $usuario) {
+					if ($usuario['id'] == $valoracion["usuario_id"]) {
+						array_push($usuarios,$usuario);
+					}
+				}
+			}
+			
+			$datos['usuario']['media'] = $this -> receta_model -> getMediaPuntuacion($id);
+			$datos['usuario']['valoraciones'] = $valoraciones;
+			$datos['usuario']['usuarios'] = $usuarios;
 			$datos['usuario']["receta"] = $receta;
 			$datos['usuario']["datosIngredientes"] = $ingredientes;
 			$datos['usuario']["nombreIngredientes"] = $nombreIngredientes;
+			$datos['usuario']["id_receta"] = $id;
 			
 		}
 
@@ -67,6 +94,54 @@ class Receta extends CI_Controller {
 			$datos['usuario']["email"] = $_SESSION["email"];
 			$datos['usuario']["rol"] = $_SESSION["rol"];
 			enmarcar($this, 'receta',$datos);
+		}
+		
+	}
+	public function crearComentario(){
+		session_start();
+		$this->load->model('receta_model');
+		$this->load->model('perfil_model');
+
+		$id_usuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);
+
+		
+		if (isset($_POST["recetaId"])) {
+			$id_receta =$_POST["recetaId"];
+			$receta = $this-> receta_model->getRecetaById($id_receta);
+			$valoraciones = $this -> receta_model -> getValoraciones($id_receta);
+			$datos['usuario']['valoraciones'] = $valoraciones;
+			//$num_comentarios = $this -> receta_model -> getNumberComentarios($id_receta);
+			//$datos['usuario']['num_comentrios'] = $num_comentarios;
+		} 
+
+		if (isset($_POST["tituloComentario"])) {
+			$tituloComentario=$_POST["tituloComentario"];
+		}
+
+		if (isset($_POST["descripcionComentario"])) {
+			$descripcionComentario=$_POST["descripcionComentario"];
+		}
+
+		$this-> receta_model->createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario);
+		header("Location:".base_url()."receta?categoria=".$_POST["categoriahidden"]."&idReceta=".$_POST["recetaidhidden"]);
+
+		
+	}
+
+	public function setRating(){
+		session_start();
+		$this->load->model('perfil_model');
+		$this->load->model('receta_model');
+
+		if (isset($_SESSION) && $_SESSION!=null && $_SESSION!="") {
+			$id_usuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);
+			//echo $this -> receta_model -> getMediaPuntuacion($_POST["idReceta"]);
+
+			if (isset($_POST["rating"]) && isset($_POST["idReceta"])) {
+				$this->load->model('receta_model');
+				$this-> receta_model->setStars($id_usuario,$_POST["idReceta"],$_POST["rating"]);
+			
+			}
 		}
 		
 	}

@@ -1,7 +1,11 @@
 <section class="principal">
 	
 	<div class="imagen1 btn-group-vertical mt-5 mx-auto" id="navscrollstart">
-		<p class="h2 text-white destacadas text-center mx-auto font-weight-bold"><u>Recetas destacadas</u></p>
+		<?php if(empty($usuario["infoid"])):?>
+			<p class="h2 text-white destacadas text-center mx-auto font-weight-bold"><u>No hay recetas destacadas</u></p>
+		<?php else:?>
+			<p class="h2 text-white destacadas text-center mx-auto font-weight-bold"><u>Recetas destacadas</u></p>
+		<?php endif; ?>
 		<div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
 		  	<ol class="carousel-indicators">
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -9,25 +13,22 @@
 			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		  	</ol>
 		  	<div class="carousel-inner">
-			    <div class="carousel-item active">
-			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/aperitivos_tapas.jpg" alt="First slide">
-			    	<div class="carousel-caption d-none d-md-block">
-					    <h5>Primera imagen</h5>
-					</div>
-			    </div>
-			    <div class="carousel-item">
-			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/arroces_pastas.jpg" alt="Second slide">
-			    	<div class="carousel-caption d-none d-md-block">
-					    <h5>Segunda imagen</h5>
-					</div>
-			    </div>
-			    <div class="carousel-item">
-			    	<img class="d-block w-100 img-fluid" src="<?= base_url() ?>assets/img/alimentacion_infantil.jpg" alt="Third slide">
-			    	<div class="carousel-caption d-none d-md-block">
-					    <h5>Tercera imagen</h5>
-					</div>
-		    	</div>
-		    </div>
+		  		<?php for($i = 0; $i<count($usuario["infoid"]);$i++): ?>
+		  			<?php if($i == 0):?>
+				    	<div class="carousel-item active">
+					<?php else:?>
+						<div class="carousel-item">
+					<?php endif; ?>
+					<a href="<?= base_url() ?>receta?categoria=<?= $usuario['infoval'][$i][0]['categoria'] ?>&idReceta=<?= $usuario['idRecetasTop'][$i] ?>" class="text-black nosub">
+				    		<img class="d-block w-100 img-fluid" src="<?= base_url(). $usuario['infoid'][$i][0]?>">
+				    		<div class="carousel-caption d-none d-md-block">
+						  	  <h5><?=$usuario["infoval"][$i][0]["nombre"]?></h5>
+							</div>
+				    	</div>
+				    </a>
+			    <?php endfor; ?>
+		    	</div><!--class carousel item-->
+		    </div><!--class carousel-inner-->
 		</div>
 	</div>
 
