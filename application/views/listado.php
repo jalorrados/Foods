@@ -29,7 +29,7 @@
                    <img class="media-object img-fluid rounded imgListado" src="<?= $receta['urlimagen'] ?>">
                 <?php endif; ?>
               </div>
-              <div class="media-body ml-3 col-xs-12 align-items-sm-center justify-content-sm-center" style="word-break: break-all; word-wrap: break-word;">
+              <div class="media-body ml-3 col-xs-12 col-sm-12 align-items-sm-center justify-content-sm-center" style="word-break: break-all; word-wrap: break-word;">
                 <h4 class="media-heading text-center text-md-left"><?= $receta['nombre'] ?></h4>
                 <p class="text-center text-md-left"><?=$receta['preparacion']?></p>
               </div>
