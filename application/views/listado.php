@@ -21,17 +21,17 @@
       <?php foreach($usuario["listado"] as $receta): ?>
       <a href="<?= base_url() ?>receta?categoria=<?= $usuario["categoria"] ?>&idReceta=<?= $receta['id'] ?>" class="text-black nosub">
         <div class="col-12 mt-5 mb-3 my-3">
-            <div class="media" id="<?= $receta['id'] ?>">
-              <div class="media-left">
+            <div class="media row" id="<?= $receta['id'] ?>">
+              <div class="col-xs-12 align-items-sm-center justify-content-sm-center mx-auto">
                 <?php if($receta['urlimagen'] == "assets/img/noimagen.jpg"):?>
                    <img class="media-object img-fluid rounded imgListado" src="<?= base_url() . $receta['urlimagen'] ?>">
                 <?php else:?>
                    <img class="media-object img-fluid rounded imgListado" src="<?= $receta['urlimagen'] ?>">
                 <?php endif; ?>
               </div>
-              <div class="media-body ml-3">
-                <h4 class="media-heading"><?= $receta['nombre'] ?></h4>
-                <?=$receta['preparacion']?>
+              <div class="media-body ml-3 col-xs-12 align-items-sm-center justify-content-sm-center">
+                <h4 class="media-heading text-center text-md-left"><?= $receta['nombre'] ?></h4>
+                <p class="text-center text-md-left"><?=$receta['preparacion']?></p>
               </div>
             </div>
         </div>
