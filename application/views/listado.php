@@ -22,7 +22,7 @@
       <a href="<?= base_url() ?>receta?categoria=<?= $usuario["categoria"] ?>&idReceta=<?= $receta['id'] ?>" class="text-black nosub">
         <div class="col-12 mt-5 mb-3 my-3">
             <div class="media row" id="<?= $receta['id'] ?>">
-              <div class="media-left col-xs-12">
+              <div class="col-xs-12 align-items-sm-center justify-content-sm-center mx-auto">
                 <?php if($receta['urlimagen'] == "assets/img/noimagen.jpg"):?>
                    <img class="media-object img-fluid rounded imgListado" src="<?= base_url() . $receta['urlimagen'] ?>">
                 <?php else:?>
