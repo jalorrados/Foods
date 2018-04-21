@@ -15,9 +15,11 @@
         <li class="nav-item text-center text-lg-left">
           <a class="nav-link h6" href="<?= base_url() ?>categorias">Categorías</a>
         </li>
-        <li class="nav-item text-center text-lg-left">
-          <a class="nav-link h6" href="<?= base_url() ?>crearReceta">Nueva receta</a>
-        </li>
+        <?php if(!empty($_SESSION)):?>
+          <li class="nav-item text-center text-lg-left">
+            <a class="nav-link h6" href="<?= base_url() ?>crearReceta">Nueva receta</a>
+          </li>
+         <?php endif; ?>
         <li class="nav-item text-center text-lg-left">
           <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
