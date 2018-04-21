@@ -95,7 +95,7 @@ class Perfil extends CI_Controller {
 
 		$this -> perfil_model -> createRecipe($idUsuario,$nombrereceta,$preparacion,$npersonas,$nombreingrediente,$cantidad,$unidades,$categoria,$dificultad,$urlimagen);//crea la receta
 
-		header('Location:'.base_url().'perfil');//vuelve a cargar la vista perfil
+		header('Location:'.base_url().'crearReceta');//carga la vista para crear una nueva receta
 	}
 
 	public function peticionAjaximagen(){

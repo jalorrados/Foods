@@ -6,7 +6,7 @@
     </ol>
   </nav>-->
   <div class="breadcrumb flat breadcrumbstyle">
-    <a href="<?= base_url() ?>categorias"> Categorias</a>
+    <a href="<?= base_url() ?>categorias"> Categorías</a>
     <a class="activebreadcrumb" href="#"><?= $usuario["categoria"] ?></a>
   </div>
   <form class="form-inline">
@@ -14,7 +14,7 @@
     <select class="custom-select" id="ordenListado">
       <option value="nuevo" selected>Más recientes primero</option>
       <option value="viejo">Más antiguos primero</option>
-      <option value="letra">Alfabeticamente</option>
+      <option value="letra">Alfabéticamente</option>
     </select>
   </form>
   <div class="row" id="container">
