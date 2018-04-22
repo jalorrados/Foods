@@ -129,17 +129,26 @@
       <div class="modal-content fondocontacto">
         <div class="modal-header">
           <img src="<?= base_url()?>/assets/img/logo.svg" class="logo">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <form class="text-lg-center" name="contactform" action="<?= base_url() ?>inicio/contacto" method="post">
+            <div class="form-group">
+              <label for="sendemail" class="col-form-label">Email</label>
+              <input type="text" class="form-control" id="sendemail" name="sendemail">
+              <small id="errorSendEmail" style="visibility: hidden;" class="form-text text-danger">Error email.</small>
+            </div>
+            <div class="form-group">
+              <label for="sendconcept" class="col-form-label">Asunto</label>
+              <input type="text" class="form-control" id="sendconcept" name="sendconcept" onkeypress="contactEnter(event)">
+              <small id="errorSendConcept" style="visibility: hidden;" class="form-text text-danger">Debe rellenar el campo asunto.</small>
+            </div>
+          </form>
         </div>
         <div class="modal-footer align-content-center justify-content-center">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Cerrar</button>
+          <button type="button" id="botoncontact" class="btn btn-secondary" onclick="checkContact()">Enviar</button>
         </div>
       </div>
     </div>

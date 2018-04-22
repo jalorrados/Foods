@@ -66,9 +66,51 @@ function login(){
 
 }
 
+function checkContact(){
+	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var exp_concept = /^\w{1,}$/;
+
+	var email = document.getElementById("sendemail");
+	var concept = document.getElementById("sendconcept");
+
+	var errorEmail = document.getElementById("errorSendEmail");
+	var errorConcept = document.getElementById("errorSendConcept");
+
+	if (exp_email.test(email.value)) {
+			email.style.borderColor = "rgba(0,0,0,.15)";
+			errorEmail.style.visibility = "hidden";
+
+		if (exp_concept.test(concept.value)) {
+			concept.style.borderColor = "rgba(0,0,0,.15)";
+			errorConcept.style.visibility = "hidden";
+
+			contactform.submit();
+
+		}else{
+			//Concepto vacío
+			concept.style.borderColor = "red";
+			errorConcept.style.visibility = "visible";
+			concept.focus();
+		}
+
+	}else{
+		//Email error o vacío
+		email.style.borderColor = "red";
+		errorEmail.style.visibility = "visible";
+		email.focus();
+	}
+
+}
+
 function loginEnter(e){
 	if (e.keyCode == 13) {
        document.getElementById("botonlogin").click();
+    }
+}
+
+function contactEnter(e){
+	if (e.keyCode == 13) {
+       document.getElementById("botoncontact").click();
     }
 }
 

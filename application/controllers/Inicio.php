@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class Inicio extends CI_Controller {
 
@@ -272,6 +274,40 @@ class Inicio extends CI_Controller {
 
 			$datos['usuario']["listadoBuscar"] = $listadoBuscar;
 			enmarcar($this, 'listadoBuscar',$datos);
+		}
+	}
+
+	public function contacto(){
+
+		try{
+
+		    $mail = new PHPMailer();
+		    $mail->isSMTP();
+		    $mail->SMTPDebug = 2; //2 for both client and server side response
+		    $mail->Debugoutput = 'html';
+		    $mail->Host = 'smtp.gmail.com';
+		    $mail->Port = 587;
+		    $mail->SMTPSecure = 'tls';
+		    $mail->SMTPAuth = true;
+		    $mail->Username = "me@gmail.com";//sender's gmail address
+		    $mail->Password = "mypassword";//sender's password
+		    $mail->setFrom('me@gmail.com', 'Barack Obama');//sender's incormation
+		    $mail->addReplyTo('myanotheremail@gmail.com', 'Barack Obama');//if alternative reply to address is being used
+		    $mail->addAddress('D-4cooj6o@maildrop.cc', 'George Bush');//receiver's information
+		    $mail->Subject = 'Howdy!';//subject of the email
+		    $mail->msgHTML("Have a good day!");
+		    $mail->AltBody = 'If you can\'t view the email, contact us';
+		    $mail->addAttachment('images/logo.png');//some attachment
+
+		    if (!$mail->send()) {
+		        return false; //not sent
+		    } else {
+		        return true; //sent
+		    }
+		    
+		    echo 'Message has been sent';
+		} catch (Exception $e) {
+		    echo 'Message could not be sent.';
 		}
 	}
 
