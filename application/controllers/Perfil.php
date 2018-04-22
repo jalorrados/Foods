@@ -95,12 +95,24 @@ class Perfil extends CI_Controller {
 
 		$this -> perfil_model -> createRecipe($idUsuario,$nombrereceta,$preparacion,$npersonas,$nombreingrediente,$cantidad,$unidades,$categoria,$dificultad,$urlimagen);//crea la receta
 
-		header('Location:'.base_url().'perfil');//vuelve a cargar la vista perfil
+		header('Location:'.base_url().'crearReceta');//carga la vista para crear una nueva receta
 	}
 
 	public function peticionAjaximagen(){
 		session_start();
 		echo base_url() . $_SESSION["urlimagen"];
+	}
+	
+	public function verRecetasUsuario(){
+		session_start();
+		$this->load->model('perfil_model');
+		$usuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);
+		$datosReceta = $this -> perfil_model -> getRecetasUsuario($usuario);
+		$datos['usuario']["apenom"] = $_SESSION["apenom"];
+		$datos['usuario']["rol"] = $_SESSION["rol"];
+		$datos['usuario']["recetaUsuario"] = $datosReceta;
+		
+		enmarcar($this,"recetasUsuario",$datos);
 	}
 }
 ?>

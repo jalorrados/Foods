@@ -5,7 +5,7 @@
 				<div class="card" style="width: 18rem;">
 				  <img class="card-img-top" src="<?= base_url()?>/assets/img/alimentacion_infantil.jpg" alt="Card image cap"><!--Imagenes de 286x180-->
 				  <div class="card-body" style="padding: 1.25rem;">
-				    <h5 class="card-title">Alimentacion infantil</h5>
+				    <h5 class="card-title">Alimentación infantil</h5>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 				    <a href="<?= base_url() ?>listado?categoria=Alimentacion%20infantil" class="btn btn-primary"><?=$usuario["totalNumCategorias"][0]?> Recetas</a>
 				  </div>
