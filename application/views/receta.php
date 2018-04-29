@@ -59,11 +59,22 @@
 					<div class="mx-auto col-12" id="rate2" data-rateyo-rating="<?=$usuario['media']?>" data-rateyo-read-only="true"></div>
 				<?php endif; ?>
 			<?php else:?>
-				<?php if($usuario['media'] == 0 || $usuario['media']<0 || empty($usuario['media'])):?>
-					<div class="mx-auto col-12" id="rate2" data-rateyo-rating="0"></div>
+
+				<?php if($usuario['useremailbyidreceta'] == $usuario['email']):?>
+					<?php if($usuario['media'] == 0 || $usuario['media']<0 || empty($usuario['media'])):?>
+						<div class="mx-auto col-12" id="rate2" data-rateyo-rating="0" data-rateyo-read-only="true"></div>
+					<?php else:?>
+						<div class="mx-auto col-12" id="rate2" data-rateyo-rating="<?=$usuario['media']?>" data-rateyo-read-only="true"></div>
+					<?php endif; ?>
 				<?php else:?>
-					<div class="mx-auto col-12" id="rate2" data-rateyo-rating="<?=$usuario['media']?>"></div>
+					<?php if($usuario['media'] == 0 || $usuario['media']<0 || empty($usuario['media'])):?>
+						<div class="mx-auto col-12" id="rate2" data-rateyo-rating="0"></div>
+					<?php else:?>
+						<div class="mx-auto col-12" id="rate2" data-rateyo-rating="<?=$usuario['media']?>"></div>
+					<?php endif; ?>
 				<?php endif; ?>
+
+				
 			<?php endif; ?>
 			<!--<div class="mx-auto col-12" id="rate2"></div>-->
 		</div>

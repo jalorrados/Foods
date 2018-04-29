@@ -123,5 +123,12 @@ class Receta_model extends CI_Model {
 		}
 	}
 
+	public function getEmailUserByIdReceta($id_receta){
+		$id=R::getCell( 'SELECT usuario_id FROM receta where id = ?', [(int)$id_receta] );
+		$email_user=R::getCell( 'SELECT email FROM usuario where id = ?', [(int)$id] );
+
+		return $email_user;
+	}
+
 }
 ?>

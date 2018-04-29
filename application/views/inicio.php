@@ -57,10 +57,18 @@
 		</div>
 	</div>
 
-	<div class="imagen3 btn-group-vertical text-white" id="navscrollstart">
-		<span class="mx-auto">Prueba de texto</span><br/>
-		<span class="mx-auto text-white">Prueba de texto 2</span><br/><br/>
-		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button>
+	<div class="imagen3 mx-auto align-content-center text-center text-white" id="navscrollstart">
+<!-- 		<span class="mx-auto">Prueba de texto</span><br/> -->
+<!-- 		<span class="mx-auto text-white">Prueba de texto 2</span><br/><br/> -->
+<!--		<button type="button" class="btn btn-primary mx-auto botones" style="width: 150px;">Prueba</button> -->
+			<div style="width: 560px; height:315px;" class="embed-responsive mx-auto embed-responsive-16by9 col-12 col-md-6">
+				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qkacq-0AOL4"  allowfullscreen ></iframe>
+			</div>
+
+			<div style="width: 560px; height:315px;" class="embed-responsive mx-auto embed-responsive-16by9 col-12 col-md-6">
+				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D7frGb0-TGk"  allowfullscreen ></iframe>
+			</div>
+
 	</div>
 
 	<div class="imagen4 text-center row align-content-center justify-content-center mx-auto my-5">
