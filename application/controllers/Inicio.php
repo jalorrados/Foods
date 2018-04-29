@@ -21,7 +21,7 @@ class Inicio extends CI_Controller {
 			
 		}
 		
-		echo "<script>console.log( 'Debug Objects: " . print_r($topimagenes) . "' );</script>";
+		//echo "<script>console.log( 'Debug Objects: " . print_r($topimagenes) . "' );</script>";
 		for ($i=0; $i < count($infoval); $i++) { 
 			switch ($infoval[$i][0]["categoria"]) {//comprobar todas las recetas y asignarle la url correspondiente
 					case 'infantil':

@@ -75,6 +75,7 @@ class Receta extends CI_Controller {
 			}
 			
 			$datos['usuario']['media'] = $this -> receta_model -> getMediaPuntuacion($id);
+			$datos['usuario']['useremailbyidreceta'] = $this -> receta_model -> getEmailUserByIdReceta($id);
 			$datos['usuario']['valoraciones'] = $valoraciones;
 			$datos['usuario']['usuarios'] = $usuarios;
 			$datos['usuario']["receta"] = $receta;

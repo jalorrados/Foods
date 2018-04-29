@@ -1,17 +1,20 @@
-<div class="col-12 col-md-5 mx-auto text-center">
-				<h3 class="text-center">Crear nueva receta</h3>
-				<form action="<?= base_url() ?>crearReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
+<section class="perfil">
+	<div class="backgroundPerfil" id="navscrollstart">
+		<div class="row">
+			<div class="col-12 col-md-5 mx-auto text-center">
+				<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Nueva Receta</u></h1>
+				<form action="<?= base_url() ?>crearReceta/nuevaReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
 					<div class="form-group">
-		            	<label for="nombreReceta" class="col-form-label">Nombre:</label>
-		            	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta">
-		         	</div>
+			        	<label for="nombreReceta" class="col-form-label">Nombre:</label>
+			        	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta">
+			     	</div>
 
-		         	<div class="form-group">
-		            	<label for="preparacionReceta" class="col-form-label">Preparación:</label>
-		            	<textarea class="form-control" name="preparacionReceta" id="preparacionReceta" rows="3" ></textarea>
-		         	</div>
+			     	<div class="form-group">
+			        	<label for="preparacionReceta" class="col-form-label">Preparación:</label>
+			        	<textarea class="form-control" name="preparacionReceta" id="preparacionReceta" rows="3" ></textarea>
+			     	</div>
 
-		         	<div class="form-group">
+			     	<div class="form-group">
 					    <label for="numPersonas">Número de Personas</label>
 					    <select class="form-control" name="numPersonas" id="numPersonas">
 							<option value="1">1</option>
@@ -27,7 +30,7 @@
 						</select>
 					</div>
 
-		         	<div class="form-group">
+			     	<div class="form-group">
 					    <label for="numIngredientes">Número de Ingredientes</label>
 					    <select class="form-control" name="numIngredientes" id="numIngredientes" onchange="numeroIngredientes()">
 							<option value="1">1</option>
@@ -50,7 +53,7 @@
 
 					<div class="form-group" id="ingredientes"></div>
 
-		         	<div class="form-group">
+			     	<div class="form-group">
 						<label>Añadir una foto:</label><br>
 						<img class="img-fluid rounded" id="previewImagen">
 						<div class="input-group">
@@ -65,7 +68,7 @@
 						<small id="fileHelp" class="form-text text-muted"><strong>Formatos válidos: jpg, jpeg y png.</strong></small><br>
 						<button type="button" class="btn btn-warning mb-3" onclick="borrarPreview()" id="eliminarPreview" disabled>Eliminar Imagen Seleccionada</button>
 					</div>
-					
+								
 					<div class="row">
 						<div class="form-group col-12 col-md-5 mx-auto">
 							<label ><strong>Dificultad:</strong></label>
@@ -96,4 +99,7 @@
 					<br>
 					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="crearReceta()">Crear Receta</button>
 				</form>
-</div>
+			</div>
+		</div>
+	</div>
+</section>

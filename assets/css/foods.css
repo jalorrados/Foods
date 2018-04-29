@@ -377,3 +377,11 @@ body{
 
 /* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+.embed-responsive {
+    position: relative;
+    display: inline-flex !important;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
