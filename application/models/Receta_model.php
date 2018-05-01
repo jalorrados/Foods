@@ -61,7 +61,7 @@ class Receta_model extends CI_Model {
 
 	}
 
-	public function getValoraciones($id_receta){//obtener una receta segun el id
+	public function getValoraciones($id_receta){//obtener valoracion por id de la receta
 
 		 return R::find('valoracion','receta_id = ? ', [(int)$id_receta] );
 		
@@ -77,7 +77,7 @@ class Receta_model extends CI_Model {
 
 	public function getNumberComentarios($id_receta){//obtener numero de recetas segun la categoria
 
-		 return R::count('valoracion','receta_id = ? ', [(int)$id_receta] );
+		return R::count('valoracion','receta_id = ? ', [(int)$id_receta]);
 		
 
 	}
@@ -122,6 +122,7 @@ class Receta_model extends CI_Model {
 			return $total/count($allPuntuaciones);
 		}
 	}
+
 
 	public function getEmailUserByIdReceta($id_receta){
 		$id=R::getCell( 'SELECT usuario_id FROM receta where id = ?', [(int)$id_receta] );

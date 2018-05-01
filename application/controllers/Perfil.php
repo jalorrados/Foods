@@ -12,6 +12,11 @@ class Perfil extends CI_Controller {
 				mkdir($dir, 0777);
 			}
 
+			$this->load->model('perfil_model');//carga el modelo
+			$idUser = $this-> perfil_model->getIdByEmail($_SESSION["email"]);
+			$mediaUser = $this-> perfil_model->getMediaUser($idUser);
+
+			$datos['usuario']["mediaUser"] = $mediaUser;
 			$datos['usuario']["apenom"] = $_SESSION["apenom"];
 			$datos['usuario']["telefono"] = $_SESSION["telefono"];
 			$datos['usuario']["email"] = $_SESSION["email"];

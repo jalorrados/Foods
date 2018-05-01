@@ -7,7 +7,7 @@ class Perfil_model extends CI_Model {
 		
 	}
 
-	public function getIdByEmail($email) {//encontrar un usuario segun si email
+	public function getIdByEmail($email) {
 
 		$user = R::findOne('usuario','email = ? ', [$email] );
 		return $user["id"];
@@ -79,5 +79,39 @@ class Perfil_model extends CI_Model {
 		return R::findAll('receta','usuario_id = ? ', [$usuario] );
 
 	}
+
+	public function getMediaPuntuacion($id_receta){
+		$allPuntuaciones = R::getCol( "SELECT puntuacion FROM valoracion WHERE receta_id= :id ",  array(':id'=>(int)$id_receta));
+		$total = 0;
+
+		foreach ($allPuntuaciones as $stars) {
+			$total+=$stars;
+		}
+
+		if (count($allPuntuaciones)==0) {
+			return 0;
+		}else{
+			return $total/count($allPuntuaciones);
+		}
+	}
+
+	public function getMediaUser($user_id){
+		$idRecetas = R::getCol( "SELECT id FROM receta WHERE usuario_id= :iduser ",  array(':iduser'=>(int)$user_id));
+		$mediaUser = 0;
+		if ($idRecetas != null && count($idRecetas)!=0) {
+
+			foreach ($idRecetas as $idReceta) {
+				
+				if ($this->getMediaPuntuacion($idReceta)!= null) {
+					$mediaUser+=$this->getMediaPuntuacion($idReceta);
+				}
+				
+			}
+			$mediaUser= (int)$mediaUser/(int)count($idRecetas);
+		}
+
+		return $mediaUser;
+	}
+
 }
 ?>

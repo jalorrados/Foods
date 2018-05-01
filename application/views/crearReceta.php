@@ -33,6 +33,7 @@
 			     	<div class="form-group">
 					    <label for="numIngredientes">Número de Ingredientes</label>
 					    <select class="form-control" name="numIngredientes" id="numIngredientes" onchange="numeroIngredientes()">
+							<option value="---">---</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>

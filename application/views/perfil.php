@@ -37,7 +37,7 @@
 				</form>
 				<br><br>
 				<p class="mx-xs-center text-xs-center"><strong>Valoración media:</strong></p>
-				<div class="mx-auto mb-5 pb-5" id="rate" data-rateyo-rating="50%"></div><!--<div id="resultadoRating"></div>-->
+				<div class="mx-auto mb-5 pb-5" id="rate" data-rateyo-rating="<?= $usuario['mediaUser'] ?>" data-rateyo-read-only="true"></div><!--<div id="resultadoRating"></div>-->
 			</div>
 
 			<!--Crear receta-->
