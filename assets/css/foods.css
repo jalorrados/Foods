@@ -307,7 +307,7 @@ body{
   }
 
   .imagen3{
-    height: 12rem;
+    height: 30rem;
   }
 
   .carousel-item img{
@@ -343,7 +343,7 @@ body{
   }
 
   .imagen3{
-    height: 12rem;
+    height: 25rem;
   }
 
   .carousel-item img{
@@ -378,10 +378,10 @@ body{
 /* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
-.embed-responsive {
+/*.embed-responsive {
     position: relative;
     display: inline-flex !important;
     width: 100%;
     padding: 0;
     overflow: hidden;
-}
+}*/

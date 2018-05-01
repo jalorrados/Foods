@@ -317,8 +317,8 @@ class Inicio extends CI_Controller {
 
 		    $mail->send();
 		} catch (Exception $e) {
-		    echo 'El mensaje no se ha podido enviar';
-		    // echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+		    //echo 'El mensaje no se ha podido enviar';
+		     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 		}
 	}
 
