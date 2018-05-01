@@ -134,12 +134,12 @@
       <div class="modal-content fondocontacto">
         <div class="modal-header">
           <img src="<?= base_url()?>/assets/img/logo.svg" class="logo">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form class="text-lg-center" name="contactform" action="<?= base_url() ?>inicio/contacto" method="post">
+          <form class="text-lg-center" name="contactform" method="post">
             <div class="form-group">
               <label for="sendemail" class="col-form-label">Email</label>
               <input type="text" class="form-control" id="sendemail" name="sendemail">
@@ -147,8 +147,8 @@
             </div>
             <div class="form-group">
               <label for="sendconcept" class="col-form-label">Asunto</label>
-              <input type="text" class="form-control" id="sendconcept" name="sendconcept" onkeypress="contactEnter(event)">
-              <small id="errorSendConcept" style="visibility: hidden;" class="form-text text-danger">Debe rellenar el campo asunto.</small>
+              <textarea class="form-control" rows="5" id="sendconcept" name="sendconcept" onkeypress="contactEnter(event)"></textarea>
+              <small id="errorSendConcept" style="visibility: hidden;" class="form-text text-danger">Debe rellenar el campo.</small>
             </div>
           </form>
         </div>

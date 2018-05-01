@@ -68,7 +68,11 @@ function login(){
 
 function checkContact(){
 	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-	var exp_concept = /^\w{1,}$/;
+	var exp_concept = /^[A-Za-z0-9.]{5,1000}$/; 
+
+	var getUrl = window.location;
+
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
 
 	var email = document.getElementById("sendemail");
 	var concept = document.getElementById("sendconcept");
@@ -84,7 +88,23 @@ function checkContact(){
 			concept.style.borderColor = "rgba(0,0,0,.15)";
 			errorConcept.style.visibility = "hidden";
 
-			contactform.submit();
+			$.post(baseUrl+"/inicio/contacto",
+	        {
+	          sendemail: email.value,
+	          sendconcept: concept.value
+	        },
+	        function(){
+
+	        	document.getElementById("close").click();
+
+	            $.toast({
+				    text: 'El mensaje ha sido enviado correctamente',
+				    showHideTransition: 'slide',
+				    position: 'top-center',
+				    icon: 'info',
+				    allowToastClose: false
+				});
+	        });
 
 		}else{
 			//Concepto vacío

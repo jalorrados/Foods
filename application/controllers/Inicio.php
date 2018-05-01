@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
 
 class Inicio extends CI_Controller {
 
@@ -279,35 +280,45 @@ class Inicio extends CI_Controller {
 
 	public function contacto(){
 
-		try{
+		$email = $_POST["sendemail"];
+		$message = $_POST["sendconcept"];
 
-		    $mail = new PHPMailer();
+		$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+		try {
+		    //Server settings
+		    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
 		    $mail->isSMTP();
-		    $mail->SMTPDebug = 2; //2 for both client and server side response
 		    $mail->Debugoutput = 'html';
 		    $mail->Host = 'smtp.gmail.com';
-		    $mail->Port = 587;
-		    $mail->SMTPSecure = 'tls';
 		    $mail->SMTPAuth = true;
-		    $mail->Username = "me@gmail.com";//sender's gmail address
-		    $mail->Password = "mypassword";//sender's password
-		    $mail->setFrom('me@gmail.com', 'Barack Obama');//sender's incormation
-		    $mail->addReplyTo('myanotheremail@gmail.com', 'Barack Obama');//if alternative reply to address is being used
-		    $mail->addAddress('D-4cooj6o@maildrop.cc', 'George Bush');//receiver's information
-		    $mail->Subject = 'Howdy!';//subject of the email
-		    $mail->msgHTML("Have a good day!");
-		    $mail->AltBody = 'If you can\'t view the email, contact us';
-		    $mail->addAttachment('images/logo.png');//some attachment
+		    $mail->Username = 'phpmailerjalorrados@gmail.com';                 // SMTP username
+		    $mail->Password = 'jalorrados1937';
+		    $mail->SMTPSecure = 'tls';
+		    $mail->Port = 587;
+		    $mail->setFrom('phpmailerjalorrados@gmail.com', $email);//sender's incormation
+		    $mail->addAddress('jalorrados.enterprise@gmail.com');//receiver's information
+		    // $mail->msgHTML("Have a good day!");
+		    // //Recipients
+		    // $mail->setFrom('from@example.com', 'Mailer');
+		    // $mail->addAddress('D-4cooj6o@maildrop.cc', 'Joe User');     // Add a recipient
+		    // $mail->addReplyTo('info@example.com', 'Information');
+		    // $mail->addCC('cc@example.com');
+		    // $mail->addBCC('bcc@example.com');
 
-		    if (!$mail->send()) {
-		        return false; //not sent
-		    } else {
-		        return true; //sent
-		    }
-		    
-		    echo 'Message has been sent';
+		    // //Attachments
+		    // // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+		    // // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+		    // //Content
+		    $mail->isHTML(true);                                  // Set email format to HTML
+		    $mail->Subject = 'Contacto';
+		    $mail->Body    = '<h4>'. $message . '</h4>';
+		    $mail->AltBody = $message;
+
+		    $mail->send();
 		} catch (Exception $e) {
-		    echo 'Message could not be sent.';
+		    echo 'El mensaje no se ha podido enviar';
+		    // echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 		}
 	}
 
