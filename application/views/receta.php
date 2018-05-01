@@ -41,6 +41,9 @@
 				</div>
 			</div>
 
+			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Número de personas</div>
+			<p class="mx-3">Receta para <?= $usuario["receta"]->numpersonas ?> persona/s</p>
+
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
 			<ul class="list-group mx-3">
@@ -51,7 +54,7 @@
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Preparación</div>
 
-			<p class="mx-3"><?= $usuario["receta"]->preparacion ?></p>
+			<p class="mx-3" style="word-break: break-all;"><?= $usuario["receta"]->preparacion ?></p>
 			<?php if(empty($_SESSION)):?>
 				<?php if($usuario['media'] == 0 || $usuario['media']<0 || empty($usuario['media'])):?>
 					<div class="mx-auto col-12" id="rate2" data-rateyo-rating="0" data-rateyo-read-only="true"></div>
