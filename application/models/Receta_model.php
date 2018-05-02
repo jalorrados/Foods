@@ -68,7 +68,7 @@ class Receta_model extends CI_Model {
 
 	}
 
-	public function getAllUser(){//obtener una receta segun el id
+	public function getAllUser(){
 
 		 return R::findAll('usuario');
 

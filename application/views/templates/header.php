@@ -20,6 +20,11 @@
             <a class="nav-link h6" href="<?= base_url() ?>crearReceta">Nueva receta</a>
           </li>
          <?php endif; ?>
+         <?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
+          <li class="nav-item text-center text-lg-left">
+            <a class="nav-link h6" href="<?= base_url() ?>ListaUsuarios">Lista Usuarios</a>
+          </li>
+         <?php endif; ?>
         <li class="nav-item text-center text-lg-left">
           <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
