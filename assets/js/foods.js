@@ -68,7 +68,7 @@ function login(){
 
 function checkContact(){
 	var exp_email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-	var exp_concept = /^[A-Za-z0-9.]{5,1000}$/; 
+	var exp_concept = /^[A-Za-z0-9.ñáéíóúÁÉÍÓÚ ]{5,1000}$/; 
 
 	var getUrl = window.location;
 
@@ -87,6 +87,10 @@ function checkContact(){
 		if (exp_concept.test(concept.value)) {
 			concept.style.borderColor = "rgba(0,0,0,.15)";
 			errorConcept.style.visibility = "hidden";
+
+			/*contactform.action = baseUrl+"/inicio/contacto";
+
+			contactform.submit();*/
 
 			$.post(baseUrl+"/inicio/contacto",
 	        {
