@@ -88,6 +88,10 @@ function checkContact(){
 			concept.style.borderColor = "rgba(0,0,0,.15)";
 			errorConcept.style.visibility = "hidden";
 
+			/*contactform.action = baseUrl+"/inicio/contacto";
+
+			contactform.submit();*/
+
 			$.post(baseUrl+"/inicio/contacto",
 	        {
 	          sendemail: email.value,
@@ -560,3 +564,41 @@ $(function () {
 	});
 
 });
+
+function cambiarPermisos(boton){
+	var getUrl = window.location;
+
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	$.post(baseUrl+"/ListaUsuarios/cambiarPermisos",
+	        {
+	          datosUser: boton.value,
+	        },
+	        function(){
+	        	var datos = boton.value.split('-');
+	        	console.log(datos[1])
+	        	if (datos[1] == "user") {
+	        		$(boton).removeClass('btn-success').addClass('btn-info');
+	        		$(boton).text("User");
+	        		$(boton).val(datos[0]+"-admin");
+	        	}else{
+	        		$(boton).removeClass('btn-info').addClass('btn-success');
+	        		$(boton).text("admin");
+	        		$(boton).val(datos[0]+"-user");
+	        	}
+	        });
+
+}
+
+function eliminarUsuario(boton){
+	var getUrl = window.location;
+
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	$.post(baseUrl+"/ListaUsuarios/eliminarUsuario",
+	        {
+	          emailUser: boton.value,
+	        },
+	        function(){
+	        	location.reload();
+	        });
+
+}

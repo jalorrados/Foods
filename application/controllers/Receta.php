@@ -146,5 +146,15 @@ class Receta extends CI_Controller {
 		}
 		
 	}
+
+	public function eliminarReceta(){
+		$datos = $_POST["deleteRecipe"];
+
+		$recetaId = explode("-",$datos);
+
+		$this->load->model('receta_model');
+		$this -> receta_model -> deleteRecipe($recetaId[1]);
+		header("Location:".base_url()."listado?categoria=".$recetaId[0]);
+	}
 }
 ?>

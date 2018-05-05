@@ -1,12 +1,5 @@
 <div class="fondoReceta">
 	<div class="container mt-5 pt-3 mb-3" id="navscrollstart">
-		<!--<div aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>categorias">Categorias</a></li>
-				<li class="breadcrumb-item"><a  class="text-black" href="<?= base_url() ?>listado?categoria=<?= $usuario["categoriaurl"] ?>"><?= $usuario["categoria"] ?></a></li>
-				<li class="breadcrumb-item active" aria-current="page">Receta</li>
-			</ol>
-		</div>-->
 		<div class="breadcrumb flat breadcrumbstyle">
 	  		<a href="<?= base_url() ?>categorias">Categorias</a>
 	    	<a  class="text-black" href="<?= base_url() ?>listado?categoria=<?= $usuario["categoriaurl"] ?>"><?= $usuario["categoria"] ?></a>
@@ -76,10 +69,15 @@
 						<div class="mx-auto col-12" id="rate2" data-rateyo-rating="<?=$usuario['media']?>"></div>
 					<?php endif; ?>
 				<?php endif; ?>
-
-				
 			<?php endif; ?>
-			<!--<div class="mx-auto col-12" id="rate2"></div>-->
+
+			<?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
+				<form action="<?= base_url() ?>receta/eliminarReceta"  method="post" class="mx-auto mt-3" align="center">
+					<input type="submit" class="btn btn-danger btn-sm" value="Eliminar Receta">
+					<input type="hidden" name="deleteRecipe" value="<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>">
+				</form>
+          		
+        	<?php endif; ?>
 		</div>
 		<?php if(empty($_SESSION)):?>
 			<h4>Debes estar registrado para poder dejar un comentario</h4>

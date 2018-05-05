@@ -68,7 +68,7 @@ class Receta_model extends CI_Model {
 
 	}
 
-	public function getAllUser(){//obtener una receta segun el id
+	public function getAllUser(){
 
 		 return R::findAll('usuario');
 
@@ -129,6 +129,23 @@ class Receta_model extends CI_Model {
 		$email_user=R::getCell( 'SELECT email FROM usuario where id = ?', [(int)$id] );
 
 		return $email_user;
+	}
+
+	public function deleteRecipe($idReceta){
+
+		$idIngredientes=R::getCol( "SELECT id FROM ingrediente WHERE receta_id= :idr ",  array(':idr'=>(int)$idReceta));
+
+		$idEspIngredientes=R::getCol( "SELECT especificacioningrediente_id FROM ingrediente WHERE receta_id= :ides ",  array(':ides'=>(int)$idReceta));
+
+		foreach ($idEspIngredientes as $idEspIngrediente) {//elimino las especificaciones de los ingredientes
+			R::exec("DELETE FROM especificacioningrediente WHERE id=".(int)$idEspIngrediente);
+		}
+
+		foreach ($idIngredientes as $idIngrediente) {//elimino los ingredientes
+			R::exec("DELETE FROM ingrediente WHERE id=".(int)$idIngrediente);
+		}
+
+		R::exec("DELETE FROM receta WHERE id=".(int)$idReceta);//finalmente elimino la receta
 	}
 
 }
