@@ -113,5 +113,21 @@ class Perfil_model extends CI_Model {
 		return $mediaUser;
 	}
 
+	public function validateemail($token) {
+
+		$q = false;
+
+		$user = R::findOne('usuario','token = ? ', [$token] );
+
+		if ($user != "") {
+			$user-> status = 1;
+			R::store($user);
+			$q = true;
+		}
+
+		return $q;
+		
+	}
+
 }
 ?>

@@ -106,6 +106,7 @@ class Inicio extends CI_Controller {
 			$_SESSION["telefono"]=$usuario["telefono"];
 			$_SESSION["urlimagen"]=$usuario["urlimagen"];
 			$_SESSION["rol"]=$usuario["rol"];
+			$_SESSION["status"]=$usuario["status"];
 
 			header('Location:'.base_url().'perfil');
 		}
@@ -131,24 +132,53 @@ class Inicio extends CI_Controller {
 
 	public function signPost(){
 		$this->load->model('inicio_model');//carga el modelo
-
+		
 		//Falta comprobar con isset o empty
 		$user = $_POST["signuser"];
 		$email = $_POST["signemail"];
 		$telefono = $_POST["signtlf"];
 		$pass = $_POST["signpass"];
+		$token = $_POST["token"];
+
+		$urlverification = "http://localhost/Foods/perfil/validation?t=" . $token;
 
 		$usuario = $this -> inicio_model -> getUser($email);//obtengo el usuario para coger su rol
 
-		$this -> inicio_model -> crearUsuario($user,$email,$telefono,$pass);//crea el usuario
+		$this -> inicio_model -> crearUsuario($user,$email,$telefono,$pass,$token);//crea el usuario
 		session_start();//inicia sesion y le pasa los datos del usuario
 		$_SESSION["apenom"]=$user;
 		$_SESSION["email"]=$email;
 		$_SESSION["telefono"]=$telefono;
 		$_SESSION["urlimagen"]="assets/img/avatar.png";//cuando te registras sale la imagen por defecto
 		$_SESSION["rol"]=$usuario["rol"];
+		$_SESSION["status"]=0;
+		$_SESSION["token"]=$usuario["token"];
 
-		header('Location:'.base_url().'perfil');
+		$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+	    //Server settings
+	    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+	    $mail->isSMTP();
+	    $mail->Debugoutput = 'html';
+	    $mail->Host = 'smtp.gmail.com';
+	    $mail->SMTPAuth = true;
+	    $mail->Username = 'phpmailerjalorrados@gmail.com';                 // SMTP username
+	    $mail->Password = 'jalorrados1937';
+	    $mail->SMTPSecure = 'tls';
+	    $mail->Port = 587;
+	    $mail->CharSet = 'UTF-8';
+	    $mail->setFrom('phpmailerjalorrados@gmail.com');//sender's incormation
+	    $mail->addAddress($email);//receiver's information
+	    $mail->isHTML(true);
+	    $mail->Subject = 'Contacto';
+	    $mail->Body    = '<div style="width:100%!important;color:#222222;font-family:sans-serif;font-weight:normal;text-align:center;line-height:19px;font-size:14px;background:#f2f2f2;margin:0;padding:0;height:100%;width:100%;" bgcolor="#f2f2f2"><img src="http://www.mdpi.com/img/journals/foods-logo-print.png" title="Foods" style="width:120px;outline:0;text-decoration:none;max-width:100%;clear:both;display:block;margin-right:auto;margin-left:auto;padding-top:3%;" align="center"><div style="box-sizing:border-box;border-spacing:0;border-collapse:collapse;vertical-align:top;width:630px;display:block!important;background:#ffffff;padding:15px;border:1px solid #ddd;margin-right:auto;margin-left:auto;margin-top:1%;margin-bottom:5%;" align="center" bgcolor="#ffffff">¡Te damos la bienvenida a Foods!<br><br>Necesitamos que verifiques tu cuenta para que puedas crear y compartir tus recetas y muchas cosas más.<br><br><div style="display:inline-block"><a href="' . $urlverification . '" style="background:#f89b33;color:#fff;border:1px solid #db7d1f;padding:10px 15px 8px 15px;border-radius:3px;font-size:12px;font-weight:300;font-family:Helvetica,Arial,sans-serif;letter-spacing:1px;text-decoration:none!important" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=' . $urlverification . '">Verificar correo electrónico</a></div><br><br><br><small>Si no te has registrado recientemente a esta página, es posible que otra persona se haya registrado con tu información por error.</small></div></div>';
+	    $mail->AltBody = '<div style="width:100%!important;color:#222222;font-family:sans-serif;font-weight:normal;text-align:center;line-height:19px;font-size:14px;background:#f2f2f2;margin:0;padding:0;height:100%;width:100%;" bgcolor="#f2f2f2"><img src="http://www.mdpi.com/img/journals/foods-logo-print.png" title="Foods" style="width:120px;outline:0;text-decoration:none;max-width:100%;clear:both;display:block;margin-right:auto;margin-left:auto;padding-top:3%;" align="center"><div style="box-sizing:border-box;border-spacing:0;border-collapse:collapse;vertical-align:top;width:630px;display:block!important;background:#ffffff;padding:15px;border:1px solid #ddd;margin-right:auto;margin-left:auto;margin-top:1%;margin-bottom:5%;" align="center" bgcolor="#ffffff">¡Te damos la bienvenida a Foods!<br><br>Necesitamos que verifiques tu cuenta para que puedas crear y compartir tus recetas y muchas cosas más.<br><br><div style="display:inline-block"><a href="' . $urlverification . '" style="background:#f89b33;color:#fff;border:1px solid #db7d1f;padding:10px 15px 8px 15px;border-radius:3px;font-size:12px;font-weight:300;font-family:Helvetica,Arial,sans-serif;letter-spacing:1px;text-decoration:none!important" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=' . $urlverification . '">Verificar correo electrónico</a></div><br><br><br><small>Si no te has registrado recientemente a esta página, es posible que otra persona se haya registrado con tu información por error.</small></div></div>';
+
+	    if ($mail->send()) {
+	    	header('Location:'.base_url().'perfil');
+		}else{
+			echo "Error";
+		}
+		
 	}
 
 	public function logOut(){//cerrar sesion borra las variables de la sesion y la destruye
@@ -286,7 +316,7 @@ class Inicio extends CI_Controller {
 		$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 		try {
 		    //Server settings
-		    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+		    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
 		    $mail->isSMTP();
 		    $mail->Debugoutput = 'html';
 		    $mail->Host = 'smtp.gmail.com';
@@ -295,6 +325,7 @@ class Inicio extends CI_Controller {
 		    $mail->Password = 'jalorrados1937';
 		    $mail->SMTPSecure = 'tls';
 		    $mail->Port = 587;
+		    $mail->CharSet = 'UTF-8';
 		    $mail->setFrom('phpmailerjalorrados@gmail.com', $email);//sender's incormation
 		    $mail->addAddress('jalorrados.enterprise@gmail.com');//receiver's information
 		    // $mail->msgHTML("Have a good day!");

@@ -1,6 +1,6 @@
 <?php
 class Inicio_model extends CI_Model {
-	public function crearUsuario($apenom,$email,$telefono,$pass) {//crear usuario
+	public function crearUsuario($apenom,$email,$telefono,$pass,$token) {//crear usuario
 
 		$user = R::findOne('usuario','email=?',[$email]);
 
@@ -12,6 +12,8 @@ class Inicio_model extends CI_Model {
 			$usuario -> pass = $pass;
 			$usuario -> urlimagen ="assets/img/avatar.png";//cuando te registras sale la imagen por defecto
 			$usuario -> rol ="user";//rol por defecto
+			$usuario -> status = 0;
+			$usuario -> token = $token;
 			R::store($usuario);
 		}
 		

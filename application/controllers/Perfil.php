@@ -81,5 +81,22 @@ class Perfil extends CI_Controller {
 		
 		enmarcar($this,"recetasUsuario",$datos);
 	}
+
+	public function validation(){
+		session_start();
+		if (isset($_GET["t"])) {
+			$this->load->model('perfil_model');
+			$datos = $this -> perfil_model -> validateemail($_GET["t"]);
+
+			if ($datos) {
+				$_SESSION["status"]=1;
+				header('Location:'.base_url().'perfil');
+			}else{
+				header('Location:'.base_url().'inicio');
+			}
+		}else{
+			header('Location:'.base_url().'inicio');
+		}
+	}
 }
 ?>

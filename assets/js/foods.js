@@ -157,6 +157,7 @@ function registrarse(){
 	var telefono = document.getElementById("signtlf");
 	var pass = document.getElementById("signpass");
 	var repetir_pass = document.getElementById("signpassrepeat");
+	var token = document.getElementById("token");
 
 	var errorUser = document.getElementById("errorUser");
 	var errorEmail = document.getElementById("errorEmail");
@@ -204,7 +205,7 @@ function registrarse(){
 									email.focus();
 								}else{
 									pass.value = md5(pass.value);//encripto la contraseña y se la reasigno al input password para que al hacer el submit recoja el valor encriptado
-						
+									token.value = md5(email.value + pass.value);
 									signform.submit();
 								}
 								

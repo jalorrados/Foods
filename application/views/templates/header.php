@@ -15,19 +15,19 @@
         <li class="nav-item text-center text-lg-left">
           <a class="nav-link h6" href="<?= base_url() ?>categorias">Categorías</a>
         </li>
-        <?php if(!empty($_SESSION)):?>
-          <li class="nav-item text-center text-lg-left">
-            <a class="nav-link h6" href="<?= base_url() ?>crearReceta">Nueva receta</a>
-          </li>
-         <?php endif; ?>
-         <?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
-          <li class="nav-item text-center text-lg-left">
-            <a class="nav-link h6" href="<?= base_url() ?>ListaUsuarios">Lista Usuarios</a>
-          </li>
-         <?php endif; ?>
         <li class="nav-item text-center text-lg-left">
           <a class="nav-link h6" href="" data-toggle="modal" data-target="#contacto">Contacto</a>
         </li>
+        <?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
+         <li class="nav-item text-center text-lg-left">
+           <a class="nav-link h6" href="<?= base_url() ?>ListaUsuarios">Lista Usuarios</a>
+         </li>
+        <?php endif; ?>
+        <?php if(!empty($_SESSION) && $_SESSION["status"] != 0):?>
+          <li class="nav-item text-center text-lg-left">
+            <a class="nav-link h6" href="<?= base_url() ?>crearReceta">Nueva receta</a>
+          </li>
+        <?php endif; ?>
       </ul>
       <form class="form-inline text-center text-lg-left row mx-sm-auto mx-md-0" name="buscarForm" method="post" action="<?= base_url() ?>inicio/buscar">
             <input class="form-control mr-sm-2 col-8 ml-auto" type="search" placeholder="Buscar" aria-label="Search" name="buscar" id="buscar">
@@ -89,6 +89,9 @@
               <label for="signpassrepeat" class="col-form-label">Repetir contraseña</label>
               <input type="password" class="form-control" id="signpassrepeat" name="signpassrepeat" onkeypress="signEnter(event)">
               <small id="errorRepPass" style="visibility: hidden;" class="form-text text-danger">Las contraseñas no coinciden.</small>
+            </div>
+            <div>
+              <input type="hidden" id="token" name="token" value="">
             </div>
           </form>
         </div>
