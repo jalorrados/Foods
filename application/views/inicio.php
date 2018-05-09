@@ -36,22 +36,22 @@
 			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
 			  <div class="card-body2">
-			    <h5 class="card-title">Prueba de texto</h5>
-			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			    <h5 class="card-title">Crear receta</h5>
+			    <p class="card-text">¿Tienes un especial talento en la cocina? Regístrate, publica tus propias recetas y ayuda a los demás usuarios con tus conocimientos sobre cocina comentando otras recetas.</p>
 			  </div>
 			</div>
 			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon2.svg" alt="Card image cap">
 			  <div class="card-body2">
-			    <h5 class="card-title">Prueba de texto</h5>
-			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			    <h5 class="card-title">Puntúa otras recetas</h5>
+			    <p class="card-text">Prueba las recetas creadas en nuestra página web, puntúalas para ayudar con tu valoración y hazlas populares en la web.</p>
 			  </div>
 			</div>
 			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon3.svg" alt="Card image cap">
 			  <div class="card-body2">
-			    <h5 class="card-title">Prueba de texto</h5>
-			    <p class="card-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+			    <h5 class="card-title">Conocimientos de cocina</h5>
+			    <p class="card-text">Viendo los comentarios de cada receta podrás ver consejos de otros usuarios para mejorar tu propia receta.</p>
 			  </div>
 			</div>
 		</div>
