@@ -394,3 +394,11 @@ body{
 #listaUsuarios td{
   text-align: center;
 }
+
+.noactive{
+  opacity: 0.5;
+}
+
+.btn.active, .btn:active{
+  opacity: 1;
+}

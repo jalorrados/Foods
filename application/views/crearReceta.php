@@ -74,13 +74,13 @@
 						<div class="form-group col-12 col-md-5 mx-auto">
 							<label ><strong>Dificultad:</strong></label>
 							<div class="btn-group" data-toggle="buttons">
-							  <label class="btn btn-success active">
+							  <label class="btn btn-success noactive active">
 							    <input type="radio" name="dificultad" value="facil" autocomplete="off" checked> Fácil
 							  </label>
-							  <label class="btn btn-warning">
+							  <label class="btn btn-warning noactive">
 							    <input type="radio" name="dificultad" value="medio" autocomplete="off"> Medio
 							  </label>
-							  <label class="btn btn-danger">
+							  <label class="btn btn-danger noactive">
 							    <input type="radio" name="dificultad" value="dificil" autocomplete="off"> Difícil
 							  </label>
 							</div>
