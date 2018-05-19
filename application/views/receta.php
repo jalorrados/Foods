@@ -35,13 +35,25 @@
 			</div>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Número de personas</div>
-			<p class="mx-3">Receta para <?= $usuario["receta"]->numpersonas ?> persona/s</p>
+			<p class="mx-3">
+				Receta para <select id="dynamicnumpersonselect" onchange="dynamicnumperson()">
+					<?php
+						for ($i=1; $i < 10; $i++) { 
+							if ($i == $usuario["receta"]->numpersonas) {
+								echo "<option selected value='".$i."'>".$i."</option>";
+							}else{
+								echo "<option value='".$i."'>".$i."</option>";
+							}
+						}
+					?>
+				</select> persona/s
+			</p>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
 			<ul class="list-group mx-3">
 				<?php for($i = 0; $i <count($usuario["nombreIngredientes"]); $i++):?>
-					<li class="list-group-item"><?=$usuario["datosIngredientes"][$i]->cantidad." ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
+					<li class="list-group-item"><?="<span  id='espan'>".$usuario["datosIngredientes"][$i]->cantidad."</span>"?><?=" ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
 				<?php endfor; ?>
 			</ul>
 
@@ -136,7 +148,11 @@ $(function () {
  			//$("#resultadoRating").text(rating);
 	    	//alert("Rating is set to: " + rating);
 	    	var getUrl = window.location;
-			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript//en server externo poner 0
+			if (getUrl.host == "localhost") {
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+			}else{
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+			}
 
 	    	  $.ajax({
                 data:  {"rating":rating, "idReceta":$("#idRecetaHidden").val()},

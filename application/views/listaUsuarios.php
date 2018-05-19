@@ -17,13 +17,19 @@
 					<td><?= $user->apenom?></td>
 					<td><?= $user->telefono?></td>
 					<?php if($user->rol == "admin") : ?>
+
 						<?php if ($user->email == $usuario["email"]): ?>
 							<td><button type="button" class="btn btn-success btn-sm" disabled>Admin</button></td>
 						<?php else : ?>
-							<td><button type="button" class="btn btn-success btn-sm" onclick="cambiarPermisos(this)" value="<?=$user->email?>-user">Admin</button></td>
+							<td><button type="button" class="btn btn-success btn-sm" onclick="cambiarPermisos(this)" value="<?=$user->email?>-admin">Admin</button></td>
 						<?php endif ?>
+
+					<?php elseif ($user->rol == "user"): ?>
+						<td><button type="button" class="btn btn-info btn-sm" onclick="cambiarPermisos(this)" value="<?=$user->email?>-user">User</button></td>
+
 					<?php else : ?>
-						<td><button type="button" class="btn btn-info btn-sm" onclick="cambiarPermisos(this)" value="<?=$user->email?>-admin">User</button></td>
+						<td><button type="button" class="btn btn-warning btn-sm" onclick="cambiarPermisos(this)" value="<?=$user->email?>-editor">Editor</button></td>
+
 					<?php endif; ?>
 
 					<?php if ($user->email == $usuario["email"]): ?>
