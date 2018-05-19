@@ -53,7 +53,7 @@
 			
 			<ul class="list-group mx-3">
 				<?php for($i = 0; $i <count($usuario["nombreIngredientes"]); $i++):?>
-					<li class="list-group-item"><?="<span  id='espan'>".$usuario["datosIngredientes"][$i]->cantidad."</span>"?><?=" ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
+					<li class="list-group-item"><input type="hidden" value="<?=$usuario["datosIngredientes"][$i]->cantidad?>"/><?="<span>".$usuario["datosIngredientes"][$i]->cantidad."</span>"?><?=" ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
 				<?php endfor; ?>
 			</ul>
 

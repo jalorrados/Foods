@@ -632,34 +632,35 @@ function eliminarUsuario(boton){
 }
 
 var seleccioninicial = $("#dynamicnumpersonselect option:selected").val();
-var inginicial=$("#espan").text();
+//var inginicial=$("#espan").text();
 
 function dynamicnumperson(){
 	$("ul.list-group li").each(function( index ){
 
 	 var seleccion = $("#dynamicnumpersonselect option:selected").val();
-	 var ing = $("#espan").text();
+	 var ing = $(this).find("input:hidden").val();
+	 //console.log(ing)
 
 	 if (seleccion>parseInt(seleccioninicial)) {
-	 	var x = ((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+	 	var x = ((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
 	 	if (x[1]=="00") {
-	 		$("#espan").text(((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(0));
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(0));
 	 	}else{
-	 		$("#espan").text(((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(2));
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2));
 	 	}
 
 
 	 }else if(seleccion<parseInt(seleccioninicial)){
-	 	var y = ((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+	 	var y = ((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
 	 	if (y[1]=="00") {
-	 		$("#espan").text(((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(0));
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(0));
 	 	}else{
-	 		$("#espan").text(((parseInt(seleccion)*parseInt(inginicial))/parseInt(seleccioninicial)).toFixed(2));
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2));
 	 	}
 
 
 	 }else{
-	 	$("#espan").text(inginicial);
+	 	$(this).find("span").text(ing);
 	 }
 	});	
 }
