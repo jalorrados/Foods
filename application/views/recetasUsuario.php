@@ -5,14 +5,14 @@
       <li class="breadcrumb-item active" aria-current="page"><?= $receta["categoria"] ?></li>
     </ol>
   </nav>-->
-  <form class="form-inline">
+  <!--<form class="form-inline">
     <label class="mr-2 ml-3" for="ordenListado">Ordenar:</label>
     <select class="custom-select" id="ordenListado">
       <option value="nuevo" selected>Más recientes primero</option>
       <option value="viejo">Más antiguos primero</option>
       <option value="letra">Alfabeticamente</option>
     </select>
-  </form>
+  </form>-->
   <div class="row" id="container">
       <?php foreach($usuario["recetaUsuario"] as $receta): ?>
       <a href="<?= base_url() ?>receta?categoria=<?= $receta["categoria"] ?>&idReceta=<?= $receta['id'] ?>" class="text-black nosub">

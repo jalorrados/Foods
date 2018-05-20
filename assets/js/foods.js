@@ -532,7 +532,7 @@ function buscarListado(){
 }
 
 
-$(function() {
+/*$(function() {
 	var as = $("a.nosub");
  
  	$("#ordenListado").on("change",function(){
@@ -556,7 +556,11 @@ $(function() {
 		}
  	});
 
-});
+});*/
+
+function ordenListadoFormMethod(){
+	document.getElementById("ordenListadoForm").submit();
+}
 
 //JQuery
 $(function () {

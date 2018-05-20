@@ -148,5 +148,19 @@ class Receta_model extends CI_Model {
 		R::exec("DELETE FROM receta WHERE id=".(int)$idReceta);//finalmente elimino la receta
 	}
 
+	public function editReceta($id){//actualiza el usuario
+		$user = R::load('receta', $id);
+
+		if($user->id !=0){
+			$user->apenom = $nombre;
+			$user->telefono = $telefononuevo;
+			$user->urlimagen = $urlimagennueva;
+			R::store($user);
+		}
+
+		R::close();
+	}
+
+
 }
 ?>

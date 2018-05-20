@@ -9,14 +9,16 @@
     <a href="<?= base_url() ?>categorias"> Categorías</a>
     <a class="activebreadcrumb" href="#"><?= $usuario["categoria"] ?></a>
   </div>
-  <!--<form class="form-inline">
+
+  <!--<form class="form-inline" method="post" action="<?=base_url()?>listado" id="ordenListadoForm">
     <label class="mr-2 ml-3" for="ordenListado">Ordenar:</label>
-    <select class="custom-select" id="ordenListado">
-      <option value="nuevo" selected>Más recientes primero</option>
-      <option value="viejo">Más antiguos primero</option>
+    <select name="ordenListado" class="custom-select" id="ordenListado" onchange="ordenListadoFormMethod()">
+      <option value="nuevo">Más recientes primero</option>
+      <option value="viejo" selected>Más antiguos primero</option>
       <option value="letra">Alfabéticamente</option>
     </select>
   </form>-->
+
   <div class="row" id="container">
       <?php foreach($usuario["listado"] as $receta): ?>
       <a href="<?= base_url() ?>receta?categoria=<?= $usuario["categoria"] ?>&idReceta=<?= $receta['id'] ?>" class="text-black nosub">

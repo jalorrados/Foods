@@ -156,5 +156,23 @@ class Receta extends CI_Controller {
 		$this -> receta_model -> deleteRecipe($recetaId[1]);
 		header("Location:".base_url()."listado?categoria=".$recetaId[0]);
 	}
+
+	public function editarReceta(){
+		session_start();
+		$info = $_GET["editRecipe"];
+
+		$recetaId = explode("-",$info);
+
+		$this->load->model('receta_model');
+		$receta = $this-> receta_model->getRecetaById($recetaId[1]);
+
+		$datos['usuario']["receta"] = $receta;
+		$datos['usuario']["apenom"] = $_SESSION["apenom"];
+		$datos['usuario']["telefono"] = $_SESSION["telefono"];
+		$datos['usuario']["email"] = $_SESSION["email"];
+		$datos['usuario']["rol"] = $_SESSION["rol"];
+		enmarcar($this, 'editarReceta',$datos);
+		//header("Location:".base_url()."listado?categoria=".$recetaId[0]);
+	}
 }
 ?>

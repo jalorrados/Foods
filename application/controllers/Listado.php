@@ -35,8 +35,13 @@ class Listado extends CI_Controller {
 						break;
 				}
 				$this->load->model('listado_model');
-				if (empty($_GET["limite"])) {
-					$listado = $this-> listado_model->getListadoLimit($categoriabbdd,0);
+				if (empty($_GET["limite"])) {//si limite esta vacio es que es la primera pagina y no se ha pulsado a otra
+					//if (empty($_POST["ordenListado"]) || $_POST["ordenListado"]=="viejo") {
+						$listado = $this-> listado_model->getListadoLimit($categoriabbdd,0);
+					//}else{
+						//$listado = $this-> listado_model->getListadoLimitDesc($categoriabbdd,0);
+					//}
+					
 					$numRecetas = $this-> listado_model->getNumberRecipes($categoriabbdd);
 					
 					if ($numRecetas%5 == 0) {
@@ -49,9 +54,12 @@ class Listado extends CI_Controller {
 					}
 					
 				}else{
-					$listado = $this-> listado_model->getListadoLimit($categoriabbdd,$_GET["limite"]);
+					//if (empty($_POST["ordenListado"]) || $_POST["ordenListado"]=="viejo") {
+					//	$listado = $this-> listado_model->getListadoLimit($categoriabbdd,$_GET["limite"]);
+					//}else{
+						$listado = $this-> listado_model->getListadoLimit($categoriabbdd,$_GET["limite"]);
+					//}
 					$numRecetas = $this-> listado_model->getNumberRecipes($categoriabbdd,$_GET["limite"]);
-					
 					if ($numRecetas%5 == 0) {
 						$datos['usuario']["paginas"] = $numRecetas/5;
 						
