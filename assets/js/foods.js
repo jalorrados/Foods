@@ -28,7 +28,11 @@ function login(){
 			var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
 
 			var getUrl = window.location;
-			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript//en server externo poner 0
+			if (getUrl.host == "localhost") {
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+			}else{
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+			}
 
 			xml.open('GET', baseUrl+'/inicio/loginPostComprobar?comprobarEmailLogin='+email.value+'&comprobarPassLogin='+md5(pass.value), true);
 			xml.send();
@@ -72,7 +76,11 @@ function checkContact(){
 
 	var getUrl = window.location;
 
-	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	if (getUrl.host == "localhost") {
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	}else{
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+	}
 
 	var email = document.getElementById("sendemail");
 	var concept = document.getElementById("sendconcept");
@@ -188,7 +196,11 @@ function registrarse(){
 						var xml = new XMLHttpRequest();//compruebo si existe el email con esta peticion ajax
 
 						var getUrl = window.location;
-						var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+						if (getUrl.host == "localhost") {
+							var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+						}else{
+							var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+						}
 
 						xml.open('GET', baseUrl+'/inicio/signPostComprobar?comprobarEmail='+email.value, true);
 						xml.send();
@@ -520,7 +532,7 @@ function buscarListado(){
 }
 
 
-$(function() {
+/*$(function() {
 	var as = $("a.nosub");
  
  	$("#ordenListado").on("change",function(){
@@ -544,7 +556,11 @@ $(function() {
 		}
  	});
 
-});
+});*/
+
+function ordenListadoFormMethod(){
+	document.getElementById("ordenListadoForm").submit();
+}
 
 //JQuery
 $(function () {
@@ -569,22 +585,32 @@ $(function () {
 function cambiarPermisos(boton){
 	var getUrl = window.location;
 
-	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	if (getUrl.host == "localhost") {
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	}else{
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+	}
 	$.post(baseUrl+"/ListaUsuarios/cambiarPermisos",
 	        {
 	          datosUser: boton.value,
 	        },
 	        function(){
 	        	var datos = boton.value.split('-');
-	        	console.log(datos[1])
-	        	if (datos[1] == "user") {
+	        	//console.log(datos[1])
+	        	if (datos[1] == "admin") {
 	        		$(boton).removeClass('btn-success').addClass('btn-info');
 	        		$(boton).text("User");
-	        		$(boton).val(datos[0]+"-admin");
-	        	}else{
-	        		$(boton).removeClass('btn-info').addClass('btn-success');
-	        		$(boton).text("admin");
 	        		$(boton).val(datos[0]+"-user");
+
+	        	}else if (datos[1] == "user"){
+	        		$(boton).removeClass('btn-info').addClass('btn-warning');
+	        		$(boton).text("Editor");
+	        		$(boton).val(datos[0]+"-editor");
+
+	        	}else{
+	        		$(boton).removeClass('btn-warning').addClass('btn-success');
+	        		$(boton).text("Admin");
+	        		$(boton).val(datos[0]+"-admin");
 	        	}
 	        });
 
@@ -593,7 +619,12 @@ function cambiarPermisos(boton){
 function eliminarUsuario(boton){
 	var getUrl = window.location;
 
-	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	if (getUrl.host == "localhost") {
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+	}else{
+		var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+	}
+	
 	$.post(baseUrl+"/ListaUsuarios/eliminarUsuario",
 	        {
 	          emailUser: boton.value,
@@ -602,4 +633,38 @@ function eliminarUsuario(boton){
 	        	location.reload();
 	        });
 
+}
+
+var seleccioninicial = $("#dynamicnumpersonselect option:selected").val();
+//var inginicial=$("#espan").text();
+
+function dynamicnumperson(){
+	$("ul.list-group li").each(function( index ){
+
+	 var seleccion = $("#dynamicnumpersonselect option:selected").val();
+	 var ing = $(this).find("input:hidden").val();
+	 //console.log(ing)
+
+	 if (seleccion>parseInt(seleccioninicial)) {
+	 	var x = ((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+	 	if (x[1]=="00") {
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(0));
+	 	}else{
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2));
+	 	}
+
+
+	 }else if(seleccion<parseInt(seleccioninicial)){
+	 	var y = ((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+	 	if (y[1]=="00") {
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(0));
+	 	}else{
+	 		$(this).find("span").text(((parseInt(seleccion)*parseInt(ing))/parseInt(seleccioninicial)).toFixed(2));
+	 	}
+
+
+	 }else{
+	 	$(this).find("span").text(ing);
+	 }
+	});	
 }

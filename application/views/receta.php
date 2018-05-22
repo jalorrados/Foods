@@ -35,13 +35,25 @@
 			</div>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Número de personas</div>
-			<p class="mx-3">Receta para <?= $usuario["receta"]->numpersonas ?> persona/s</p>
+			<p class="mx-3">
+				Receta para <select id="dynamicnumpersonselect" onchange="dynamicnumperson()">
+					<?php
+						for ($i=1; $i < 10; $i++) { 
+							if ($i == $usuario["receta"]->numpersonas) {
+								echo "<option selected value='".$i."'>".$i."</option>";
+							}else{
+								echo "<option value='".$i."'>".$i."</option>";
+							}
+						}
+					?>
+				</select> persona/s
+			</p>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Ingredientes</div>
 			
 			<ul class="list-group mx-3">
 				<?php for($i = 0; $i <count($usuario["nombreIngredientes"]); $i++):?>
-					<li class="list-group-item"><?=$usuario["datosIngredientes"][$i]->cantidad." ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
+					<li class="list-group-item"><input type="hidden" value="<?=$usuario["datosIngredientes"][$i]->cantidad?>"/><?="<span>".$usuario["datosIngredientes"][$i]->cantidad."</span>"?><?=" ".$usuario["datosIngredientes"][$i]->unidades." de ".$usuario["nombreIngredientes"][$i]->nombre?></li>
 				<?php endfor; ?>
 			</ul>
 
@@ -72,10 +84,14 @@
 			<?php endif; ?>
 
 			<?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
-				<form action="<?= base_url() ?>receta/eliminarReceta"  method="post" class="mx-auto mt-3" align="center">
-					<input type="submit" class="btn btn-danger btn-sm" value="Eliminar Receta">
-					<input type="hidden" name="deleteRecipe" value="<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>">
-				</form>
+				<div class="mt-3 mx-auto"  align="center">
+					<a  href="<?= base_url() ?>receta/editarReceta?editRecipe=<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
+				
+					<form action="<?= base_url() ?>receta/eliminarReceta"  method="post" class="form-group" style=" display: inline-block;">
+						<input type="submit" class="btn btn-danger btn-sm" value="Eliminar Receta">
+						<input type="hidden" name="deleteRecipe" value="<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>">
+					</form>
+				</div>
           		
         	<?php endif; ?>
 		</div>
@@ -136,7 +152,11 @@ $(function () {
  			//$("#resultadoRating").text(rating);
 	    	//alert("Rating is set to: " + rating);
 	    	var getUrl = window.location;
-			var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript//en server externo poner 0
+			if (getUrl.host == "localhost") {
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];//base url en javascript
+			}else{
+				var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];//base url en javascript
+			}
 
 	    	  $.ajax({
                 data:  {"rating":rating, "idReceta":$("#idRecetaHidden").val()},

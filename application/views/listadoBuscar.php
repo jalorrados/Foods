@@ -1,12 +1,12 @@
 <div class="container my-5" id="navscrollstart">
-  <form class="form-inline mt-3 pt-3">
+  <!--<form class="form-inline mt-3 pt-3">
     <label class="mr-2 ml-3" for="ordenListado">Ordenar:</label>
     <select class="custom-select" id="ordenListado">
       <option value="nuevo" selected>Más recientes primero</option>
       <option value="viejo">Más antiguos primero</option>
       <option value="letra">Alfabeticamente</option>
     </select>
-  </form>
+  </form>-->
    <div class="row" id="container">
       <?php foreach($usuario["listadoBuscar"] as $receta): ?>
       <a href="<?= base_url() ?>receta?categoria=<?= $receta["categoria"] ?>&idReceta=<?= $receta['id'] ?>" class="text-black nosub">

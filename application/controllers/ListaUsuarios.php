@@ -26,6 +26,16 @@ class ListaUsuarios extends CI_Controller {
 	public function cambiarPermisos(){
 		$datos = explode("-", $_POST["datosUser"]);
 
+		if ($datos[1] == "admin") {
+			$datos[1] = "user";
+
+		}else if($datos[1] == "user"){
+			$datos[1] = "editor";
+
+		}else{
+			$datos[1] = "admin";
+		}
+
 		$this->load->model('listaUsuarios_model');
 		$this-> listaUsuarios_model->changePermisos($datos[0],$datos[1]);
 

@@ -9,9 +9,15 @@ class Listado_model extends CI_Model {
 
 	public function getListadoLimit($categoria,$limite){//obtener todas las recetas segun la categoria y un limite
 
-		return R::getAll( "SELECT id,nombre,preparacion,urlimagen FROM receta WHERE categoria= :cat LIMIT :lim ,5",  array(':cat'=>$categoria ,':lim'=>(int)$limite));
+		return R::getAll( "SELECT id,nombre,preparacion,urlimagen FROM receta WHERE categoria= :cat ORDER BY id ASC LIMIT :lim ,5",  array(':cat'=>$categoria ,':lim'=>(int)$limite));
 
 	}
+
+	/*public function getListadoLimitDesc($categoria,$limite){//obtener todas las recetas segun la categoria y un limite
+
+		return R::getAll( "SELECT id,nombre,preparacion,urlimagen FROM receta WHERE categoria= :cat ORDER BY id DESC LIMIT :lim ,5",  array(':cat'=>$categoria ,':lim'=>(int)$limite));
+
+	}*/
 
 	public function getNumberRecipes($categoria){//obtener numero de recetas segun la categoria
 
