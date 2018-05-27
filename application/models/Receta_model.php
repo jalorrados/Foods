@@ -148,16 +148,52 @@ class Receta_model extends CI_Model {
 		R::exec("DELETE FROM receta WHERE id=".(int)$idReceta);//finalmente elimino la receta
 	}
 
-	public function editReceta($id){//actualiza el usuario
-		$user = R::load('receta', $id);
+	public function editReceta($idReceta,$idUsuario,$nombrereceta,$preparacion,$npersonas,$nombreingrediente,$cantidad,$unidades,$categoria,$dificultad,$urlimagen){//actualiza la receta
+		// $user = R::load('receta', $id);
 
-		if($user->id !=0){
-			$user->apenom = $nombre;
-			$user->telefono = $telefononuevo;
-			$user->urlimagen = $urlimagennueva;
-			R::store($user);
+		// if($user->id !=0){
+		// 	$user->apenom = $nombre;
+		// 	$user->telefono = $telefononuevo;
+		// 	$user->urlimagen = $urlimagennueva;
+		// 	R::store($user);
+		// }
+
+		// R::close();
+		$idIngredientes=R::getCol( "SELECT id FROM ingrediente WHERE receta_id= :idr ",  array(':idr'=>(int)$idReceta));
+
+		$idEspIngredientes=R::getCol( "SELECT especificacioningrediente_id FROM ingrediente WHERE receta_id= :ides ",  array(':ides'=>(int)$idReceta));
+
+		foreach ($idEspIngredientes as $idEspIngrediente) {//elimino las especificaciones de los ingredientes
+			R::exec("DELETE FROM especificacioningrediente WHERE id=".(int)$idEspIngrediente);
 		}
 
+		foreach ($idIngredientes as $idIngrediente) {//elimino los ingredientes
+			R::exec("DELETE FROM ingrediente WHERE id=".(int)$idIngrediente);
+		}
+
+		$usuario = R::load('usuario', $idUsuario);
+		$receta = R::load('receta',$idReceta);
+		$receta -> nombre = $nombrereceta;
+		$receta -> preparacion = $preparacion;
+		$receta -> numpersonas = $npersonas;
+		$receta -> categoria = $categoria;
+		$receta -> dificultad = $dificultad;
+		if ($urlimagen!=null) {
+			$receta -> urlimagen = $urlimagen;
+		}
+		$receta -> usuario = $usuario;
+
+		for ($i=0; $i < count($nombreingrediente); $i++) {
+			$especificacioningrediente = R::dispense ('especificacioningrediente');
+			$ingrediente = R::dispense ('ingrediente');
+			$especificacioningrediente -> nombre = $nombreingrediente[$i];
+			$ingrediente -> cantidad = $cantidad[$i];
+			$ingrediente -> unidades = $unidades[$i];
+			$ingrediente -> receta = $receta;
+			$ingrediente -> especificacioningrediente = $especificacioningrediente;
+			R::store($ingrediente);
+		}
+		
 		R::close();
 	}
 

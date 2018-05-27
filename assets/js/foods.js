@@ -351,6 +351,23 @@ function numeroIngredientes(){
 	}
 }
 
+var contadorIng= 0;//Hay que poner que el numero sea el siguiente a la cantridad que ya hay
+function numeroIngredientes2(){
+	var divCantidad = document.getElementById("ingredientes");
+
+	var divv = document.createElement("div");
+	divv.setAttribute("class","form-inline");
+	divv.style.marginBottom="5px";
+	divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+contadorIng+'" name="ingrediente'+contadorIng+'">'+
+	'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+contadorIng+'" name="cantidad'+contadorIng+'">'+
+	'<select class="form-control" id="unidad'+contadorIng+'" name="unidad'+contadorIng+'"><option>---</option><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
+	
+	divCantidad.appendChild(divv);
+	contadorIng++;
+
+	
+}
+
 function loadFile(rutaimagen) {
 
 	/*Cambia la imagen*/
@@ -497,6 +514,88 @@ function crearReceta(){
 		alert("El nombre debe estar comprendido entre 2 y 40 caracteres");
 	}
 	
+}
+function editReceta(){
+
+	var exp_nombre =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{2,40}$/;
+	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
+
+	var nombre = document.getElementById("nombreReceta");
+	var preparacion = document.getElementById("preparacionReceta");
+	var npersonas = document.getElementById("numPersonas");
+	//var ningredientes = document.getElementById("numIngredientes");
+	var ingredientes = document.getElementById("ingredientes");
+	var imagen = document.getElementById("imgReceta");
+	var categoria = document.getElementById("categoriaReceta");
+
+	if (exp_nombre.test(nombre.value)) {
+
+		if (exp_preparacion.test(preparacion.value)) {
+
+			if (npersonas.value != "---") {
+
+				//if (ningredientes.value != "---") {
+
+					if (comprobarningredientes2(ingredientes)) {
+
+						if (categoria.value != "---") {
+
+							crearRecetaForm.submit();
+
+						}else{
+
+							alert("Debes seleccionar una categoría");
+						}
+
+					}else{
+
+						alert("Debes rellenar todos los campos de ingredientes con datos correctos");
+					}
+
+				// }else{
+
+				// 	alert("Debe seleccionar el número de ingredientes");
+				// }
+
+			}else{
+
+				alert("Debe seleccionar el número de personas");
+			}
+
+		}else{
+
+			alert("La preparación debe contener al menos 10 caracteres min.");
+		}
+
+	}else{
+
+		alert("El nombre debe estar comprendido entre 2 y 40 caracteres");
+	}
+	
+}
+
+function comprobarningredientes2(ingredientes){
+
+	var q = true;
+
+	for (var i = 1; i < ingredientes.childNodes.length-1; i++) {
+		if (ingredientes.childNodes[i].childNodes[i]!=undefined) {
+			if (ingredientes.childNodes[i].childNodes[0].value == "") {
+				q = false;
+			}
+	
+			if (ingredientes.childNodes[i].childNodes[1].value == "" || parseFloat(ingredientes.childNodes[i].childNodes[1].value) <= 0) {
+				q = false;
+			}
+	
+			if (ingredientes.childNodes[i].childNodes[2].value == "---") {
+				q = false;
+			}
+		}
+	
+	}
+
+	return q;
 }
 
 function comprobarningredientes(ingredientes){

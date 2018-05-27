@@ -3,7 +3,8 @@
 		<div class="row">
 			<div class="col-12 col-md-5 mx-auto text-center">
 				<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Editar Receta</u></h1>
-				<form action="<?= base_url() ?>crearReceta/nuevaReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
+				<form action="<?= base_url() ?>Receta/postEditarReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
+					<input type="hidden" name="idRecetaEscondido" value="<?=$usuario["receta"]->id?>">
 					<div class="form-group">
 			        	<label for="nombreReceta" class="col-form-label">Nombre:</label>
 			        	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta" value="<?=$usuario["receta"]->nombre?>">
@@ -29,30 +30,33 @@
 						</select> 
 					    
 					</div>
-					<!--FALTA POR HACER ESTO Y LO DEL ARCHIVO-->
 			     	<div class="form-group">
 					    <label for="numIngredientes">Número de Ingredientes</label>
-					    <select class="form-control" name="numIngredientes" id="numIngredientes" onchange="numeroIngredientes()">
-							<option value="---">---</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-						</select>
+					   <input type="button" class="w-100 btn btn-primary" value="Añadir Ingrediente" onclick="numeroIngredientes2()">
 					</div>
 
-					<div class="form-group" id="ingredientes"></div>
+					<div class="form-group" id="ingredientes">
+						<?php
+							$unidades=["Unidades","Kilos","Gramos","Cucharadas","Litros","Mililitros","Tazas"];
+								for ($i=0; $i < $usuario["numing"]; $i++) { 
+									echo "<div class='form-inline' style='margin-bottom:5px;'>";
+									echo '<input type="text" value="'.$usuario["nombreIngredientes"][$i]->nombre.'" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'.$i.'" name="ingrediente'.$i.'">'.
+								'<input type="number" min="0" max="999" value='.$usuario["datosIngredientes"][$i]->cantidad.' placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'.$i.'" name="cantidad'.$i.'">'.
+								'<select class="form-control" id="unidad'.$i.'" name="unidad'.$i.'"><option>---</option>';
+
+									for ($j=0; $j < count($unidades); $j++) { 
+										if ($unidades[$j]==$usuario["datosIngredientes"][$i]->unidades) {
+											echo "<option selected>".$unidades[$j]."</option>";
+										} else {
+											echo "<option>".$unidades[$j]."</option>";
+										}
+										
+									}
+								
+								echo "</select></div>";
+								}
+						?>
+					</div>
 
 			     	<div class="form-group">
 						<label>Añadir una foto:</label><br>
@@ -125,17 +129,11 @@
 										}
 									}
 								?>
-								<option value="infantil">Alimentacion infantil</option>
-								<option value="tapas">Aperitivos y tapas</option>
-								<option value="sopas">Sopas y cremas</option>
-								<option value="pastas">Arroces y pastas</option>
-								<option value="potajes">Potajes y platos de cuchara</option>
-								<option value="verduras">Verduras y hortalizas</option>
 							</select>
 						</div>
 					</div>
 					<br>
-					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="editarReceta()">Editar Receta</button>
+					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="editReceta()">Editar Receta</button>
 				</form>
 			</div>
 		</div>

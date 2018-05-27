@@ -160,13 +160,28 @@ class Receta extends CI_Controller {
 	public function editarReceta(){
 		session_start();
 		$info = $_GET["editRecipe"];
+		$numing = $_GET["numing"];
 
 		$recetaId = explode("-",$info);
 
 		$this->load->model('receta_model');
 		$receta = $this-> receta_model->getRecetaById($recetaId[1]);
 
+		$ingredientes = $this-> receta_model->getIngredientes($recetaId[1]);
+			$especificacionIngrediente = $this-> receta_model->getEspecificacionIngrediente();
+			$nombreIngredientes =[];
+			foreach ($ingredientes as $ing) {
+				foreach ($especificacionIngrediente as $esping) {
+					if ($esping->id == $ing->especificacioningrediente_id) {
+						array_push($nombreIngredientes,$esping);
+					}
+				}
+			}
+
 		$datos['usuario']["receta"] = $receta;
+		$datos['usuario']["datosIngredientes"] = $ingredientes;
+		$datos['usuario']["nombreIngredientes"] = $nombreIngredientes;
+		$datos['usuario']["numing"] = $numing;
 		$datos['usuario']["apenom"] = $_SESSION["apenom"];
 		$datos['usuario']["telefono"] = $_SESSION["telefono"];
 		$datos['usuario']["email"] = $_SESSION["email"];
@@ -174,5 +189,51 @@ class Receta extends CI_Controller {
 		enmarcar($this, 'editarReceta',$datos);
 		//header("Location:".base_url()."listado?categoria=".$recetaId[0]);
 	}
+
+	public function postEditarReceta(){
+		session_start();
+		$this->load->model('Receta_model');//carga el modelo
+		$this->load->model('Perfil_model');//carga el modelo
+		$idReceta = $_POST["idRecetaEscondido"];
+		$nombrereceta = $_POST["nombreReceta"];
+		$preparacion = $_POST["preparacionReceta"];
+		$npersonas = $_POST["numPersonas"];
+		//$ningredientes = $_POST["numIngredientes"];
+		$nombreingrediente = array();
+		$cantidad = array();
+		$unidades = array();
+		$categoria = $_POST["categoriaReceta"];
+		$dificultad = $_POST["dificultad"];
+
+		/****Cogemos la imgen y la copiamos a la carpeta correspondiente****/
+		$nombreimagen = $_FILES['imgReceta']['name'];
+		$carpeta = "./fotos/".$_SESSION["email"];
+
+		//cogemos la url de la imagen para meterla en la bbdd
+		if ($nombreimagen!=null) {
+			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
+			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
+
+		}else{
+			$urlimagen=null;
+		}
+
+		for ($i=0; $i < 100; $i++) {
+			if (isset($_POST["ingrediente" . $i])) {
+				array_push($nombreingrediente, $_POST["ingrediente" . $i]);
+				array_push($cantidad, $_POST["cantidad" . $i]);
+				array_push($unidades, $_POST["unidad" . $i]);
+
+			}
+
+		}
+		
+		$idUsuario = $this -> Perfil_model -> getIdByEmail($_SESSION["email"]);//obtiene el id del usuario
+
+		$this -> Receta_model -> editReceta($idReceta,$idUsuario,$nombrereceta,$preparacion,$npersonas,$nombreingrediente,$cantidad,$unidades,$categoria,$dificultad,$urlimagen);//modifica la receta
+
+		header('Location:'.base_url().'inicio');//carga la vista para crear una nueva receta
+	}
+	
 }
 ?>

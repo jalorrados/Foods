@@ -85,7 +85,7 @@
 
 			<?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
 				<div class="mt-3 mx-auto"  align="center">
-					<a  href="<?= base_url() ?>receta/editarReceta?editRecipe=<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
+					<a  href="<?= base_url() ?>receta/editarReceta?numing=<?=count($usuario["nombreIngredientes"])?>&editRecipe=<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
 				
 					<form action="<?= base_url() ?>receta/eliminarReceta"  method="post" class="form-group" style=" display: inline-block;">
 						<input type="submit" class="btn btn-danger btn-sm" value="Eliminar Receta">
