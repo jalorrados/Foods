@@ -351,7 +351,9 @@ function numeroIngredientes(){
 	}
 }
 
-var contadorIng= 0;//Hay que poner que el numero sea el siguiente a la cantridad que ya hay
+var divCantidad = document.getElementById("ingredientes");
+var hijosing = $("#ingredientes").children().length;
+var contadorIng= hijosing;
 function numeroIngredientes2(){
 	var divCantidad = document.getElementById("ingredientes");
 
@@ -360,12 +362,18 @@ function numeroIngredientes2(){
 	divv.style.marginBottom="5px";
 	divv.innerHTML +='<input type="text" placeholder="Ingrediente" style="width: 200px;" class="form-control" id="ingrediente'+contadorIng+'" name="ingrediente'+contadorIng+'">'+
 	'<input type="number" min="0" max="999" placeholder="Cantidad" style="width: 110px;" class="form-control" id="cantidad'+contadorIng+'" name="cantidad'+contadorIng+'">'+
-	'<select class="form-control" id="unidad'+contadorIng+'" name="unidad'+contadorIng+'"><option>---</option><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>';
+	'<select class="form-control" id="unidad'+contadorIng+'" name="unidad'+contadorIng+'"><option>---</option><option>Unidades</option><option>Kilos</option><option>Gramos</option><option>Cucharadas</option><option>Litros</option><option>Mililitros</option><option>Tazas</option></select>'+
+	'<input type="button" class="btn btn-danger" value="Borrar Ingrediente" onclick="borarIngredienteEditar(this)">';
 	
 	divCantidad.appendChild(divv);
 	contadorIng++;
 
 	
+}
+
+function borarIngredienteEditar(boton){
+	$(boton).parent().remove();
+	console.log("hola")
 }
 
 function loadFile(rutaimagen) {

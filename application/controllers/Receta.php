@@ -204,18 +204,27 @@ class Receta extends CI_Controller {
 		$unidades = array();
 		$categoria = $_POST["categoriaReceta"];
 		$dificultad = $_POST["dificultad"];
+		$previewImagensrc = $_POST["previewImagensrc"];
 
 		/****Cogemos la imgen y la copiamos a la carpeta correspondiente****/
 		$nombreimagen = $_FILES['imgReceta']['name'];
 		$carpeta = "./fotos/".$_SESSION["email"];
 
 		//cogemos la url de la imagen para meterla en la bbdd
-		if ($nombreimagen!=null) {
+		if (isset($nombreimagen) && $nombreimagen != "" && $nombreimagen != " ") {
+			echo "<script>console.log( 'Entra en issets: " . $nombreimagen . "' );</script>";
 			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
 			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
 
 		}else{
-			$urlimagen=null;
+			//echo "<script>console.log( 'preview: " . $previewImagensrc . "' );</script>";
+			$cosa=explode($_SESSION["email"]."/",$previewImagensrc);
+			//echo "<script>console.log( 'cosa de 1: " . $cosa[1] . "' );</script>";
+			$nombreimagen=$cosa[1];
+			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
+			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
+			//echo "<script>console.log( 'url imagen: " . $urlimagen . "' );</script>";
+
 		}
 
 		for ($i=0; $i < 100; $i++) {
@@ -224,6 +233,8 @@ class Receta extends CI_Controller {
 				array_push($cantidad, $_POST["cantidad" . $i]);
 				array_push($unidades, $_POST["unidad" . $i]);
 
+			}else{
+				continue;
 			}
 
 		}

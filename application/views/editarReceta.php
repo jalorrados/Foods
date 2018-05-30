@@ -4,7 +4,7 @@
 			<div class="col-12 col-md-5 mx-auto text-center">
 				<h1 class="font-weight-bold mb-5 mt-5 text-center"><u>Editar Receta</u></h1>
 				<form action="<?= base_url() ?>Receta/postEditarReceta" class="ml-3" method="post" name="crearRecetaForm" enctype="multipart/form-data" accept-charset="utf-8">
-					<input type="hidden" name="idRecetaEscondido" value="<?=$usuario["receta"]->id?>">
+					<input type="hidden" name="idRecetaEscondido" value=<?=$usuario["receta"]->id?>>
 					<div class="form-group">
 			        	<label for="nombreReceta" class="col-form-label">Nombre:</label>
 			        	<input type="text" class="form-control" id="nombreReceta" name="nombreReceta" value="<?=$usuario["receta"]->nombre?>">
@@ -53,14 +53,16 @@
 										
 									}
 								
-								echo "</select></div>";
+								echo '</select><input type="button" class="btn btn-danger" value="Borrar Ingrediente" onclick="borarIngredienteEditar(this)"></div>';
 								}
 						?>
 					</div>
 
 			     	<div class="form-group">
 						<label>Añadir una foto:</label><br>
-						<img class="img-fluid rounded" id="previewImagen">
+						<h5>Si no se selecciona una foto se mantendrá la actual.</h5><br>
+						<img class="img-fluid rounded" id="previewImagen"  src="<?=base_url().$usuario["receta"]->urlimagen?>">
+						<input type="hidden" name="previewImagensrc" value="<?=base_url().$usuario["receta"]->urlimagen?>">
 						<div class="input-group">
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">

@@ -172,16 +172,17 @@ class Receta_model extends CI_Model {
 		}
 
 		$usuario = R::load('usuario', $idUsuario);
-		$receta = R::load('receta',$idReceta);
+		$receta = R::load('receta',(int)$idReceta);
 		$receta -> nombre = $nombrereceta;
 		$receta -> preparacion = $preparacion;
 		$receta -> numpersonas = $npersonas;
 		$receta -> categoria = $categoria;
 		$receta -> dificultad = $dificultad;
-		if ($urlimagen!=null) {
+		//if ($urlimagen!=null) {
 			$receta -> urlimagen = $urlimagen;
-		}
+		//}
 		$receta -> usuario = $usuario;
+		R::store($receta);
 
 		for ($i=0; $i < count($nombreingrediente); $i++) {
 			$especificacioningrediente = R::dispense ('especificacioningrediente');
