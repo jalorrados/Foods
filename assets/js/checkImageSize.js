@@ -42,15 +42,15 @@
 		                if (imgWidth < minWidth || imgHeight < minHeight) {
 		                    validImage = false;
 		                    if (opts.showError) {
-		                    	alert('Por favor seleccione una imagen de al menos ' + minWidth + 'px de ancho y ' + minHeight + 'px de alto!');
+		                    	  //	alert('Por favor seleccione una imagen de al menos ' + minWidth + 'px de ancho y ' + minHeight + 'px de alto!');
+								  alert('Por favor seleccione una imagen de al menos 800px de ancho y 300px de alto!');
 		                    	borrarPreview();
 		                    }
-		                }
-
-		                if (imgWidth > maxWidth || imgHeight > maxHeight) {
+		                }else  if (imgWidth > maxWidth || imgHeight > maxHeight) {
 		                    validImage = false;
 		                    if (opts.showError) {
-		                    	alert('Por favor seleccione una imagen de máximo ' + maxWidth + 'px de ancho y ' + maxHeight + 'px de alto!');
+		                    	//alert('Por favor seleccione una imagen de máximo ' + maxWidth + 'px de ancho y ' + maxHeight + 'px de alto!');
+		                    	alert('Por favor seleccione una imagen de máximo 1920px de ancho y 1080px de alto!');
 		                    	borrarPreview();
 		                    }
 		                }
@@ -77,8 +77,8 @@
     $.fn.checkImageSize.defaults = {
         minWidth: 800,		// Numeric; Pixel value
         minHeight: 600,		// Numeric; Pixel value
-        maxWidth: 8000,		// Numeric; Pixel value
-        maxHeight: 6000,	// Numeric; Pixel value
+        maxWidth: 1920,		// Numeric; Pixel value
+        maxHeight: 1080,	// Numeric; Pixel value
         showError: true,	// Boolean; Whether to show error messages
         ignoreError: false	// Boolean; Whether to ignore error and let the image pass through
     };
@@ -126,15 +126,15 @@
 		                if (imgWidth < minWidth || imgHeight < minHeight) {
 		                    validImage = false;
 		                    if (opts.showError) {
-		                    	alert('Por favor seleccione una imagen de al menos ' + minWidth + 'px de ancho y ' + minHeight + 'px de alto!');
+		                    //	alert('Por favor seleccione una imagen de al menos ' + minWidth + 'px de ancho y ' + minHeight + 'px de alto!');
+		                    	alert('Por favor seleccione una imagen de al menos 800px de ancho y 300px de alto!');
 		                    	imgUserDefault();
 		                    }
-		                }
-
-		                if (imgWidth > maxWidth || imgHeight > maxHeight) {
+		                }else  if (imgWidth > maxWidth || imgHeight > maxHeight) {
 		                    validImage = false;
 		                    if (opts.showError) {
-		                    	alert('Por favor seleccione una imagen de máximo ' + maxWidth + 'px de ancho y ' + maxHeight + 'px de alto!');
+		                    	//alert('Por favor seleccione una imagen de máximo ' + maxWidth + 'px de ancho y ' + maxHeight + 'px de alto!');
+		                    	alert('Por favor seleccione una imagen de máximo 1920px de ancho y 1080px de alto!');
 		                    	imgUserDefault();
 		                    }
 		                }
@@ -162,8 +162,8 @@
     $.fn.checkUserImageSize.defaults = {
         minWidth: 800,		// Numeric; Pixel value
         minHeight: 600,		// Numeric; Pixel value
-        maxWidth: 8000,		// Numeric; Pixel value
-        maxHeight: 6000,	// Numeric; Pixel value
+        maxWidth: 1920,		// Numeric; Pixel value
+        maxHeight: 1080,	// Numeric; Pixel value
         showError: true,	// Boolean; Whether to show error messages
         ignoreError: false	// Boolean; Whether to ignore error and let the image pass through
     };

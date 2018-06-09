@@ -31,7 +31,7 @@
 
 				<div class="card" style="width: 18rem;">
 				  <img class="card-img-top" src="<?= base_url()?>/assets/img/arroces_pastas.jpg" alt="Card image cap">
-				  <div class="card-body" style="padding: 1.25rem;">
+				  <div class="card-body" style="padding: 1.25rem;height:224px;">
 				    <h5 class="card-title">Arroces y pastas</h5>
 				    <p class="card-text">Prepara la mejor pasta o los mejores arroces para coger energía.</p>
 				    <a href="<?= base_url() ?>listado?categoria=Arroces%20y%20pastas"  class="btn btn-primary"><?=$usuario["totalNumCategorias"][3]?> Recetas</a>
@@ -40,7 +40,7 @@
 
 				<div class="card" style="width: 18rem;">
 				  <img class="card-img-top" src="<?= base_url()?>/assets/img/potajes_cucharas.jpg" alt="Card image cap">
-				  <div class="card-body" style="padding: 1.25rem;">
+				  <div class="card-body" style="padding: 1.25rem;height:224px;">
 				    <h5 class="card-title">Potajes y platos de cuchara</h5>
 				    <p class="card-text">Ricos potajes y los mejores platos de cuchara para disfrutar.</p>
 				    <a href="<?= base_url() ?>listado?categoria=Potajes%20y%20platos de cuchara"  class="btn btn-primary"><?=$usuario["totalNumCategorias"][4]?> Recetas</a>
@@ -49,7 +49,7 @@
 
 				<div class="card" style="width: 18rem;">
 				  <img class="card-img-top" src="<?= base_url()?>/assets/img/verduras_hortalizas.jpg" alt="Card image cap">
-				  <div class="card-body" style="padding: 1.25rem;">
+				  <div class="card-body" style="padding: 1.25rem;height:224px;">
 				    <h5 class="card-title">Verduras y hortalizas</h5>
 				    <p class="card-text">Platos ligeros para una alimentación sana con productos de huerto.</p>
 				    <a href="<?= base_url() ?>listado?categoria=Verduras%20y%20hortalizas"  class="btn btn-primary"><?=$usuario["totalNumCategorias"][5]?> Recetas</a>
