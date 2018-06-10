@@ -467,8 +467,8 @@ function imgUserDefault(){
 
 function crearReceta(){
 
-	var exp_nombre =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{2,40}$/;
-	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
+	var exp_nombre =/^[a-zA-Z()\r\n áéíóúÁÉÍÓÚÑñçÇ]{2,150}$/;
+	var exp_preparacion =/^[a-zA-Z0-9()\r\n -áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
 
 	var nombre = document.getElementById("nombreReceta");
 	var preparacion = document.getElementById("preparacionReceta");
@@ -525,8 +525,8 @@ function crearReceta(){
 }
 function editReceta(){
 
-	var exp_nombre =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ]{2,40}$/;
-	var exp_preparacion =/^[a-zA-Z áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
+	var exp_nombre =/^[a-zA-Z()\r\n áéíóúÁÉÍÓÚÑñçÇ]{2,150}$/;
+	var exp_preparacion =/^[a-zA-Z0-9()\r\n -áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
 
 	var nombre = document.getElementById("nombreReceta");
 	var preparacion = document.getElementById("preparacionReceta");
@@ -612,7 +612,7 @@ function comprobarningredientes(ingredientes){
 
 	for (var i = 0; i < ingredientes.childNodes.length; i++) {
 
-		if (ingredientes.childNodes[i].childNodes[0].value == "" || !isWordR(ingredientes.childNodes[i].childNodes[0].value)) {
+		if (ingredientes.childNodes[i].childNodes[0].value == "") {
 			q = false;
 		}
 

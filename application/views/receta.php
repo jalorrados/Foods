@@ -83,17 +83,19 @@
 				<?php endif; ?>
 			<?php endif; ?>
 
-			<?php if(!empty($_SESSION) && $usuario['rol'] == "admin"):?>
-				<div class="mt-3 mx-auto"  align="center">
-					<a  href="<?= base_url() ?>receta/editarReceta?numing=<?=count($usuario["nombreIngredientes"])?>&editRecipe=<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
-				
+			<?php if(!empty($_SESSION)):?>
+			<div class="mt-3 mx-auto"  align="center">
+				<?php if($usuario['useremailbyidreceta'] == $usuario['email'] || $usuario['rol'] == "editor" || $usuario['rol'] == "admin"):?>
+						<a  href="<?= base_url() ?>receta/editarReceta?numing=<?=count($usuario["nombreIngredientes"])?>&editRecipe=<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
+				<?php endif; ?>
+				<?php if($usuario['useremailbyidreceta'] == $usuario['email'] ||$usuario['rol'] == "admin"):?>
 					<form action="<?= base_url() ?>receta/eliminarReceta"  method="post" class="form-group" style=" display: inline-block;">
 						<input type="submit" class="btn btn-danger btn-sm" value="Eliminar Receta">
 						<input type="hidden" name="deleteRecipe" value="<?= $usuario["categoriaurl"].'-'. $usuario["receta"]->id?>">
 					</form>
+				<?php endif; ?>
 				</div>
-          		
-        	<?php endif; ?>
+      <?php endif; ?>
 		</div>
 		<?php if(empty($_SESSION)):?>
 			<h4>Debes estar registrado para poder dejar un comentario</h4>

@@ -69,7 +69,9 @@ class Receta extends CI_Controller {
 			foreach ($valoraciones as $valoracion) {
 				foreach ($allUsuarios as $usuario) {
 					if ($usuario['id'] == $valoracion["usuario_id"]) {
-						array_push($usuarios,$usuario);
+						if ($valoracion["titulo"]!="no") {//solo mete en el array a los usuarios que han comentado
+							array_push($usuarios,$usuario);
+						}
 					}
 				}
 			}

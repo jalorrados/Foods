@@ -71,11 +71,11 @@
 
 	</div>
 
-	<div class="imagen4 text-center row align-content-center justify-content-center mx-auto my-5">
+	<!-- <div class="imagen4 text-center row align-content-center justify-content-center mx-auto my-5">
 	  <p class="h2 mx-auto col-12 ">Aviso legal</p>
 	  <div class="col-12 mt-3">
 	    <p class="card-text">Foods.com es una página registrada.</p>
 	  </div>
-	</div>
+	</div> -->
 
 </section>
