@@ -1,3 +1,5 @@
+img[alt*="000webhost logo"] {
+  display: none;}
 html {
   size: 10px;
   height: 100%;
