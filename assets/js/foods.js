@@ -467,8 +467,8 @@ function imgUserDefault(){
 
 function crearReceta(){
 
-	var exp_nombre =/^[a-zA-Z()\r\n áéíóúÁÉÍÓÚÑñçÇ]{2,150}$/;
-	var exp_preparacion =/^[a-zA-Z0-9()\r\n -áéíóúÁÉÍÓÚÑñçÇ.,;]{10,}$/;
+	var exp_nombre =/^[a-zA-Z()\r\n .,ºªáéíóúÁÉÍÓÚÑñçÇ]{2,150}$/;
+	var exp_preparacion =/^[a-zA-Z0-9()\r\n -áéíóúÁÉÍÓÚÑñçÇ.,;ºª]{10,}$/;
 
 	var nombre = document.getElementById("nombreReceta");
 	var preparacion = document.getElementById("preparacionReceta");
