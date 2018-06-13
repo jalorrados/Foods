@@ -36,7 +36,7 @@
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Número de personas</div>
 			<p class="mx-3">
-				Receta para <select id="dynamicnumpersonselect" onchange="dynamicnumperson()">
+				Receta para  <!--<input type="number" value="<?=$usuario["receta"]->numpersonas?>" id="dynamicnumpersonselect" min="1" max="100" size="3">--><select id="dynamicnumpersonselect" onchange="dynamicnumperson()">
 					<?php
 						for ($i=1; $i < 10; $i++) { 
 							if ($i == $usuario["receta"]->numpersonas) {
@@ -118,12 +118,13 @@
 	        <div class="col-12 mt-5 mb-3 my-3">
 	            <div class="media">
 	              <div class="media-left">
-	                <a href="#">
-						<img class="media-object imgComentarios" src="<?= base_url().$usuario["usuarios"][$cont]->urlimagen ?>">
-						<?php $cont++ ?>
+	                <a href="<?= base_url() ?>perfil/verRecetasUsuario?email=<?=$usuario['usuarios'][$cont]->email?>">
+										<img class="media-object imgComentarios" src="<?= base_url().$usuario["usuarios"][$cont]->urlimagen ?>">
 	                </a>
 	              </div>
 	              <div class="media-body ml-3">
+									<u><h6 style="display:inline-block;">Comentario de <?=$usuario['usuarios'][$cont]->apenom?>&nbsp;</h6></u><small><?=$valoracion["fecha"]?></small>
+									<?php $cont++ ?>
 	                <h4 class="media-heading"><?=$valoracion["titulo"]?></h4>
 	                <?=$valoracion["descripcion"]?>
 	              </div>

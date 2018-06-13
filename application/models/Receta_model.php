@@ -33,7 +33,7 @@ class Receta_model extends CI_Model {
 		return $ingredientesReceta;
 	}
 
-	public function createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario){
+	public function createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario,$date){
 		$titulonulo=R::getCell( 'SELECT titulo FROM valoracion where receta_id = ? and usuario_id = ?', [(int)$id_receta,(int)$id_usuario] );
 		
 		if ($titulonulo != "no") {
@@ -43,6 +43,7 @@ class Receta_model extends CI_Model {
 
 			$valoracion->titulo =$tituloComentario;
 			$valoracion->descripcion =$descripcionComentario;
+			$valoracion->fecha = $date;
 			$valoracion->puntuacion =null;
 			$valoracion->usuario=$usuario;
 

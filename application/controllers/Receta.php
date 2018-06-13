@@ -102,6 +102,10 @@ class Receta extends CI_Controller {
 	}
 	public function crearComentario(){
 		session_start();
+
+		date_default_timezone_set('Europe/Madrid');
+		$date = date('d/m/Y h:i:s a', time());
+
 		$this->load->model('receta_model');
 		$this->load->model('perfil_model');
 
@@ -125,7 +129,7 @@ class Receta extends CI_Controller {
 			$descripcionComentario=$_POST["descripcionComentario"];
 		}
 
-		$this-> receta_model->createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario);
+		$this-> receta_model->createComentario($id_receta,$id_usuario,$tituloComentario,$descripcionComentario,$date);
 		header("Location:".base_url()."receta?categoria=".$_POST["categoriahidden"]."&idReceta=".$_POST["recetaidhidden"]);
 
 		
@@ -209,23 +213,26 @@ class Receta extends CI_Controller {
 		$previewImagensrc = $_POST["previewImagensrc"];
 
 		/****Cogemos la imgen y la copiamos a la carpeta correspondiente****/
+		$nombreimagenhidden = $_POST['hiddenimgeditareceta'];
 		$nombreimagen = $_FILES['imgReceta']['name'];
 		$carpeta = "./fotos/".$_SESSION["email"];
 
 		//cogemos la url de la imagen para meterla en la bbdd
-		if (isset($nombreimagen) && $nombreimagen != "" && $nombreimagen != " ") {
+		if (isset($nombreimagen) && $nombreimagen != "" && $nombreimagen != " " && $nombreimagen != null) {
 			//echo "<script>console.log( 'Entra en issets: " . $nombreimagen . "' );</script>";
 			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
 			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
 
 		}else{
 			//echo "<script>console.log( 'preview: " . $previewImagensrc . "' );</script>";
-			$cosa=explode($_SESSION["email"]."/",$previewImagensrc);
+			//$cosa=explode($_SESSION["email"]."/",$previewImagensrc);
 			//echo "<script>console.log( 'cosa de 1: " . $cosa[1] . "' );</script>";
-			$nombreimagen=$cosa[1];
-			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
-			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
+			//$nombreimagen=$cosa[1];
+			//copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
+			//$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
 			//echo "<script>console.log( 'url imagen: " . $urlimagen . "' );</script>";
+			$cosa = explode("/Foods/",$nombreimagenhidden);
+			$urlimagen = $cosa[1];
 
 		}
 

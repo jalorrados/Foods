@@ -73,7 +73,13 @@ class Perfil extends CI_Controller {
 	public function verRecetasUsuario(){
 		session_start();
 		$this->load->model('perfil_model');
-		$usuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);
+
+		if (isset($_GET["email"])) {
+			$usuario = $this -> perfil_model -> getIdByEmail($_GET["email"]);
+		}else{
+			$usuario = $this -> perfil_model -> getIdByEmail($_SESSION["email"]);
+		}
+
 		$datosReceta = $this -> perfil_model -> getRecetasUsuario($usuario);
 		$datos['usuario']["apenom"] = $_SESSION["apenom"];
 		$datos['usuario']["rol"] = $_SESSION["rol"];

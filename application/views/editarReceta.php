@@ -62,6 +62,7 @@
 						<label>Añadir una foto:</label><br>
 						<h5>Si no se selecciona una foto se mantendrá la actual.</h5><br>
 						<img class="img-fluid rounded" id="previewImagen"  src="<?=base_url().$usuario["receta"]->urlimagen?>">
+						<input type="hidden" name="hiddenimgeditareceta" value="<?=base_url().$usuario["receta"]->urlimagen?>">
 						<input type="hidden" name="previewImagensrc" value="<?=base_url().$usuario["receta"]->urlimagen?>">
 						<div class="input-group">
 			                <label class="input-group-btn">

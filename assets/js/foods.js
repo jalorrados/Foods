@@ -742,14 +742,48 @@ function eliminarUsuario(boton){
 
 }
 
-var seleccioninicial = $("#dynamicnumpersonselect option:selected").val();
+var seleccioninicial = $("#dynamicnumpersonselect").val();
 //var inginicial=$("#espan").text();
 
-function dynamicnumperson(){
+/*$("#dynamicnumpersonselect").keypress(function(e) {
+	console.log("Holaaaa")
+	if(e.keyCode >= 48 && e.keyCode <= 57 ) {
+		console.log("asdasdasd")
+		$("ul.list-group li").each(function( index ){
 
+			var seleccion = $("#dynamicnumpersonselect").val();
+			var ing = $(this).find("input:hidden").val();
+			//console.log(ing)
+	   
+			if (seleccion>parseInt(seleccioninicial)) {
+				var x = ((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+				if (x[1]=="00") {
+					$(this).find("span").text(((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(0));
+				}else{
+					$(this).find("span").text(((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(2));
+				}
+	   
+	   
+			}else if(seleccion<parseInt(seleccioninicial)){
+				var y = ((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(2).toString().split(".");
+				if (y[1]=="00") {
+					$(this).find("span").text(((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(0));
+				}else{
+					$(this).find("span").text(((parseInt(seleccion)*parseFloat(ing))/parseInt(seleccioninicial)).toFixed(2));
+				}
+	   
+	   
+			}else{
+				$(this).find("span").text(ing);
+			}
+		   });
+	}
+})*/
+
+function dynamicnumperson(){
 	$("ul.list-group li").each(function( index ){
 
-	 var seleccion = $("#dynamicnumpersonselect option:selected").val();
+	 var seleccion = $("#dynamicnumpersonselect").val();
 	 var ing = $(this).find("input:hidden").val();
 	 //console.log(ing)
 
