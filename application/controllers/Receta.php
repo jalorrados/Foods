@@ -214,7 +214,7 @@ class Receta extends CI_Controller {
 
 		//cogemos la url de la imagen para meterla en la bbdd
 		if (isset($nombreimagen) && $nombreimagen != "" && $nombreimagen != " ") {
-			echo "<script>console.log( 'Entra en issets: " . $nombreimagen . "' );</script>";
+			//echo "<script>console.log( 'Entra en issets: " . $nombreimagen . "' );</script>";
 			copy ( $_FILES['imgReceta']['tmp_name'], $carpeta."/".$nombreimagen );
 			$urlimagen = "fotos/".$_SESSION["email"]."/".$nombreimagen;
 

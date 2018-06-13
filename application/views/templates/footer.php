@@ -4,22 +4,22 @@
     <div class="row mx-auto text-center">
       <div class="col-xs-12 col-md-3 my-md-4">
         <ul class="list-unstyled">
-          <li><a class="white-text text-lighten-3 text-white" href="http://www.velocidadcuchara.com/">Velocidad Cuchara</a></li>
+          <li><a class="white-text text-lighten-3 text-white" href="http://www.velocidadcuchara.com/" target="_blank">Velocidad Cuchara</a></li>
         </ul>
       </div>
       <div class="col-xs-12 col-md-3 my-md-4">
         <ul class="list-unstyled">
-          <li><a class="white-text text-lighten-3 text-white" href="https://cookidoo.es/vorwerkWebapp/">Cookidoo</a></li>
+          <li><a class="white-text text-lighten-3 text-white" href="https://cookidoo.es/vorwerkWebapp/" target="_blank">Cookidoo</a></li>
         </ul>
       </div>
       <div class="col-xs-12 col-md-3 my-md-4">
         <ul class="list-unstyled">
-          <li><a class="white-text text-lighten-3 text-white" href="https://www.recetasgratis.net/">Recetas Gratis</a></li>
+          <li><a class="white-text text-lighten-3 text-white" href="https://www.recetasgratis.net/" target="_blank">Recetas Gratis</a></li>
         </ul>
       </div>
       <div class="col-xs-12 col-md-3 my-md-4">
         <ul class="list-unstyled">
-          <li><a class="white-text text-lighten-3 text-white" href="https://www.gallinablanca.es/recetas/">Gallina Blanca</a></li>
+          <li><a class="white-text text-lighten-3 text-white" href="https://www.gallinablanca.es/recetas/" target="_blank">Gallina Blanca</a></li>
         </ul>
       </div>
     </div>
