@@ -36,7 +36,7 @@
 			<div class="card col-xs-12 col-sm-12 col-md-3" style="width: 18rem; height: 25rem;">
 			  <img class="card-img-top2 mx-auto" src="<?= base_url() ?>assets/img/icon1.svg" alt="Card image cap">
 			  <div class="card-body2">
-			    <h5 class="card-title">Crear receta</h5>
+			    <h5 class="card-title">Crea receta</h5>
 			    <p class="card-text">¿Tienes un especial talento en la cocina? Regístrate, publica tus propias recetas y ayuda a los demás usuarios con tus conocimientos sobre cocina comentando otras recetas.</p>
 			  </div>
 			</div>
