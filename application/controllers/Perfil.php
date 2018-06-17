@@ -90,13 +90,14 @@ class Perfil extends CI_Controller {
 
 	public function validation(){
 		session_start();
+		session_unset();
+		session_destroy();
 		if (isset($_GET["t"])) {
 			$this->load->model('perfil_model');
 			$datos = $this -> perfil_model -> validateemail($_GET["t"]);
 
 			if ($datos) {
-				$_SESSION["status"]=1;
-				header('Location:'.base_url().'perfil');
+				$this->load->view ('validacion');
 			}else{
 				header('Location:'.base_url().'inicio');
 			}
