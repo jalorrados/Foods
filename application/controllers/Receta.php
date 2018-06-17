@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Receta extends CI_Controller {
 
 	public function index(){
+		$datos['usuario']["listUser"] = "no";
 		if (isset($_GET["categoria"])) {
 			//$datos['usuario']["categoria"] = $_GET["categoria"];
 

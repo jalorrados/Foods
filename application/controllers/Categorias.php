@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Categorias extends CI_Controller {
 
 	public function index(){
-
+		$datos['usuario']["listUser"] = "no";
 		session_start();//iniciar sesion
 		if (empty($_SESSION)) {//si esta vacia te lleva directamente a incio
 			$nombreCategorias=["infantil","tapas","sopas","pastas","potajes","verduras"];
@@ -16,7 +16,7 @@ class Categorias extends CI_Controller {
 			}
 
 			$datos['usuario']["totalNumCategorias"] = $totalNumCategorias;//le paso los datos a la vista
-
+			$datos['usuario']["listUser"] = "no";
 
 			enmarcar($this, 'categorias',$datos);
 

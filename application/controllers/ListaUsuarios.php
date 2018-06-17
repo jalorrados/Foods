@@ -16,6 +16,7 @@ class ListaUsuarios extends CI_Controller {
 			$datos['usuario']["telefono"] = $_SESSION["telefono"];
 			$datos['usuario']["email"] = $_SESSION["email"];
 			$datos['usuario']["rol"] = $_SESSION["rol"];
+			$datos['usuario']["listUser"] = "si";
 
 			$datos['usuario']["allUsers"] = $this-> listaUsuarios_model->getAllUser();
 

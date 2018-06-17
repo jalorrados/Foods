@@ -56,6 +56,7 @@ class Inicio extends CI_Controller {
 		$datos['usuario']['infoid'] = $infoid;
 		$datos['usuario']['infoval'] = $infoval;
 		$datos['usuario']['idRecetasTop'] = array_keys($topimagenes);
+		$datos['usuario']["listUser"] = "no";
 		
 
 		if (empty($_SESSION)) {//si esta vacia te lleva directamente a incio
@@ -66,6 +67,7 @@ class Inicio extends CI_Controller {
 			$datos['usuario']["telefono"] = $_SESSION["telefono"];
 			$datos['usuario']["email"] = $_SESSION["email"];
 			$datos['usuario']["rol"] = $_SESSION["rol"];
+			$datos['usuario']["listUser"] = "no";
 			enmarcar($this, 'inicio',$datos);
 		}
 		

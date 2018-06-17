@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Perfil extends CI_Controller {
 
 	public function index(){
+		$datos['usuario']["listUser"] = "no";
 		session_start();//inicia sesion y pasa los datos a la vista de perfil
 		if (isset($_SESSION) && $_SESSION!=null && $_SESSION!="") {
 			$dir = './fotos/'.$_SESSION["email"];
