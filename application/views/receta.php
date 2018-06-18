@@ -124,14 +124,14 @@
 	              </div>
 	              <div class="media-body ml-3">
 									<u><h6 style="display:inline-block;">Comentario de <?=$usuario['usuarios'][$cont]->apenom?>&nbsp;</h6></u><small><?=$valoracion["fecha"]?></small>
-									<?php $cont++ ?>
+									<?php $cont++?>
 	                <h4 class="media-heading"><?=$valoracion["titulo"]?></h4>
 	                <?=$valoracion["descripcion"]?>
 	              </div>
 	            </div>
 	        </div>
 	        <hr width="100%" color="black"/>
-	        <?php endif; ?>
+	    <?php endif; ?>
 		<?php endforeach; ?>
     </div>
 	</div>

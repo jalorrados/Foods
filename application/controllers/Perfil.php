@@ -72,6 +72,7 @@ class Perfil extends CI_Controller {
 	}
 	
 	public function verRecetasUsuario(){
+		$datos['usuario']["listUser"] = "no";
 		session_start();
 		$this->load->model('perfil_model');
 

@@ -165,6 +165,7 @@ class Receta extends CI_Controller {
 	}
 
 	public function editarReceta(){
+		$datos['usuario']["listUser"] = "no";
 		session_start();
 		$info = $_GET["editRecipe"];
 		$numing = $_GET["numing"];

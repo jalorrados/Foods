@@ -142,7 +142,7 @@ class Inicio extends CI_Controller {
 		$pass = $_POST["signpass"];
 		$token = $_POST["token"];
 
-		$urlverification = "http://localhost/Foods/perfil/validation?t=" . $token;
+		$urlverification = base_url()."perfil/validation?t=" . $token;
 
 		$usuario = $this -> inicio_model -> getUser($email);//obtengo el usuario para coger su rol
 

@@ -82,6 +82,7 @@ class Listado extends CI_Controller {
 		}
 
 		session_start();//iniciar sesion
+		$datos['usuario']["listUser"] = "no";
 		if (empty($_SESSION)) {//si esta vacia te lleva directamente a incio
 			enmarcar($this, 'listado',$datos);
 

@@ -136,7 +136,7 @@
 						</div>
 					</div>
 					<br>
-					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="editReceta()">Editar Receta</button>
+					<button type="button" class="btn btn-primary mb-5" id="crearRecete" onclick="editReceta()">Guardar Cambios</button>
 				</form>
 			</div>
 		</div>
