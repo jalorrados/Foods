@@ -31,9 +31,9 @@
                    <img class="media-object img-fluid rounded imgListado" src="<?= $receta['urlimagen'] ?>">
                 <?php endif; ?>
               </div>
-              <div class="media-body ml-3 col-xs-12 col-sm-12 align-items-sm-center justify-content-sm-center" style="word-break: break-all; word-wrap: break-word;">
-                <h4 class="media-heading text-center text-md-left"><?= $receta['nombre'] ?></h4>
-                <p class="text-center text-md-left"><?=$receta['preparacion']?></p>
+              <div class="media-body ml-3 col-xs-12 col-sm-12 align-items-sm-center justify-content-sm-center desclistdot">
+                <h4 class="media-heading text-center text-md-left"  style="word-break: break-word;"><?= $receta['nombre'] ?></h4>
+                <p class="text-center text-md-left" style="overflow: hidden;text-overflow: ellipsis;height:245px;word-break: break-word;"><?=$receta['preparacion']?></p>
               </div>
             </div>
         </div>

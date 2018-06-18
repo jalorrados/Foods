@@ -810,3 +810,15 @@ function dynamicnumperson(){
 	 }
 	});	
 }
+
+function truncateText(selector, maxLength) {
+    var element = document.querySelector(selector),
+        truncated = element.innerText;
+
+    if (truncated.length > maxLength) {
+        truncated = truncated.substr(0,maxLength) + '...';
+    }
+    return truncated;
+}
+
+document.querySelector('.desclistdot>p').innerText = truncateText('.desclistdot>p', 1010);

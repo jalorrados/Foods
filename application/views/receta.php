@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Número de personas</div>
-			<p class="mx-3">
+			<p class="mx-3 mx auto">
 				Receta para  <!--<input type="number" value="<?=$usuario["receta"]->numpersonas?>" id="dynamicnumpersonselect" min="1" max="100" size="3">--><select id="dynamicnumpersonselect" onchange="dynamicnumperson()">
 					<?php
 						for ($i=1; $i < 10; $i++) { 
@@ -58,8 +58,8 @@
 			</ul>
 
 			<div class="text-white text-center mt-2 mx-3" style="background-color: gray;">Preparación</div>
-
-			<p class="mx-3" style="word-break: break-all;"><?= $usuario["receta"]->preparacion ?></p>
+			<?php $data = str_replace("\n", "<br/>", $usuario["receta"]->preparacion);?>
+			<p class="mx-3" style="word-break: break-word;"><?= $data ?></p>
 			<?php if(empty($_SESSION)):?>
 				<?php if($usuario['media'] == 0 || $usuario['media']<0 || empty($usuario['media'])):?>
 					<div class="mx-auto col-12" id="rate2" data-rateyo-rating="0" data-rateyo-read-only="true"></div>
