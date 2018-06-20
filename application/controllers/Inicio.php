@@ -191,6 +191,7 @@ class Inicio extends CI_Controller {
 	}
 
 	public function buscar(){
+		//$datos['usuario']["listUser"] = "no";
 		if (isset($_POST["buscar"])) {
 			session_start();
 			$datos['usuario']["palabraBuscada"] = $_POST["buscar"];
